@@ -1,0 +1,1445 @@
+/* =========================================================
+   LU&YOSHI CAFÉ
+   STYLE.CSS
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    background: #0d0b09;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+    --fundo: #0d0b09;
+    --fundo-secundario: #15110e;
+    --fundo-card: #1b1612;
+
+    --dourado: #d99a32;
+    --dourado-claro: #f0b84b;
+
+    --marrom: #6f431d;
+
+    --creme: #f5ead8;
+    --branco: #ffffff;
+
+    --cinza: #a9a29a;
+    --cinza-claro: #d2cbc2;
+
+    --borda: rgba(225, 225, 225, 0.09);
+
+    --sombra: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+    --transicao: 0.3s ease;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.cabecalho {
+    width: 100%;
+    height: 76px;
+
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+
+    background-color: rgba(13, 11, 9, 0.88);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid var(--borda);
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+.logo-icone {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-icone i {
+    color: var(--dourado);
+    font-size: 25px;
+}
+
+.logo-texto strong {
+    color: var(--dourado);
+    font-weight: 600;
+}
+
+
+/* MENU */
+
+.menu-principal {
+    display: flex;
+    align-items: center;
+
+    gap: 32px;
+}
+
+.menu-principal a {
+    position: relative;
+
+    color: #d8d1c8;
+
+    font-size: 14px;
+
+    transition: var(--transicao);
+}
+
+.menu-principal a:hover,
+.menu-principal a.ativo {
+    color: var(--dourado-claro);
+}
+
+.menu-principal a::after {
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+    height: 2px;
+
+    left: 50%;
+    bottom: -8px;
+
+    background-color: var(--dourado);
+
+    transform: translateX(-50%);
+
+    transition: var(--transicao);
+}
+
+.menu-principal a:hover::after,
+.menu-principal a.ativo::after {
+    width: 18px;
+}
+
+
+/* =========================================================
+   AÇÕES DO CABEÇALHO
+   ========================================================= */
+
+.acoes {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+}
+
+.botao-icone,
+.botao-carrinho {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    border: none;
+    background-color: transparent;
+
+    color: #e8dfd5;
+
+    cursor: pointer;
+
+    transition: var(--transicao);
+}
+
+.botao-icone:hover,
+.botao-carrinho:hover {
+    color: var(--dourado-claro);
+
+    transform: translateY(-2px);
+}
+
+.botao-icone i,
+.botao-carrinho i {
+    font-size: 17px;
+}
+
+
+/* CONTADOR */
+
+.contador-carrinho {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    min-width: 17px;
+    height: 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--dourado);
+
+    color: #18110c;
+
+    border-radius: 50%;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* BOTÕES */
+
+.botao-encomenda,
+.botao-principal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 12px 18px;
+
+    background: var(--dourado);
+
+    color: #1b1209;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: var(--transicao);
+}
+
+.botao-encomenda:hover,
+.botao-principal:hover {
+    background: var(--dourado-claro);
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px rgba(217, 154, 50, 0.2);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    padding: 150px 7% 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+
+    position: relative;
+
+    overflow: hidden;
+    background-image: url("../IMG/Fundo-do-site.jpeg");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+/* EFEITO DE LUZ */
+
+.hero::before {
+    content: "";
+
+    width: 450px;
+    height: 450px;
+
+    position: absolute;
+
+    top: -200px;
+    left: -180px;
+
+    background: rgba(227, 154, 50, 0.07);
+
+    border-radius: 50%;
+
+    filter: blur(30px);
+
+    pointer-events: none;
+}
+
+
+/* CONTEÚDO */
+
+.hero-conteudo {
+    width: 100%;
+    max-width: 620px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* ETIQUETA */
+
+.hero-etiqueta {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 22px;
+
+    color: var(--dourado-claro);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.hero-etiqueta i {
+    font-size: 14px;
+}
+
+
+/* TÍTULO */
+
+.hero h1 {
+    margin-bottom: 25px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(45px, 5vw, 72px);
+
+    line-height: 1.05;
+
+    font-weight: 500;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: var(--dourado-claro);
+
+    font-style: italic;
+}
+
+
+/* TEXTO */
+
+.hero p {
+    max-width: 530px;
+
+    margin-bottom: 34px;
+
+    color: #c5beb6;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* BOTÕES */
+
+.hero-botoes {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.botao-secundario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 11px 20px;
+
+    border: 1px solid rgba(225, 225, 225, 0.35);
+
+    border-radius: 7px;
+
+    color: #fff;
+
+    font-size: 13px;
+
+    transition: var(--transicao);
+}
+
+.botao-secundario:hover {
+    background: rgba(225, 225, 225, 0.08);
+
+    border-color: var(--dourado);
+
+    color: var(--dourado-claro);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   CARTÃO DO HERO
+   ========================================================= */
+
+.hero-destaque {
+    width: 350px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.hero-cartao {
+    padding: 28px;
+
+    background: rgba(23, 18, 14, 0.72);
+
+    border: 1px solid rgba(217, 154, 50, 0.25);
+
+    border-radius: 16px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: var(--sombra);
+}
+
+.hero-cartao-etiqueta {
+    color: var(--dourado-claro);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+}
+
+.hero-cartao h2 {
+    margin: 8px 0 15px;
+
+    font-family: Georgia, serif;
+
+    font-size: 27px;
+}
+
+.hero-cartao p {
+    margin: 8px 0 15px;
+
+    color: var(--cinza);
+
+    font-size: 13px;
+}
+
+.hero-cartao strong {
+    color: var(--dourado-claro);
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   TÍTULOS DAS SEÇÕES
+   ========================================================= */
+
+.titulo-secao {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 30px;
+}
+
+.subtitulo {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--dourado);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.titulo-secao h2 {
+    font-family: Georgia, serif;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    line-height: 1.2;
+}
+
+.link-ver-tudo {
+    color: var(--cinza-claro);
+
+    font-size: 13px;
+
+    transition: var(--transicao);
+}
+
+.link-ver-tudo:hover {
+    color: var(--dourado-claro);
+}
+
+
+/* =========================================================
+   CATEGORIAS
+   ========================================================= */
+
+.categorias {
+    padding: 85px 7%;
+
+    background: var(--fundo);
+}
+
+.lista-categorias {
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 14px;
+}
+
+.categorias-card {
+    min-height: 170px;
+
+    padding: 22px 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 13px;
+
+    transition: var(--transicao);
+}
+
+.categorias-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(217, 154, 50, 0.25);
+
+    background: #211a14;
+
+    box-shadow: 0 12px 30px rgba(217, 154, 50, 0.15);
+}
+
+
+/* IMAGEM DA CATEGORIA */
+
+.categoria-imagem {
+    width: 58px;
+    height: 58px;
+
+    margin-bottom: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    background: rgba(217, 154, 50, 0.1);
+
+    color: var(--dourado);
+
+    transition: var(--transicao);
+}
+
+.categoria-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.categorias-card:hover .categoria-imagem {
+    background: var(--dourado);
+
+    color: #1b1209;
+
+    transform: scale(1.08);
+}
+
+.categoria-imagem i {
+    font-size: 22px;
+}
+
+.categorias-card h3 {
+    margin-bottom: 5px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.categorias-card p {
+    color: #89827a;
+
+    font-size: 10px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   DESTAQUES
+   ========================================================= */
+
+.destaque {
+    padding: 85px 7%;
+
+    background: #120f0c;
+}
+
+.lista-destaques {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.produto-card {
+    overflow: hidden;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 14px;
+
+    transition: var(--transicao);
+}
+
+.produto-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(217, 154, 50, 0.4);
+
+    box-shadow: var(--sombra);
+}
+
+
+/* IMAGEM */
+
+.produto-imagem {
+    width: 100%;
+    height: 230px;
+
+    overflow: hidden;
+}
+
+.produto-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: 0.5s ease;
+}
+
+.produto-card:hover .produto-imagem img {
+    transform: scale(1.06);
+}
+
+
+/* CONTEÚDO */
+
+.produto-conteudo {
+    padding: 20px;
+}
+
+.produto-categorias {
+    color: var(--dourado);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.produto-conteudo h3 {
+    margin: 7px 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 21px;
+
+    line-height: 1.3;
+}
+
+.produto-conteudo p {
+    color: var(--cinza);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* FINAL DO PRODUTO */
+
+.produto-final {
+    margin-top: 17px;
+
+    padding-top: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid var(--borda);
+}
+
+.produto-final strong {
+    color: var(--dourado);
+
+    font-size: 16px;
+}
+
+
+/* BOTÃO ADICIONAR */
+
+.botao-adicionar {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: var(--dourado);
+
+    color: #1b1209;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: var(--transicao);
+}
+
+.botao-adicionar:hover {
+    background: var(--dourado-claro);
+
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   PIZZAS
+   ========================================================= */
+
+.secao-pizzas {
+    min-height: 500px;
+
+    padding: 80px 7%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 70px;
+
+    background:
+        linear-gradient(90deg,
+            #17110d 0%,
+            #17110d 48%,
+            rgba(23, 17, 13, 0.65) 100%);
+}
+
+.pizza-conteudo {
+    flex: 1;
+
+    max-width: 600px;
+}
+
+.pizza-conteudo h2 {
+    margin-bottom: 20px;
+
+    font-family: Georgia, serif;
+
+    font-size: 46px;
+
+    line-height: 1.1;
+
+    font-weight: 500;
+}
+
+.pizza-conteudo h2 span {
+    color: var(--dourado-claro);
+
+    font-style: italic;
+}
+
+.pizza-conteudo>p {
+    max-width: 550px;
+
+    margin-bottom: 30px;
+
+    color: var(--cinza);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* INFORMAÇÕES */
+
+.pizzas-informacoes {
+    display: flex;
+
+    gap: 35px;
+
+    margin-bottom: 35px;
+}
+
+.pizzas-informacoes div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.pizzas-informacoes strong {
+    color: var(--dourado);
+
+    font-family: Georgia, serif;
+
+    font-size: 21px;
+}
+
+.pizzas-informacoes span {
+    color: var(--cinza-claro);
+
+    font-size: 11px;
+}
+
+
+/* IMAGEM */
+
+.pizza-imagem {
+    flex: 1;
+
+    max-width: 550px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(217, 154, 50, 0.2);
+
+    box-shadow: var(--sombra);
+}
+
+.pizza-imagem img {
+    height: 390px;
+
+    object-fit: cover;
+
+    transition: 0.5s ease;
+}
+
+.pizza-imagem img:hover {
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   DIFERENCIAIS
+   ========================================================= */
+
+.diferenciais {
+    padding: 60px 7%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+
+    background: #0f0c0a;
+
+    border-top: 1px solid var(--borda);
+
+    border-bottom: 1px solid var(--borda);
+}
+
+.diferencial {
+    padding: 20px;
+
+    text-align: center;
+}
+
+.diferencial>span {
+    width: 50px;
+    height: 50px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(225, 225, 225, 0.09);
+
+    color: var(--dourado);
+}
+
+.diferencial>span i {
+    font-size: 19px;
+}
+
+.diferencial h3 {
+    margin-bottom: 7px;
+
+    font-size: 15px;
+}
+
+.diferencial p {
+    color: #89827a;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+.rodape {
+    background: #090807;
+}
+
+.rodape-principal {
+    padding: 65px 7% 50px;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+
+    gap: 50px;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+.rodape-marca .logo {
+    margin-bottom: 15px;
+}
+
+.rodape-marca>p {
+    max-width: 280px;
+
+    color: #817a73;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.rodape-coluna {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.rodape-coluna h3 {
+    margin-bottom: 8px;
+
+    color: #fff;
+
+    font-size: 14px;
+}
+
+.rodape-coluna a,
+.rodape-coluna p {
+    color: #817a73;
+
+    font-size: 11px;
+
+    transition: var(--transicao);
+}
+
+.rodape-coluna a:hover {
+    color: var(--dourado);
+}
+
+.rodape-coluna p {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.rodape-coluna p i {
+    color: var(--dourado);
+}
+
+
+/* RODAPÉ INFERIOR */
+
+.rodape-final {
+    padding: 20px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.rodape-final p {
+    color: #625d57;
+
+    font-size: 10px;
+}
+
+
+/* REDES SOCIAIS */
+
+.redes-sociais {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.redes-sociais a {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(225, 225, 225, 0.12);
+
+    border-radius: 50%;
+
+    color: #a9a29a;
+
+    font-size: 15px;
+
+    transition: 0.3s ease;
+}
+
+.redes-sociais a:hover {
+    color: white;
+
+    background: #d99a32;
+
+    border-color: #d99a32;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .cabecalho {
+        padding: 0 4%;
+    }
+
+    .menu-principal {
+        gap: 20px;
+    }
+
+    .acoes {
+        gap: 10px;
+    }
+
+    .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+
+        gap: 35px;
+    }
+
+    .hero-conteudo {
+        max-width: 560px;
+    }
+
+    .hero-destaque {
+        width: 310px;
+    }
+
+    .lista-categorias {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .lista-destaques {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .secao-pizzas {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .diferenciais {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .rodape-principal {
+        grid-template-columns: 1.5fr 1fr 1fr;
+    }
+}
+
+
+/* TABLET */
+
+@media (max-width: 820px) {
+
+    .cabecalho {
+        height: auto;
+
+        min-height: 70px;
+
+        padding: 14px 5%;
+
+        flex-wrap: wrap;
+
+        gap: 12px;
+    }
+
+    .menu-principal {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 14px 22px;
+
+        padding-top: 6px;
+    }
+
+    .acoes {
+        margin-left: auto;
+    }
+
+    .botao-encomenda {
+        display: none;
+    }
+
+    .hero {
+        min-height: auto;
+
+        padding-top: 170px;
+        padding-bottom: 80px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .hero-conteudo {
+        width: 100%;
+
+        max-width: 700px;
+    }
+
+    .hero-destaque {
+        width: 100%;
+
+        max-width: 420px;
+
+        margin: 0 auto;
+    }
+
+    .secao-pizzas {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 40px;
+    }
+
+    .pizza-conteudo {
+        max-width: none;
+    }
+
+    .pizza-imagem {
+        max-width: none;
+
+        width: 100%;
+    }
+
+    .rodape-principal {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 35px;
+    }
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .cabecalho {
+        padding: 12px 4%;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .logo-icone i {
+        font-size: 21px;
+    }
+
+    .menu-principal {
+        gap: 10px 16px;
+    }
+
+    .menu-principal a {
+        font-size: 12px;
+    }
+
+    .acoes {
+        gap: 5px;
+    }
+
+    .botao-icone,
+    .botao-carrinho {
+        width: 34px;
+        height: 34px;
+    }
+
+    .hero {
+        padding: 165px 6% 65px;
+    }
+
+    .hero-etiqueta {
+        font-size: 9px;
+    }
+
+    .hero h1 {
+        margin-bottom: 20px;
+
+        font-size: clamp(37px, 12vw, 52px);
+    }
+
+    .hero p {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+    .hero-botoes {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .botao-principal,
+    .botao-secundario {
+        width: 100%;
+    }
+
+    .titulo-secao {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .titulo-secao h2 {
+        font-size: 28px;
+    }
+
+    .categorias,
+    .destaque {
+        padding: 65px 6%;
+    }
+
+    .lista-categorias {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .categorias-card {
+        min-height: 155px;
+
+        padding: 18px 10px;
+    }
+
+    .categoria-imagem {
+        width: 52px;
+        height: 52px;
+    }
+
+    .lista-destaques {
+        grid-template-columns: 1fr;
+    }
+
+    .produto-imagem {
+        height: 250px;
+    }
+
+    .produto-conteudo {
+        padding: 18px;
+    }
+
+    .secao-pizzas {
+        padding: 65px 6%;
+    }
+
+    .pizza-conteudo h2 {
+        font-size: 36px;
+    }
+
+    .pizzas-informacoes {
+        gap: 22px;
+
+        flex-wrap: wrap;
+    }
+
+    .pizza-imagem img {
+        height: 280px;
+    }
+
+    .diferenciais {
+        padding: 45px 6%;
+
+        grid-template-columns: 1fr;
+    }
+
+    .rodape-principal {
+        padding: 50px 6% 40px;
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .rodape-final {
+        padding: 18px 6%;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+}
+
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 380px) {
+
+    .menu-principal {
+        gap: 8px 12px;
+    }
+
+    .menu-principal a {
+        font-size: 11px;
+    }
+
+    .lista-categorias {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+}

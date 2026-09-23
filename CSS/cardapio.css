@@ -1,0 +1,1921 @@
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #0d0b09;
+    color: #f5ead8;
+    line-height: 1.6;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+    --fundo: #0d0b09;
+    --fundo-secundario: #15110e;
+    --fundo-card: #1b1612;
+
+    --dourado: #d99a32;
+    --dourado-claro: #f0b84b;
+
+    --creme: #f5ead8;
+    --branco: #ffffff;
+
+    --cinza: #a9a29a;
+    --cinza-claro: #d2cbc2;
+
+    --borda: rgba(255, 255, 255, 0.09);
+
+    --sombra:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+
+    --transicao: 0.3s ease;
+}
+
+
+/* =========================================================
+   PÁGINA
+========================================================= */
+
+.pagina-cardapio {
+    width: min(1400px, 92%);
+    margin: 0 auto;
+    padding: 90px 0 100px;
+}
+
+
+/* =========================================================
+   CABEÇALHO DO CARDÁPIO
+========================================================= */
+
+.cabecalho-cardapio {
+    max-width: 800px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.etiqueta-secao {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--dourado);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    margin-bottom: 16px;
+}
+
+.cabecalho-cardapio h1 {
+    font-family: Georgia, serif;
+
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.1;
+
+    font-weight: 500;
+
+    margin-bottom: 20px;
+}
+
+.cabecalho-cardapio h1 span {
+    color: var(--dourado);
+}
+
+.cabecalho-cardapio p {
+    max-width: 650px;
+    margin: auto;
+
+    color: var(--cinza);
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   PESQUISA
+========================================================= */
+
+.area-pesquisa {
+    max-width: 850px;
+    margin: 0 auto 35px;
+}
+
+.campo-pesquisa {
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 0 18px;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+
+    transition: var(--transicao);
+}
+
+.campo-pesquisa:focus-within {
+    border-color: rgba(217, 154, 50, 0.55);
+
+    box-shadow:
+        0 0 0 4px rgba(217, 154, 50, 0.06);
+}
+
+.campo-pesquisa>i {
+    color: var(--dourado);
+    font-size: 17px;
+}
+
+.campo-pesquisa input {
+    flex: 1;
+
+    min-width: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--creme);
+
+    font-size: 14px;
+}
+
+.campo-pesquisa input::placeholder {
+    color: #746e67;
+}
+
+.campo-pesquisa button {
+    border: none;
+    background: transparent;
+
+    color: #746e67;
+
+    font-size: 16px;
+
+    transition: var(--transicao);
+}
+
+.campo-pesquisa button:hover {
+    color: var(--dourado);
+}
+
+
+/* =========================================================
+   CATEGORIAS RÁPIDAS
+========================================================= */
+
+.categorias-rapidas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 80px;
+}
+
+.categoria-atalho {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 11px 17px;
+
+    border: 1px solid var(--borda);
+    border-radius: 30px;
+
+    background: var(--fundo-card);
+
+    color: var(--cinza);
+
+    font-size: 13px;
+
+    transition: var(--transicao);
+}
+
+.categoria-atalho i {
+    color: var(--dourado);
+}
+
+.categoria-atalho:hover,
+.categoria-atalho.ativo {
+    background: var(--dourado);
+
+    border-color: var(--dourado);
+
+    color: #0d0b09;
+}
+
+.categoria-atalho:hover i,
+.categoria-atalho.ativo i {
+    color: #0d0b09;
+}
+
+
+/* =========================================================
+   CATEGORIA
+========================================================= */
+
+.categoria-secao {
+    margin-bottom: 90px;
+}
+
+.categoria-cabecalho {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 28px;
+}
+
+.categoria-titulo {
+    display: flex;
+    align-items: center;
+
+    gap: 17px;
+}
+
+.categoria-icone {
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(217, 154, 50, 0.08);
+
+    border: 1px solid rgba(217, 154, 50, 0.2);
+
+    border-radius: 14px;
+
+    color: var(--dourado);
+
+    font-size: 21px;
+}
+
+.categoria-titulo span {
+    display: block;
+
+    color: var(--dourado);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.7px;
+
+    margin-bottom: 3px;
+}
+
+.categoria-titulo h2 {
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+    font-weight: 500;
+
+    color: var(--creme);
+
+    line-height: 1.2;
+}
+
+.categoria-titulo p {
+    color: var(--cinza);
+
+    font-size: 13px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   BOTÃO VER MAIS
+========================================================= */
+
+.botao-ver-mais {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 9px;
+
+    border: none;
+    background: transparent;
+
+    color: var(--dourado);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition: var(--transicao);
+}
+
+.botao-ver-mais i {
+    transition: var(--transicao);
+}
+
+.botao-ver-mais:hover {
+    color: var(--dourado-claro);
+}
+
+.botao-ver-mais:hover i {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   PRODUTOS DESTAQUE
+========================================================= */
+
+.produtos-destaque {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   CARD DO PRODUTO
+========================================================= */
+
+.produto-card {
+    overflow: hidden;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+
+    transition:
+        transform var(--transicao),
+        border-color var(--transicao),
+        box-shadow var(--transicao);
+}
+
+.produto-card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(217, 154, 50, 0.25);
+
+    box-shadow: var(--sombra);
+}
+
+
+/* =========================================================
+   IMAGEM DO PRODUTO
+========================================================= */
+
+.produto-imagem {
+    position: relative;
+
+    height: 240px;
+
+    overflow: hidden;
+
+    background: #211a15;
+}
+
+.produto-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.produto-card:hover .produto-imagem img {
+    transform: scale(1.05);
+}
+
+.produto-tag {
+    position: absolute;
+
+    top: 14px;
+    left: 14px;
+
+    padding: 5px 10px;
+
+    background: var(--dourado);
+
+    color: #0d0b09;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   INFORMAÇÕES
+========================================================= */
+
+.produto-info {
+    padding: 20px;
+}
+
+.produto-info h3 {
+    color: var(--creme);
+
+    font-size: 17px;
+    font-weight: 600;
+
+    margin-bottom: 7px;
+}
+
+.produto-info p {
+    min-height: 44px;
+
+    color: var(--cinza);
+
+    font-size: 12px;
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+}
+
+.produto-final {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.produto-final strong {
+    color: var(--dourado);
+
+    font-size: 15px;
+}
+
+.botao-adicionar {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(217, 154, 50, 0.35);
+
+    border-radius: 10px;
+
+    background: rgba(217, 154, 50, 0.08);
+
+    color: var(--dourado);
+
+    transition: var(--transicao);
+}
+
+.botao-adicionar:hover {
+    background: var(--dourado);
+
+    color: #0d0b09;
+
+    transform: scale(1.06);
+}
+
+
+/* =========================================================
+   PIZZAS
+========================================================= */
+
+.secao-pizzas {
+    padding: 45px;
+
+    background:
+        linear-gradient(135deg,
+            rgba(217, 154, 50, 0.08),
+            rgba(255, 255, 255, 0.015));
+
+    border:
+        1px solid rgba(217, 154, 50, 0.14);
+
+    border-radius: 20px;
+}
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+.rodape {
+    background: #090807;
+}
+
+.rodape-principal {
+    padding: 65px 7% 50px;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+
+    gap: 50px;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+.rodape-marca .logo {
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+.rodape-marca>p {
+    max-width: 280px;
+
+    color: #817a73;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.rodape-coluna {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.rodape-coluna h3 {
+    margin-bottom: 8px;
+
+    color: #fff;
+
+    font-size: 14px;
+}
+
+.logo-texto {
+    color: #fff;
+
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.logo-texto strong {
+
+    color: var(--dourado);
+}
+
+.rodape-marca i {
+
+    margin-right: 6px;
+
+    color: var(--dourado);
+
+    font-size: 30px;
+}
+
+.rodape-coluna a,
+.rodape-coluna p {
+
+    text-decoration: none;
+    color: #817a73;
+
+    font-size: 11px;
+
+    transition: var(--transicao);
+}
+
+.rodape-coluna a:hover {
+    color: var(--dourado);
+}
+
+.rodape-coluna p {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.rodape-coluna p i {
+    color: var(--dourado);
+}
+
+
+/* RODAPÉ INFERIOR */
+
+.rodape-final {
+
+    padding: 20px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.rodape-final p {
+    color: #625d57;
+
+    font-size: 10px;
+}
+
+
+/* REDES SOCIAIS */
+
+.redes-sociais {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.redes-sociais a {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(225, 225, 225, 0.12);
+
+    border-radius: 50%;
+
+    color: #a9a29a;
+
+    font-size: 15px;
+
+    transition: 0.3s ease;
+
+    text-decoration: none;
+}
+
+.redes-sociais a:hover {
+    color: white;
+
+    background: #d99a32;
+
+    border-color: #d99a32;
+
+    transform: translateY(-3px);
+}
+
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(0, 0, 0, 0.78);
+
+    backdrop-filter: blur(7px);
+}
+
+.modal.aberto {
+    display: flex;
+}
+
+
+/* =========================================================
+   CONTEÚDO DO MODAL
+========================================================= */
+
+.modal-conteudo {
+    width: min(760px, 100%);
+
+    max-height: 88vh;
+
+    overflow-y: auto;
+
+    padding: 28px;
+
+    background: #15110e;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.55);
+
+    animation:
+        aparecer-modal 0.25s ease;
+}
+
+@keyframes aparecer-modal {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================================
+   SCROLL DO MODAL
+========================================================= */
+
+.modal-conteudo::-webkit-scrollbar {
+    width: 7px;
+}
+
+.modal-conteudo::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-conteudo::-webkit-scrollbar-thumb {
+    background: #4a3725;
+
+    border-radius: 10px;
+}
+
+.modal-conteudo::-webkit-scrollbar-thumb:hover {
+    background: var(--dourado);
+}
+
+
+/* =========================================================
+   CABEÇALHO DO MODAL
+========================================================= */
+
+.modal-cabecalho {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid var(--borda);
+
+    margin-bottom: 20px;
+}
+
+.modal-cabecalho span {
+    color: var(--dourado);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.6px;
+}
+
+.modal-cabecalho h2 {
+    font-family: Georgia, serif;
+
+    color: var(--creme);
+
+    font-size: 31px;
+    font-weight: 500;
+
+    margin-top: 3px;
+}
+
+.fechar-modal {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: var(--cinza);
+
+    font-size: 16px;
+
+    transition: var(--transicao);
+}
+
+.fechar-modal:hover {
+    background: var(--dourado);
+
+    border-color: var(--dourado);
+
+    color: #0d0b09;
+}
+
+
+/* =========================================================
+   PESQUISA DO MODAL
+========================================================= */
+
+.modal-pesquisa {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    height: 48px;
+
+    padding: 0 15px;
+
+    background: #1b1612;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 10px;
+
+    margin-bottom: 28px;
+}
+
+.modal-pesquisa i {
+    color: var(--dourado);
+}
+
+.modal-pesquisa input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--creme);
+
+    font-size: 13px;
+}
+
+.modal-pesquisa input::placeholder {
+    color: #746e67;
+}
+
+
+/* =========================================================
+   GRUPOS DE PRODUTOS
+========================================================= */
+
+.grupo-produtos {
+    margin-bottom: 30px;
+}
+
+.grupo-produtos:last-child {
+    margin-bottom: 0;
+}
+
+.grupo-produtos>h3 {
+    color: var(--creme);
+
+    font-size: 15px;
+    font-weight: 600;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   PRODUTO DENTRO DO MODAL
+========================================================= */
+
+.produto-modal {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 12px;
+
+    background: #1b1612;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 12px;
+
+    margin-bottom: 10px;
+
+    transition: var(--transicao);
+}
+
+.produto-modal:hover {
+    border-color:
+        rgba(217, 154, 50, 0.25);
+}
+
+.produto-modal-imagem {
+    width: 76px;
+    height: 76px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #241b15;
+}
+
+.produto-modal-imagem img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.produto-modal-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.produto-modal-info h4 {
+    color: var(--creme);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-bottom: 3px;
+}
+
+.produto-modal-info p {
+    color: var(--cinza);
+
+    font-size: 11px;
+
+    margin-bottom: 5px;
+}
+
+.produto-modal-info strong {
+    color: var(--dourado);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   BOTÃO ADICIONAR DO MODAL
+========================================================= */
+
+.botao-adicionar-modal {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--dourado);
+
+    color: #0d0b09;
+
+    transition: var(--transicao);
+}
+
+.botao-adicionar-modal:hover {
+    background: var(--dourado-claro);
+
+    transform: scale(1.06);
+}
+
+
+/* =========================================================
+   AVISO DAS PIZZAS
+========================================================= */
+
+.aviso-pizza {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    margin-bottom: 25px;
+
+    background:
+        rgba(217, 154, 50, 0.07);
+
+    border:
+        1px solid rgba(217, 154, 50, 0.18);
+
+    border-radius: 12px;
+}
+
+.aviso-pizza>i {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: rgba(217, 154, 50, 0.1);
+
+    border-radius: 10px;
+
+    color: var(--dourado);
+}
+
+.aviso-pizza strong {
+    display: block;
+
+    color: var(--creme);
+
+    font-size: 13px;
+
+    margin-bottom: 2px;
+}
+
+.aviso-pizza p {
+    color: var(--cinza);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   BOTÃO PERSONALIZAR
+========================================================= */
+
+.botao-personalizar {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 9px 13px;
+
+    border: 1px solid rgba(217, 154, 50, 0.35);
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: var(--dourado);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition: var(--transicao);
+}
+
+.botao-personalizar:hover {
+    background: var(--dourado);
+
+    color: #0d0b09;
+}
+
+/* =========================================================
+   NOTIFICAÇÃO DO CARRINHO
+========================================================= */
+
+.notificacao-carrinho {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 2000;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 280px;
+
+    padding: 15px 18px;
+
+    background: #1b1612;
+
+    border: 1px solid rgba(217, 154, 50, 0.25);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.notificacao-carrinho.visivel {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+.notificacao-carrinho>i {
+    color: #d99a32;
+
+    font-size: 20px;
+}
+
+.notificacao-carrinho div {
+    display: flex;
+    flex-direction: column;
+}
+
+.notificacao-carrinho strong {
+    color: #f5ead8;
+
+    font-size: 13px;
+}
+
+.notificacao-carrinho span {
+    color: #a9a29a;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   NOTIFICAÇÃO NO TELEMÓVEL
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .notificacao-carrinho {
+        left: 15px;
+        right: 15px;
+
+        bottom: 15px;
+
+        min-width: 0;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .produtos-destaque {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .categoria-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .botao-ver-mais {
+        margin-left: 75px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — TELEMÓVEL
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .pagina-cardapio {
+        width: min(94%, 500px);
+
+        padding-top: 55px;
+        padding-bottom: 70px;
+    }
+
+
+    .cabecalho-cardapio {
+        margin-bottom: 38px;
+    }
+
+    .cabecalho-cardapio h1 {
+        font-size: 38px;
+    }
+
+    .cabecalho-cardapio p {
+        font-size: 13px;
+    }
+
+
+    .categorias-rapidas {
+        justify-content: flex-start;
+
+        overflow-x: auto;
+
+        flex-wrap: nowrap;
+
+        padding-bottom: 7px;
+
+        margin-bottom: 55px;
+    }
+
+    .categoria-atalho {
+        flex-shrink: 0;
+    }
+
+
+    .categoria-secao {
+        margin-bottom: 65px;
+    }
+
+
+    .categoria-titulo {
+        align-items: flex-start;
+    }
+
+    .categoria-icone {
+        width: 50px;
+        height: 50px;
+    }
+
+    .categoria-titulo h2 {
+        font-size: 26px;
+    }
+
+    .categoria-titulo p {
+        font-size: 12px;
+    }
+
+
+    .botao-ver-mais {
+        margin-left: 67px;
+    }
+
+
+    .produtos-destaque {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .produto-imagem {
+        height: 220px;
+    }
+
+
+    .secao-pizzas {
+        padding: 25px 18px;
+    }
+
+
+    .modal {
+        padding: 12px;
+    }
+
+    .modal-conteudo {
+        max-height: 92vh;
+
+        padding: 20px;
+
+        border-radius: 17px;
+    }
+
+
+    .modal-cabecalho h2 {
+        font-size: 26px;
+    }
+
+
+    .produto-modal {
+        align-items: flex-start;
+    }
+
+    .produto-modal-imagem {
+        width: 62px;
+        height: 62px;
+    }
+
+    .botao-adicionar-modal {
+        width: 34px;
+        height: 34px;
+    }
+
+    .botao-personalizar {
+        padding: 8px 10px;
+    }
+
+}
+
+
+/* =========================================================
+   TELEMÓVEIS MUITO PEQUENOS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .pagina-cardapio {
+        width: 92%;
+    }
+
+    .cabecalho-cardapio h1 {
+        font-size: 33px;
+    }
+
+    .categoria-titulo {
+        gap: 11px;
+    }
+
+    .categoria-icone {
+        width: 45px;
+        height: 45px;
+
+        font-size: 17px;
+    }
+
+    .categoria-titulo h2 {
+        font-size: 23px;
+    }
+
+    .produto-info {
+        padding: 16px;
+    }
+
+    .produto-imagem {
+        height: 200px;
+    }
+
+    .modal-conteudo {
+        padding: 16px;
+    }
+
+    .produto-modal-info p {
+        display: none;
+    }
+
+}
+
+/* =========================================================
+   MEDIA QUERIES - RODAPÉ
+========================================================= */
+
+/* Tablets */
+@media (max-width: 900px) {
+
+    .rodape-conteudo {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px;
+    }
+
+    .rodape-coluna:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .rodape-social {
+        margin-top: 5px;
+    }
+
+}
+
+
+/* Tablets menores */
+@media (max-width: 700px) {
+
+    .rodape {
+        padding-top: 50px;
+    }
+
+    .rodape-conteudo {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 25px;
+    }
+
+    .rodape-coluna:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .rodape-logo {
+        margin-bottom: 12px;
+    }
+
+    .rodape-descricao {
+        max-width: 100%;
+    }
+
+    .rodape-titulo {
+        font-size: 14px;
+    }
+
+    .rodape-links a {
+        font-size: 12px;
+    }
+
+    .rodape-atendimento-item {
+        font-size: 12px;
+    }
+
+    .rodape-base {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+}
+
+
+/* Telemóveis */
+@media (max-width: 500px) {
+
+    .rodape {
+        padding: 45px 18px 20px;
+    }
+
+    .rodape-conteudo {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .rodape-coluna:first-child {
+        grid-column: auto;
+    }
+
+    .rodape-coluna {
+        width: 100%;
+    }
+
+    .rodape-logo {
+        font-size: 21px;
+    }
+
+    .rodape-descricao {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    .rodape-titulo {
+        margin-bottom: 13px;
+        font-size: 13px;
+    }
+
+    .rodape-links {
+        gap: 9px;
+    }
+
+    .rodape-links a {
+        font-size: 12px;
+    }
+
+    .rodape-atendimento {
+        gap: 10px;
+    }
+
+    .rodape-atendimento-item {
+        font-size: 11px;
+    }
+
+    .rodape-atendimento-item i {
+        width: 18px;
+        font-size: 12px;
+    }
+
+    .rodape-social {
+        gap: 9px;
+    }
+
+    .rodape-social a {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+    }
+
+    .rodape-base {
+        padding-top: 20px;
+        margin-top: 30px;
+        gap: 8px;
+    }
+
+    .rodape-copy,
+    .rodape-creditos {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+}
+
+
+/* Telemóveis muito pequenos */
+@media (max-width: 360px) {
+
+    .rodape {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .rodape-conteudo {
+        gap: 24px;
+    }
+
+    .rodape-logo {
+        font-size: 19px;
+    }
+
+    .rodape-social a {
+        width: 32px;
+        height: 32px;
+    }
+
+}
+
+/* =========================================================
+   MEDIA QUERIES — MODAL
+========================================================= */
+
+/* Tablets */
+@media (max-width: 900px) {
+
+    .modal {
+        padding: 20px;
+    }
+
+    .modal-conteudo {
+        width: min(680px, 100%);
+        max-height: 90vh;
+        padding: 24px;
+        border-radius: 18px;
+    }
+
+    .modal-cabecalho {
+        gap: 15px;
+        padding-bottom: 18px;
+        margin-bottom: 18px;
+    }
+
+    .modal-cabecalho h2 {
+        font-size: 28px;
+    }
+
+    .modal-pesquisa {
+        margin-bottom: 22px;
+    }
+
+    .grupo-produtos {
+        margin-bottom: 25px;
+    }
+
+    .produto-modal {
+        gap: 13px;
+        padding: 11px;
+    }
+
+    .produto-modal-imagem {
+        width: 70px;
+        height: 70px;
+    }
+
+}
+
+
+/* Telemóveis */
+@media (max-width: 600px) {
+
+    .modal {
+        padding: 10px;
+        align-items: center;
+    }
+
+    .modal-conteudo {
+        width: 100%;
+        max-height: 94vh;
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .modal-cabecalho {
+        gap: 12px;
+        padding-bottom: 16px;
+        margin-bottom: 18px;
+    }
+
+    .modal-cabecalho span {
+        font-size: 9px;
+        letter-spacing: 1.3px;
+    }
+
+    .modal-cabecalho h2 {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    .fechar-modal {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .modal-pesquisa {
+        height: 45px;
+        padding: 0 13px;
+        gap: 10px;
+        margin-bottom: 22px;
+    }
+
+    .modal-pesquisa input {
+        font-size: 12px;
+    }
+
+    .grupo-produtos {
+        margin-bottom: 24px;
+    }
+
+    .grupo-produtos>h3 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .produto-modal {
+        gap: 10px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .produto-modal-imagem {
+        width: 62px;
+        height: 62px;
+        border-radius: 8px;
+    }
+
+    .produto-modal-info h4 {
+        font-size: 13px;
+    }
+
+    .produto-modal-info p {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .produto-modal-info strong {
+        font-size: 12px;
+    }
+
+    .botao-adicionar-modal {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+
+    .aviso-pizza {
+        gap: 10px;
+        padding: 12px;
+        margin-bottom: 20px;
+    }
+
+    .aviso-pizza>i {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .aviso-pizza strong {
+        font-size: 12px;
+    }
+
+    .aviso-pizza p {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .botao-personalizar {
+        padding: 8px 10px;
+        font-size: 10px;
+    }
+
+}
+
+
+/* Telemóveis pequenos */
+@media (max-width: 450px) {
+
+    .modal {
+        padding: 8px;
+    }
+
+    .modal-conteudo {
+        max-height: 95vh;
+        padding: 15px;
+        border-radius: 14px;
+    }
+
+    .modal-cabecalho h2 {
+        font-size: 21px;
+    }
+
+    .fechar-modal {
+        width: 34px;
+        height: 34px;
+    }
+
+    .modal-pesquisa {
+        height: 43px;
+        margin-bottom: 18px;
+    }
+
+    .produto-modal {
+        align-items: flex-start;
+    }
+
+    .produto-modal-imagem {
+        width: 56px;
+        height: 56px;
+    }
+
+    .produto-modal-info {
+        padding-top: 1px;
+    }
+
+    .produto-modal-info h4 {
+        font-size: 12px;
+    }
+
+    .produto-modal-info p {
+        display: none;
+    }
+
+    .produto-modal-info strong {
+        font-size: 11px;
+    }
+
+    .botao-adicionar-modal {
+        width: 32px;
+        height: 32px;
+        margin-left: auto;
+    }
+
+    .aviso-pizza {
+        align-items: flex-start;
+    }
+
+    .botao-personalizar {
+        padding: 7px 9px;
+        font-size: 9px;
+    }
+
+}
+
+
+/* Telemóveis muito pequenos */
+@media (max-width: 360px) {
+
+    .modal {
+        padding: 6px;
+    }
+
+    .modal-conteudo {
+        padding: 13px;
+        max-height: 96vh;
+    }
+
+    .modal-cabecalho {
+        gap: 8px;
+    }
+
+    .modal-cabecalho h2 {
+        font-size: 19px;
+    }
+
+    .modal-cabecalho span {
+        font-size: 8px;
+    }
+
+    .fechar-modal {
+        width: 31px;
+        height: 31px;
+        font-size: 12px;
+    }
+
+    .modal-pesquisa {
+        height: 40px;
+        padding: 0 11px;
+    }
+
+    .modal-pesquisa input {
+        font-size: 11px;
+    }
+
+    .grupo-produtos>h3 {
+        font-size: 13px;
+    }
+
+    .produto-modal {
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .produto-modal-imagem {
+        width: 50px;
+        height: 50px;
+    }
+
+    .produto-modal-info h4 {
+        font-size: 11px;
+    }
+
+    .produto-modal-info strong {
+        font-size: 10px;
+    }
+
+    .botao-adicionar-modal {
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+    .aviso-pizza {
+        padding: 10px;
+    }
+
+    .aviso-pizza>i {
+        width: 32px;
+        height: 32px;
+        font-size: 12px;
+    }
+
+    .aviso-pizza strong {
+        font-size: 11px;
+    }
+
+    .aviso-pizza p {
+        font-size: 9px;
+    }
+
+}

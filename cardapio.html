@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cardápio | Lu&Yoshi Café</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/cardapio.css">
+</head>
+
+<body>
+
+    <main class="pagina-cardapio">
+
+        <!-- =====================================================
+         CABEÇALHO DA PÁGINA
+    ====================================================== -->
+
+        <section class="cabecalho-cardapio">
+
+            <span class="etiqueta-secao">
+                <i class="fa-solid fa-utensils"></i>
+                NOSSO CARDÁPIO
+            </span>
+
+            <h1>
+                Sabores para
+                <span>todos os momentos.</span>
+            </h1>
+
+            <p>
+                Explore nossas opções de bebidas, pequenos-almoços,
+                lanches, refeições, sobremesas e pizzas.
+            </p>
+
+        </section>
+
+
+        <!-- =====================================================
+         PESQUISA
+    ====================================================== -->
+
+        <section class="area-pesquisa">
+
+            <div class="campo-pesquisa">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="search" id="pesquisaCardapio" placeholder="O que deseja comer ou beber?"
+                    autocomplete="off">
+
+                <button type="button" aria-label="Limpar pesquisa">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         CATEGORIAS RÁPIDAS
+    ====================================================== -->
+
+        <section class="categorias-rapidas">
+
+            <button class="categoria-atalho ativo" type="button">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Todos</span>
+            </button>
+
+            <button class="categoria-atalho" type="button">
+                <i class="fa-solid fa-mug-hot"></i>
+                <span>Bebidas</span>
+            </button>
+
+            <button class="categoria-atalho" type="button">
+                <i class="fa-solid fa-croissant"></i>
+                <span>Pequeno-almoço</span>
+            </button>
+
+            <button class="categoria-atalho" type="button">
+                <i class="fa-solid fa-burger"></i>
+                <span>Lanches</span>
+            </button>
+
+            <button class="categoria-atalho" type="button">
+                <i class="fa-solid fa-utensils"></i>
+                <span>Refeições</span>
+            </button>
+
+            <button class="categoria-atalho" type="button">
+                <i class="fa-solid fa-cake-candles"></i>
+                <span>Sobremesas</span>
+            </button>
+
+            <button class="categoria-atalho" type="button">
+                <i class="fa-solid fa-pizza-slice"></i>
+                <span>Pizzas</span>
+            </button>
+
+        </section>
+
+
+        <!-- =====================================================
+         BEBIDAS
+    ====================================================== -->
+
+        <section class="categoria-secao" id="bebidas">
+
+            <div class="categoria-cabecalho">
+
+                <div class="categoria-titulo">
+
+                    <div class="categoria-icone">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+
+                    <div>
+                        <span>COMECE BEM</span>
+                        <h2>Bebidas</h2>
+                        <p>
+                            Cafés, sumos e outras bebidas para acompanhar
+                            o seu momento.
+                        </p>
+                    </div>
+
+                </div>
+
+                <button class="botao-ver-mais" type="button" data-modal="modalBebidas">
+                    Ver mais
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <div class="produtos-destaque">
+
+                <!-- Produto 1 -->
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/cappuccino.jpg" alt="Cappuccino">
+
+                        <span class="produto-tag">
+                            Popular
+                        </span>
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Cappuccino</h3>
+
+                        <p>
+                            Café espresso, leite vaporizado
+                            e espuma cremosa.
+                        </p>
+
+                        <div class="produto-final">
+
+                            <strong>MT 120,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Adicionar Cappuccino">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Produto 2 -->
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img src="imagens/sumo-manga.jpg" alt="Sumo natural de manga">
+
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Sumo de Manga</h3>
+
+                        <p>
+                            Sumo natural preparado
+                            com manga fresca.
+                        </p>
+
+                        <div class="produto-final">
+
+                            <strong>MT 150,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Adicionar Sumo de Manga">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Produto 3 -->
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img src="imagens/milkshake.jpg" alt="Milkshake">
+
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Milkshake</h3>
+
+                        <p>
+                            Cremoso, refrescante e
+                            preparado na hora.
+                        </p>
+
+                        <div class="produto-final">
+
+                            <strong>MT 180,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Adicionar Milkshake">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         PEQUENO-ALMOÇO
+    ====================================================== -->
+
+        <section class="categoria-secao" id="pequeno-almoco">
+
+            <div class="categoria-cabecalho">
+
+                <div class="categoria-titulo">
+
+                    <div class="categoria-icone">
+                        <i class="fa-solid fa-croissant"></i>
+                    </div>
+
+                    <div>
+                        <span>COMECE O DIA</span>
+                        <h2>Pequeno-almoço</h2>
+                        <p>
+                            Opções deliciosas para começar
+                            o dia com energia.
+                        </p>
+                    </div>
+
+                </div>
+
+                <button class="botao-ver-mais" type="button" data-modal="modalPequenoAlmoco">
+                    Ver mais
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <div class="produtos-destaque">
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/croissant.jpg" alt="Croissant">
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Croissant</h3>
+
+                        <p>
+                            Croissant fresco e crocante.
+                        </p>
+
+                        <div class="produto-final">
+                            <strong>MT 100,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Adicionar Croissant">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/pequeno-almoco.jpg" alt="Pequeno-almoço completo">
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Pequeno-almoço Completo</h3>
+
+                        <p>
+                            Uma combinação completa para
+                            começar o dia.
+                        </p>
+
+                        <div class="produto-final">
+                            <strong>MT 250,00</strong>
+
+                            <button type="button" class="botao-adicionar"
+                                aria-label="Adicionar Pequeno-almoço Completo">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/ovos.jpg" alt="Ovos">
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Ovos com Torradas</h3>
+
+                        <p>
+                            Ovos preparados na hora
+                            acompanhados de torradas.
+                        </p>
+
+                        <div class="produto-final">
+                            <strong>MT 180,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Adicionar Ovos com Torradas">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         LANCHES
+    ====================================================== -->
+
+        <section class="categoria-secao" id="lanches">
+
+            <div class="categoria-cabecalho">
+
+                <div class="categoria-titulo">
+
+                    <div class="categoria-icone">
+                        <i class="fa-solid fa-burger"></i>
+                    </div>
+
+                    <div>
+                        <span>PARA QUALQUER MOMENTO</span>
+                        <h2>Lanches</h2>
+                        <p>
+                            Sanduíches, hambúrgueres e muito mais.
+                        </p>
+                    </div>
+
+                </div>
+
+                <button class="botao-ver-mais" type="button" data-modal="modalLanches">
+                    Ver mais
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <div class="produtos-destaque">
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/sanduiche-frango.jpg" alt="Sanduíche de frango">
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Sanduíche de Frango</h3>
+
+                        <p>
+                            Frango, queijo, vegetais e molho
+                            especial da casa.
+                        </p>
+
+                        <div class="produto-final">
+                            <strong>MT 220,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Adicionar Sanduíche de Frango">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/hamburguer.jpg" alt="Hambúrguer">
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Hambúrguer da Casa</h3>
+
+                        <p>
+                            Hambúrguer artesanal preparado
+                            com ingredientes frescos.
+                        </p>
+
+                        <div class="produto-final">
+                            <strong>MT 280,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Adicionar Hambúrguer da Casa">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/tosta.jpg" alt="Tosta">
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Tosta Especial</h3>
+
+                        <p>
+                            Pão tostado com queijo,
+                            fiambre e molho especial.
+                        </p>
+
+                        <div class="produto-final">
+                            <strong>MT 180,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Adicionar Tosta Especial">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         REFEIÇÕES
+    ====================================================== -->
+
+        <section class="categoria-secao" id="refeicoes">
+
+            <div class="categoria-cabecalho">
+
+                <div class="categoria-titulo">
+
+                    <div class="categoria-icone">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+
+                    <div>
+                        <span>PARA UMA BOA REFEIÇÃO</span>
+                        <h2>Refeições</h2>
+                        <p>
+                            Pratos preparados na hora
+                            para uma refeição completa.
+                        </p>
+                    </div>
+
+                </div>
+
+                <button class="botao-ver-mais" type="button" data-modal="modalRefeicoes">
+                    Ver mais
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <div class="produtos-destaque">
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/prato-frango.jpg" alt="Prato de frango">
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Frango Grelhado</h3>
+
+                        <p>
+                            Frango grelhado acompanhado
+                            de arroz e salada.
+                        </p>
+
+                        <div class="produto-final">
+                            <strong>MT 350,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Adicionar Frango Grelhado">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/massa.jpg" alt="Massa">
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Massa da Casa</h3>
+
+                        <p>
+                            Massa preparada com molho
+                            especial da casa.
+                        </p>
+
+                        <div class="produto-final">
+                            <strong>MT 320,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Adicionar Massa da Casa">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/prato-especial.jpg" alt="Prato especial">
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Especial da Casa</h3>
+
+                        <p>
+                            Uma combinação especial preparada
+                            pelo nosso chef.
+                        </p>
+
+                        <div class="produto-final">
+                            <strong>MT 450,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Adicionar Especial da Casa">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         SOBREMESAS
+    ====================================================== -->
+
+        <section class="categoria-secao" id="sobremesas">
+
+            <div class="categoria-cabecalho">
+
+                <div class="categoria-titulo">
+
+                    <div class="categoria-icone">
+                        <i class="fa-solid fa-cake-candles"></i>
+                    </div>
+
+                    <div>
+                        <span>UM FINAL ESPECIAL</span>
+                        <h2>Sobremesas</h2>
+                        <p>
+                            Um toque doce para terminar
+                            a sua experiência.
+                        </p>
+                    </div>
+
+                </div>
+
+                <button class="botao-ver-mais" type="button" data-modal="modalSobremesas">
+                    Ver mais
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <div class="produtos-destaque">
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/bolo-chocolate.jpg" alt="Bolo de chocolate">
+
+                        <span class="produto-tag">
+                            Favorito
+                        </span>
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Bolo de Chocolate</h3>
+
+                        <p>
+                            Bolo de chocolate macio
+                            e cremoso.
+                        </p>
+
+                        <div class="produto-final">
+                            <strong>MT 180,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Adicionar Bolo de Chocolate">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/cheesecake.jpg" alt="Cheesecake">
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Cheesecake</h3>
+
+                        <p>
+                            Cheesecake cremoso com cobertura
+                            especial.
+                        </p>
+
+                        <div class="produto-final">
+                            <strong>MT 220,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Adicionar Cheesecake">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/panqueca.jpg" alt="Panquecas doces">
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Panquecas Doces</h3>
+
+                        <p>
+                            Panquecas macias com cobertura
+                            à escolha.
+                        </p>
+
+                        <div class="produto-final">
+                            <strong>MT 200,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Adicionar Panquecas Doces">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+         PIZZAS
+    ====================================================== -->
+
+        <section class="categoria-secao secao-pizzas" id="pizzas">
+
+            <div class="categoria-cabecalho">
+
+                <div class="categoria-titulo">
+
+                    <div class="categoria-icone">
+                        <i class="fa-solid fa-pizza-slice"></i>
+                    </div>
+
+                    <div>
+                        <span>FEITAS POR ENCOMENDA</span>
+                        <h2>Pizzas</h2>
+                        <p>
+                            Escolha a sua pizza e personalize
+                            cada detalhe.
+                        </p>
+                    </div>
+
+                </div>
+
+                <button class="botao-ver-mais" type="button" data-modal="modalPizzas">
+                    Ver pizzas
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <div class="produtos-destaque">
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/pizza-frango.jpg" alt="Pizza de frango">
+
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Pizza de Frango</h3>
+
+                        <p>
+                            Frango, queijo, molho especial
+                            e ingredientes frescos.
+                        </p>
+
+                        <div class="produto-final">
+
+                            <strong>A partir de MT 450,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Personalizar Pizza de Frango">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/pizza-calabresa.jpg" alt="Pizza de calabresa">
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Pizza de Calabresa</h3>
+
+                        <p>
+                            Calabresa, queijo, molho de tomate
+                            e ervas.
+                        </p>
+
+                        <div class="produto-final">
+
+                            <strong>A partir de MT 450,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Personalizar Pizza de Calabresa">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+                        <img src="imagens/pizza-especial.jpg" alt="Pizza especial">
+                    </div>
+
+                    <div class="produto-info">
+
+                        <h3>Pizza Especial</h3>
+
+                        <p>
+                            Uma combinação especial
+                            da casa.
+                        </p>
+
+                        <div class="produto-final">
+
+                            <strong>A partir de MT 500,00</strong>
+
+                            <button type="button" class="botao-adicionar" aria-label="Personalizar Pizza Especial">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================================
+     MODAL — BEBIDAS
+========================================================== -->
+
+    <div class="modal" id="modalBebidas">
+
+        <div class="modal-conteudo">
+
+            <div class="modal-cabecalho">
+
+                <div>
+                    <span>MENU COMPLETO</span>
+                    <h2>Bebidas</h2>
+                </div>
+
+                <button class="fechar-modal" type="button">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <div class="modal-pesquisa">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="search" placeholder="Pesquisar bebida...">
+
+            </div>
+
+
+            <div class="grupo-produtos">
+
+                <h3>Cafés</h3>
+
+                <article class="produto-modal">
+
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/cafe-expresso.jpg" alt="Café Expresso">
+                    </div>
+
+                    <div class="produto-modal-info">
+
+                        <h4>Café Expresso</h4>
+
+                        <p>Café intenso e aromático.</p>
+
+                        <strong>MT 80,00</strong>
+
+                    </div>
+
+                    <button class="botao-adicionar-modal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="produto-modal">
+
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/cappuccino.jpg" alt="Cappuccino">
+                    </div>
+
+                    <div class="produto-modal-info">
+
+                        <h4>Cappuccino</h4>
+
+                        <p>Café, leite vaporizado e espuma.</p>
+
+                        <strong>MT 120,00</strong>
+
+                    </div>
+
+                    <button class="botao-adicionar-modal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="produto-modal">
+
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/cafe-leite.jpg" alt="Café com leite">
+                    </div>
+
+                    <div class="produto-modal-info">
+
+                        <h4>Café com Leite</h4>
+
+                        <p>Café combinado com leite cremoso.</p>
+
+                        <strong>MT 100,00</strong>
+
+                    </div>
+
+                    <button class="botao-adicionar-modal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                </article>
+
+            </div>
+
+
+            <div class="grupo-produtos">
+
+                <h3>Sumos Naturais</h3>
+
+                <article class="produto-modal">
+
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/sumo-manga.jpg" alt="Sumo de Manga">
+                    </div>
+
+                    <div class="produto-modal-info">
+
+                        <h4>Sumo de Manga</h4>
+
+                        <p>Sumo natural de manga fresca.</p>
+
+                        <strong>MT 150,00</strong>
+
+                    </div>
+
+                    <button class="botao-adicionar-modal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="produto-modal">
+
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/sumo-laranja.jpg" alt="Sumo de Laranja">
+                    </div>
+
+                    <div class="produto-modal-info">
+
+                        <h4>Sumo de Laranja</h4>
+
+                        <p>Laranja natural preparada na hora.</p>
+
+                        <strong>MT 150,00</strong>
+
+                    </div>
+
+                    <button class="botao-adicionar-modal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="produto-modal">
+
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/sumo-maracuja.jpg" alt="Sumo de Maracujá">
+                    </div>
+
+                    <div class="produto-modal-info">
+
+                        <h4>Sumo de Maracujá</h4>
+
+                        <p>Refrescante e preparado com fruta natural.</p>
+
+                        <strong>MT 160,00</strong>
+
+                    </div>
+
+                    <button class="botao-adicionar-modal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+     MODAIS DAS OUTRAS CATEGORIAS
+========================================================== -->
+
+    <div class="modal" id="modalPequenoAlmoco">
+
+        <div class="modal-conteudo">
+
+            <div class="modal-cabecalho">
+                <div>
+                    <span>MENU COMPLETO</span>
+                    <h2>Pequeno-almoço</h2>
+                </div>
+
+                <button class="fechar-modal" type="button">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="grupo-produtos">
+
+                <h3>Pequeno-almoço</h3>
+
+                <article class="produto-modal">
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/croissant.jpg" alt="Croissant">
+                    </div>
+
+                    <div class="produto-modal-info">
+                        <h4>Croissant</h4>
+                        <p>Croissant fresco e crocante.</p>
+                        <strong>MT 100,00</strong>
+                    </div>
+
+                    <button class="botao-adicionar-modal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </article>
+
+                <article class="produto-modal">
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/ovos.jpg" alt="Ovos com torradas">
+                    </div>
+
+                    <div class="produto-modal-info">
+                        <h4>Ovos com Torradas</h4>
+                        <p>Ovos preparados na hora.</p>
+                        <strong>MT 180,00</strong>
+                    </div>
+
+                    <button class="botao-adicionar-modal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="modal" id="modalLanches">
+
+        <div class="modal-conteudo">
+
+            <div class="modal-cabecalho">
+                <div>
+                    <span>MENU COMPLETO</span>
+                    <h2>Lanches</h2>
+                </div>
+
+                <button class="fechar-modal" type="button">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="grupo-produtos">
+
+                <h3>Lanches</h3>
+
+                <article class="produto-modal">
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/sanduiche-frango.jpg" alt="Sanduíche de Frango">
+                    </div>
+
+                    <div class="produto-modal-info">
+                        <h4>Sanduíche de Frango</h4>
+                        <p>Frango, queijo e molho especial.</p>
+                        <strong>MT 220,00</strong>
+                    </div>
+
+                    <button class="botao-adicionar-modal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </article>
+
+                <article class="produto-modal">
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/hamburguer.jpg" alt="Hambúrguer da Casa">
+                    </div>
+
+                    <div class="produto-modal-info">
+                        <h4>Hambúrguer da Casa</h4>
+                        <p>Hambúrguer artesanal.</p>
+                        <strong>MT 280,00</strong>
+                    </div>
+
+                    <button class="botao-adicionar-modal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="modal" id="modalRefeicoes">
+
+        <div class="modal-conteudo">
+
+            <div class="modal-cabecalho">
+                <div>
+                    <span>MENU COMPLETO</span>
+                    <h2>Refeições</h2>
+                </div>
+
+                <button class="fechar-modal" type="button">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="grupo-produtos">
+
+                <h3>Pratos</h3>
+
+                <article class="produto-modal">
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/prato-frango.jpg" alt="Frango Grelhado">
+                    </div>
+
+                    <div class="produto-modal-info">
+                        <h4>Frango Grelhado</h4>
+                        <p>Frango, arroz e salada.</p>
+                        <strong>MT 350,00</strong>
+                    </div>
+
+                    <button class="botao-adicionar-modal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </article>
+
+                <article class="produto-modal">
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/massa.jpg" alt="Massa da Casa">
+                    </div>
+
+                    <div class="produto-modal-info">
+                        <h4>Massa da Casa</h4>
+                        <p>Massa com molho especial.</p>
+                        <strong>MT 320,00</strong>
+                    </div>
+
+                    <button class="botao-adicionar-modal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="modal" id="modalSobremesas">
+
+        <div class="modal-conteudo">
+
+            <div class="modal-cabecalho">
+                <div>
+                    <span>MENU COMPLETO</span>
+                    <h2>Sobremesas</h2>
+                </div>
+
+                <button class="fechar-modal" type="button">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="grupo-produtos">
+
+                <h3>Doces</h3>
+
+                <article class="produto-modal">
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/bolo-chocolate.jpg" alt="Bolo de Chocolate">
+                    </div>
+
+                    <div class="produto-modal-info">
+                        <h4>Bolo de Chocolate</h4>
+                        <p>Bolo macio e cremoso.</p>
+                        <strong>MT 180,00</strong>
+                    </div>
+
+                    <button class="botao-adicionar-modal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </article>
+
+                <article class="produto-modal">
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/cheesecake.jpg" alt="Cheesecake">
+                    </div>
+
+                    <div class="produto-modal-info">
+                        <h4>Cheesecake</h4>
+                        <p>Cheesecake cremoso.</p>
+                        <strong>MT 220,00</strong>
+                    </div>
+
+                    <button class="botao-adicionar-modal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="modal" id="modalPizzas">
+
+        <div class="modal-conteudo modal-pizzas">
+
+            <div class="modal-cabecalho">
+
+                <div>
+                    <span>POR ENCOMENDA</span>
+                    <h2>Nossas Pizzas</h2>
+                </div>
+
+                <button class="fechar-modal" type="button">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <div class="aviso-pizza">
+
+                <i class="fa-solid fa-pizza-slice"></i>
+
+                <div>
+                    <strong>Personalize a sua pizza</strong>
+
+                    <p>
+                        Escolha o tamanho, ingredientes,
+                        extras e a quantidade.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="grupo-produtos">
+
+                <article class="produto-modal">
+
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/pizza-frango.jpg" alt="Pizza de Frango">
+                    </div>
+
+                    <div class="produto-modal-info">
+
+                        <h4>Pizza de Frango</h4>
+
+                        <p>
+                            Frango, queijo e molho especial.
+                        </p>
+
+                        <strong>A partir de MT 450,00</strong>
+
+                    </div>
+
+                    <button class="botao-personalizar">
+                        Personalizar
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </article>
+
+
+                <article class="produto-modal">
+
+                    <div class="produto-modal-imagem">
+                        <img src="imagens/pizza-calabresa.jpg" alt="Pizza de Calabresa">
+                    </div>
+
+                    <div class="produto-modal-info">
+
+                        <h4>Pizza de Calabresa</h4>
+
+                        <p>
+                            Calabresa, queijo e ervas.
+                        </p>
+
+                        <strong>A partir de MT 450,00</strong>
+
+                    </div>
+
+                    <button class="botao-personalizar">
+                        Personalizar
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- =====================================================
+     MODAL DO CARRINHO
+===================================================== -->
+
+    <div class="modal" id="modalCarrinho">
+
+        <div class="modal-conteudo modal-carrinho">
+
+            <!-- CABEÇALHO -->
+
+            <div class="modal-cabecalho">
+
+                <div>
+                    <span class="etiqueta-secao">
+                        SEU PEDIDO
+                    </span>
+
+                    <h2>
+                        Meu Carrinho
+                    </h2>
+                </div>
+
+                <button class="fechar-modal" id="fecharCarrinho">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <!-- PRODUTOS -->
+
+            <div class="lista-carrinho" id="listaCarrinho">
+
+                <!-- Os produtos serão inseridos pelo JavaScript -->
+
+            </div>
+
+
+            <!-- CARRINHO VAZIO -->
+
+            <div class="carrinho-vazio" id="carrinhoVazio">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <h3>
+                    O seu carrinho está vazio
+                </h3>
+
+                <p>
+                    Adicione alguns produtos do nosso cardápio.
+                </p>
+
+            </div>
+
+
+            <!-- RESUMO -->
+
+            <div class="resumo-carrinho" id="resumoCarrinho">
+
+                <div class="linha-resumo">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <strong id="subtotalCarrinho">
+                        MT 0,00
+                    </strong>
+
+                </div>
+
+
+                <div class="linha-resumo">
+
+                    <span>
+                        Taxa de entrega
+                    </span>
+
+                    <strong id="taxaEntrega">
+                        MT 0,00
+                    </strong>
+
+                </div>
+
+
+                <div class="linha-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="totalCarrinho">
+                        MT 0,00
+                    </strong>
+
+                </div>
+
+
+                <button class="botao-finalizar" id="finalizarPedido">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    Finalizar Pedido
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+    <footer class="rodape" id="rodape">
+
+        <div class="rodape-principal">
+
+            <!--LOgo-->
+
+            <div class="rodape-marca">
+
+                <a href="index.html" class="logo">
+
+                    <span class="logo-icone"><i class="fa-solid fa-mug-hot"></i></span>
+
+                    <span class="logo-texto">LU&YOSHI <strong>Café</strong></span>
+                </a>
+
+                <p>
+                    Mais que um café, um lugar para viver bons momentos.
+                </p>
+
+            </div>
+
+            <div class="rodape-coluna">
+
+                <h3>Navegação</h3>
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="cardapio.html">
+                    Cardápio
+                </a>
+
+                <a href="pizzas.html">
+                    Pizzas
+                </a>
+
+                <a href="sobreNos.html">
+                    Sobre Nós
+                </a>
+
+                <a href="contactos.html">
+                    Contactos
+                </a>
+
+            </div>
+
+            <div class="rodape-coluna">
+
+                <h3>Atendimento</h3>
+
+                <a href="index.html">
+
+                    Contactos
+
+                </a>
+
+                <a href="cardapio.html">
+
+                    Perguntas Frequentes
+
+                </a>
+
+                <a href="pizzas.html">
+
+                    Termos e condições
+
+                </a>
+
+
+
+                <a href="contactos.html">
+
+                    Política de Privacidade
+
+                </a>
+
+            </div>
+
+            <!--Contactos-->
+
+            <div class="rodape-coluna">
+
+                <h3>Fale conosco</h3>
+
+                <p><i class="fa-solid fa-location-dot"></i> Quelimane, Mocambique</p>
+
+                <p><i class="fa-solid fa-phone"></i> +258 86 799 2161 </p>
+
+                <p><i class="fa-solid fa-envelope"></i>lu&yoshcafe@gmail.com</p>
+
+            </div>
+
+        </div>
+
+        <!--Rodapé Inferior-->
+
+        <div class="rodape-final">
+
+            <p>
+
+                ©2026 Lu&Yoshi Café. Todos os direitos reservados.
+
+            </p>
+
+            <div class="redes-sociais">
+
+                <a href="#" aria-label="Facebook">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                </a>
+
+                <a href="#" aria-label="Instagram">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                </a>
+
+                <a href="#" aria-label="WhatsApp">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="JS/cardapio.js"></script>
+
+
+</body>
+
+</html>

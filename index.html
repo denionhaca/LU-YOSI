@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lu&Yoshi</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <!--Cabeçalho-->
+
+    <header class="cabecalho" id="cabecalho">
+        <!--Logo-->
+
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-icone"></span>
+            <span class="logo-texto">Lu&Yoshi <strong>Café</strong>
+            </span>
+        </a>
+
+        <!--Menu-->
+
+        <nav class="menu-principal" id="menuPrincipal">
+
+            <a href="index.html" class="ativo">
+                Inicio
+            </a>
+            <a href="cardapio.html">
+                Cardápio
+            </a>
+            <a href="pizzas.html">
+                Pizzas
+            </a>
+            <a href="sobreNos.html">
+                Sobre Nós
+            </a>
+            <a href="contactos.html">
+                Contactos
+            </a>
+
+        </nav>
+
+        <!--Ações-->
+
+        <div class="acoes" id="acoesHeader">
+
+            <!--Pesquisa-->
+            <button type="button" class="botao-icone" id="abrirPesquisa" aria-label="Pesquisar"> <i
+                    class="fa-solid fa-magnifying-glass"></i></button>
+
+            <!--Carrinho-->
+            <button type="button" class="botao-icone" id="abrirCarrinho" aria-label="Abrir carrinho"> <i
+                    class="fa-solid fa-cart-shopping"></i> <span class="contador-carrinho" id="contadorCarrinho">
+                    0
+                </span></button>
+
+            <a href="cardapio.html" class="botao-encomenda">
+                <i class="fa-solid fa-bag-shopping"></i>
+                Fazer Encomenda
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!--Conteudo Principal-->
+
+    <main id="conteudoPrincipal">
+
+        <!--Hero-->
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-conteudo">
+
+                <span class="hero-etiqueta">
+                    <i class="fa-solid fa-mug-hot"></i>Bem Vindo ao Lu&Yoshi Café.
+                </span>
+
+                <h1>
+                    Sabores que tornam <span>o seu dia especial.</span>
+                </h1>
+
+                <p>
+                    Café, pequenos almoços, lanches, refeições, sobremesas e muito mais, preparados com carinho para
+                    você.
+                </p>
+
+                <div class="hero-botoes">
+
+                    <a href="cardapio.html" class="botao-principal"> Ver Cardápio</a>
+
+                    <a href="pizzas.html" class="botao-secundario"><i class="fa-solid fa-pizza-slice">
+
+                        </i>Fazer
+                        Encomenda de Pizza</a>
+                </div>
+
+            </div>
+
+            <!--Informacoes do visual-->
+
+            <div class="hero-destaque">
+
+                <div class="hero-cartao">
+
+                    <span class="hero-cartao-etiqueta">
+
+                        ESPECIAL DA CASA
+
+                    </span>
+
+                    <h2>
+
+                        Café e Pizzas
+
+                    </h2>
+
+                    <p>
+
+                        Comece o seu dia com sabor.
+
+                    </p>
+
+                    <strong>
+
+                        1.800 MT
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!--Categorias-->
+
+
+        <section class="categorias" id="categorias">
+
+            <div class="titulo-secao">
+
+                <div>
+
+                    <span class="subtitulo">
+                        EXPLORE
+                    </span>
+
+                    <h2>
+                        O que deseja hoje?
+                    </h2>
+
+                </div>
+
+                <a href="cardapio.html" class="link-ver-tudo">Ver Tudo</a>
+
+            </div>
+
+            <div class="lista-categorias">
+
+                <!--café-->
+
+                <a href="cardapio.html?categoria=cafe" class="categorias-card">
+
+                    <div class="categoria-imagem">
+
+                        <img src="IMG/Cavena-cafe.jpeg" alt="Cafe">
+
+                    </div>
+
+                    <h3>
+
+                        Café & Bebidas
+
+                    </h3>
+
+                    <p>
+                        Cafés, cappucinos e muito mais.
+                    </p>
+
+                </a>
+
+                <!--Pequeno Almoco-->
+
+                <a href="cardapio.html?categoria=pequeno-almoco" class="categorias-card">
+
+                    <div class="categoria-imagem">
+
+                        <img src="IMG/icone.png" alt="Pequeno Almoco">
+
+                    </div>
+
+                    <h3>
+
+                        Pequeno-almoco
+
+                    </h3>
+
+                    <p>
+                        Comece bem o seu dia.
+                    </p>
+
+                </a>
+
+                <!--Lanches-->
+
+                <a href="cardapio.html?categoria=lanches" class="categorias-card">
+
+                    <div class="categoria-imagem">
+
+                        <img src="IMG/Cavena-cafe.jpeg" alt="Lanches">
+
+                    </div>
+
+                    <h3>
+
+                        Lanches
+
+                    </h3>
+
+                    <p>
+                        Sabor para qualquer momento.
+                    </p>
+
+                </a>
+
+                <!--Refeicoes-->
+
+                <a href="cardapio.html?categoria=refeicoes" class="categorias-card">
+
+                    <div class="categoria-imagem">
+
+                        <img src="IMG/Fundo-do-site.jpeg" alt="Refeicoes">
+
+                    </div>
+
+                    <h3>
+
+                        Refeições
+
+                    </h3>
+
+                    <p>
+                        Cafés, cappucinos e muito mais.
+                    </p>
+
+                </a>
+
+                <!--Sobremesas-->
+
+                <a href="cardapio.html?categoria=sobremesas" class="categorias-card">
+
+                    <div class="categoria-imagem">
+
+                        <img src="IMG/Cavena-cafe.jpeg" alt="Cafe">
+
+                    </div>
+
+                    <h3>
+
+                        Sobremesas
+
+                    </h3>
+
+                    <p>
+                        Um doce para terminar bem.
+                    </p>
+
+                </a>
+
+                <!--Pizzas-->
+
+                <a href="cardapio.html?categoria=pizzas" class="categorias-card">
+
+                    <div class="categoria-imagem">
+
+                        <img src="IMG/pizza2.jpg" alt="Pizzas">
+
+                    </div>
+
+                    <h3>
+
+                        Sobremesas
+
+                    </h3>
+
+                    <p>
+                        Um doce para terminar bem.
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!--Destaques-->
+
+
+        <section class="destaque" id="destaques">
+
+            <div class="titulo-secao">
+
+                <span class="subtitulo">
+
+                    MAIS PEDIDOS
+
+                </span>
+
+                <h2>
+
+                    Favorito dos nossos clientes
+
+                </h2>
+
+            </div>
+
+            <a href="cardapio.html" class="link-ver-tudo">
+
+                Ver Cardápio
+
+            </a>
+
+            <div class="lista-destaques">
+
+                <!--Produto 1-->
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img src="IMG/Cappucinos.jpg" alt="Cappuccino">
+                    </div>
+
+                    <div class="produto-conteudo">
+
+                        <span class="produto-categorias">
+
+                            Café & Bebidas
+
+                        </span>
+
+                        <h3>Cappuccinos</h3>
+
+                        <p>
+                            Café espresso com leite e espuma cremosa.
+
+                        </p>
+
+                        <div class="produto-final">
+
+                            <strong>
+
+                                120.00 MT
+
+                            </strong>
+
+                            <button type="button" class="botao-adicionar" id="adicionarCappuccino"
+                                data-produto="cappuccino" aria-label="Adicionar produto"> + </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!--Produto 2-->
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img src="IMG/Sande-frango.jpg" alt="Frango">
+                    </div>
+
+                    <div class="produto-conteudo">
+
+                        <span class="produto-categorias">
+
+                            Lanches
+
+                        </span>
+
+                        <h3>Sanduíche de Frango</h3>
+
+                        <p>
+                            Frango desfiado, alface, tomate e molho especial.
+
+                        </p>
+
+                        <div class="produto-final">
+
+                            <strong>
+
+                                180.00 MT
+
+                            </strong>
+
+                            <button type="button" class="botao-adicionar" id="adicionarSanduichefrango"
+                                data-produto="sanduicheFrango" aria-label="Adicionar produto"> + </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!--Produto 3-->
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img src="IMG/Cavena-cafe.jpeg" alt="Cappuccino">
+                    </div>
+
+                    <div class="produto-conteudo">
+
+                        <span class="produto-categorias">
+
+                            Sobremesas
+
+                        </span>
+
+                        <h3>Bolo de Chocolate</h3>
+
+                        <p>
+                            Bolo macio de chocolate com cobertura cremosa.
+
+                        </p>
+
+                        <div class="produto-final">
+
+                            <strong>
+
+                                150.00 MT
+
+                            </strong>
+
+                            <button type="button" class="botao-adicionar" id="adicionarBolochocolate"
+                                data-produto="boloChocolate" aria-label="Adicionar produto"> + </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!--Produto 4-->
+
+                <article class="produto-card">
+
+                    <div class="produto-imagem">
+
+                        <img src="IMG/Cavena-cafe.jpeg" alt="Cappuccino">
+                    </div>
+
+                    <div class="produto-conteudo">
+
+                        <span class="produto-categorias">
+
+                            Bebidas
+
+                        </span>
+
+                        <h3>Sumo Natural</h3>
+
+                        <p>
+                            Sumo natural preparado com frutas frescas
+
+                        </p>
+
+                        <div class="produto-final">
+
+                            <strong>
+
+                                100.00 MT
+
+                            </strong>
+
+                            <button type="button" class="botao-adicionar" id="adicionarSumonatural"
+                                data-produto="sumoNatural" aria-label="Adicionar produto"> + </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!--Pizzas por encomenda-->
+
+        <section class="secao-pizzas" id="pizzas">
+
+            <div class="pizza-conteudo">
+
+                <span class="subtitulo">
+
+                    <i class="fa-solid fa-pizza-slice"></i> ENCOMENDAS ESPECIAS
+
+                </span>
+
+                <h2>
+
+                    Pizzas feitas <span>especialmente para você.</span>
+
+                </h2>
+
+                <p>
+
+                    Escolha o seu sabor favorito, selecione o tamanho, personalize os ingedientes e escolha o dia e o
+                    horário da sua encomenda.
+                </p>
+
+                <div class="pizzas-informacoes">
+
+                    <div>
+
+                        <strong>01</strong>
+
+                        <span>Escolha o sabor</span>
+
+                    </div>
+
+                    <div>
+
+                        <strong>02</strong>
+
+                        <span>personalize</span>
+
+                    </div>
+
+                    <div>
+
+                        <strong>03</strong>
+
+                        <span>Escolha a data e hora</span>
+
+                    </div>
+
+                </div>
+
+                <a href="pizzas.html" class="botao-principal">
+                    Ver Pizzas
+
+                </a>
+
+            </div>
+
+            <div class="pizza-imagem">
+
+                <img src="IMG/pizza2.jpg" alt="Pizza do Café Lu&Yosh">
+
+            </div>
+
+        </section>
+
+
+        <!--Diferenciais-->
+
+
+        <section class="diferenciais" id="diferenciais">
+
+            <div class="diferencial">
+
+                <span>
+                    <i class="fa-solid fa-leaf"></i>
+
+                </span>
+
+                <h3>
+
+                    Ingredientes Frescos
+
+                </h3>
+
+                <p>
+
+                    Selecionamos ingredientes de qualidade.
+
+                </p>
+
+            </div>
+
+            <div class="diferencial">
+
+                <span>
+                    <i class="fa-solid fa-house"></i>
+
+                </span>
+
+                <h3>
+
+                    Ambiente Acolhedor
+
+                </h3>
+
+                <p>
+
+                    Um espaço pensado para bons moomentos.
+
+                </p>
+
+            </div>
+
+            <div class="diferencial">
+
+                <span>
+                    <i class="fa-solid fa-motorcycle"></i>
+
+                </span>
+
+                <h3>
+
+                    Atendimento Rápido
+
+                </h3>
+
+                <p>
+
+                    Seu pedido preparado com agilidade.
+
+                </p>
+
+            </div>
+
+
+            <div class="diferencial">
+
+                <span>
+
+                    <i class="fa-solid fa-star"></i>
+
+                </span>
+
+                <h3>
+
+                    Qualidade Premium
+
+                </h3>
+
+                <p>
+
+                    Sabor e qualidade em cada detalhe.
+
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!--Rodapé-->
+
+
+    <footer class="rodape" id="rodape">
+
+        <div class="rodape-principal">
+
+            <!--LOgo-->
+
+            <div class="rodape-marca">
+
+                <a href="index.html" class="logo">
+
+                    <span class="logo-icone"><i class="fa-solid fa-mug-hot"></i></span>
+
+                    <span class="logo-texto">LU&YOSHI <strong>Café</strong></span>
+                </a>
+
+                <p>
+                    Mais que um café, um lugar para viver bons momentos.
+                </p>
+
+            </div>
+
+            <div class="rodape-coluna">
+
+                <h3>Navegação</h3>
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="cardapio.html">
+                    Cardápio
+                </a>
+
+                <a href="pizzas.html">
+                    Pizzas
+                </a>
+
+                <a href="sobreNos.html">
+                    Sobre Nós
+                </a>
+
+                <a href="contactos.html">
+                    Contactos
+                </a>
+
+            </div>
+
+            <div class="rodape-coluna">
+
+                <h3>Atendimento</h3>
+
+                <a href="index.html">
+
+                    Contactos
+
+                </a>
+
+                <a href="cardapio.html">
+
+                    Perguntas Frequentes
+
+                </a>
+
+                <a href="pizzas.html">
+
+                    Termos e condições
+
+                </a>
+
+
+
+                <a href="contactos.html">
+
+                    Política de Privacidade
+
+                </a>
+
+            </div>
+
+            <!--Contactos-->
+
+            <div class="rodape-coluna">
+
+                <h3>Fale conosco</h3>
+
+                <p><i class="fa-solid fa-location-dot"></i> Quelimane, Mocambique</p>
+
+                <p><i class="fa-solid fa-phone"></i> +258 86 799 2161 </p>
+
+                <p><i class="fa-solid fa-envelope"></i>lu&yoshcafe@gmail.com</p>
+
+            </div>
+
+        </div>
+
+        <!--Rodapé Inferior-->
+
+        <div class="rodape-final">
+
+            <p>
+
+                ©2026 Lu&Yoshi Café. Todos os direitos reservados.
+
+            </p>
+
+            <div class="redes-sociais">
+
+                <a href="#" aria-label="Facebook">
+
+                    <i class="fa-brands fa-facebook-f"></i>
+
+                </a>
+
+                <a href="#" aria-label="Instagram">
+
+                    <i class="fa-brands fa-instagram"></i>
+
+                </a>
+
+                <a href="#" aria-label="WhatsApp">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="JS/app.js"></script>
+</body>
+
+</html>

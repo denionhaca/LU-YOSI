@@ -1,0 +1,2730 @@
+/* =====================================================
+   LU&YOSHI CAFÉ
+   PÁGINA DE PIZZAS
+===================================================== */
+
+:root {
+    --fundo: #0d0b09;
+    --fundo-secundario: #15110e;
+    --fundo-card: #1b1612;
+
+    --dourado: #d99a32;
+    --dourado-claro: #f0b84b;
+
+    --marrom: #6f431d;
+
+    --creme: #f5ead8;
+    --branco: #ffffff;
+
+    --cinza: #a9a29a;
+    --cinza-claro: #d2cbc2;
+
+    --borda: rgba(255, 255, 255, 0.09);
+
+    --sombra: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+    --transicao: 0.3s ease;
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--fundo);
+    color: var(--creme);
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =====================================================
+   PÁGINA
+===================================================== */
+
+.pagina-pizzas {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.cabecalho-pizzas {
+    min-height: 420px;
+    padding: 90px 20px 70px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(circle at center,
+            rgba(217, 154, 50, 0.12),
+            transparent 50%),
+        var(--fundo-secundario);
+
+    border-bottom: 1px solid var(--borda);
+}
+
+.icone-pizza-titulo {
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 24px;
+
+    border: 1px solid rgba(217, 154, 50, 0.4);
+    border-radius: 50%;
+
+    background: rgba(217, 154, 50, 0.08);
+
+    color: var(--dourado-claro);
+
+    font-size: 28px;
+
+    box-shadow:
+        0 0 35px rgba(217, 154, 50, 0.08);
+}
+
+.etiqueta-pagina {
+    margin-bottom: 12px;
+
+    color: var(--dourado-claro);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+}
+
+.cabecalho-pizzas h1 {
+    margin-bottom: 15px;
+
+    color: var(--branco);
+
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 600;
+
+    line-height: 1.1;
+}
+
+.cabecalho-pizzas p {
+    max-width: 650px;
+
+    color: var(--cinza);
+
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.linha-decorativa {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.linha-decorativa span {
+    width: 65px;
+    height: 1px;
+
+    background: rgba(217, 154, 50, 0.45);
+}
+
+.linha-decorativa i {
+    color: var(--dourado);
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   INTRODUÇÃO
+===================================================== */
+
+.introducao-pizzas {
+    width: min(1200px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding: 80px 0;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+
+    align-items: center;
+}
+
+.pequeno-titulo {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: var(--dourado);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 2.5px;
+}
+
+.introducao-texto h2 {
+    max-width: 600px;
+
+    margin-bottom: 20px;
+
+    color: var(--branco);
+
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 500;
+
+    line-height: 1.2;
+}
+
+.introducao-texto h2 span {
+    color: var(--dourado-claro);
+}
+
+.introducao-texto p {
+    max-width: 600px;
+
+    color: var(--cinza);
+
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.introducao-info {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 20px;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+
+    transition: var(--transicao);
+}
+
+.info-item:hover {
+    border-color: rgba(217, 154, 50, 0.3);
+    transform: translateY(-2px);
+}
+
+.info-icone {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(217, 154, 50, 0.09);
+
+    color: var(--dourado);
+
+    font-size: 18px;
+}
+
+.info-item strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--creme);
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.info-item span {
+    color: var(--cinza);
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   SEÇÃO DE PIZZAS
+===================================================== */
+
+.secao-pizzas-disponiveis {
+    width: min(1200px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding: 20px 0 90px;
+}
+
+.titulo-secao {
+    margin-bottom: 35px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.titulo-secao h2 {
+    color: var(--branco);
+
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.titulo-secao>p {
+    max-width: 390px;
+
+    color: var(--cinza);
+
+    font-size: 13px;
+    text-align: right;
+}
+
+.grid-pizzas {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* =====================================================
+   CARD PIZZA
+===================================================== */
+
+.pizza-card {
+    overflow: hidden;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+    border-radius: 15px;
+
+    transition: var(--transicao);
+}
+
+.pizza-card:hover {
+    border-color: rgba(217, 154, 50, 0.35);
+
+    transform: translateY(-6px);
+
+    box-shadow: var(--sombra);
+}
+
+.pizza-imagem {
+    position: relative;
+
+    height: 235px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at center,
+            rgba(217, 154, 50, 0.12),
+            transparent 65%),
+        #120e0b;
+}
+
+.imagem-placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(240, 184, 75, 0.55);
+
+    font-size: 72px;
+}
+
+.pizza-destaque {
+    position: absolute;
+
+    top: 16px;
+    left: 16px;
+
+    padding: 6px 10px;
+
+    background: var(--dourado);
+
+    color: #17110a;
+
+    border-radius: 5px;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.pizza-conteudo {
+    padding: 24px;
+}
+
+.pizza-categoria {
+    margin-bottom: 7px;
+
+    color: var(--dourado);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.pizza-conteudo h3 {
+    margin-bottom: 9px;
+
+    color: var(--branco);
+
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.pizza-conteudo p {
+    min-height: 68px;
+
+    margin-bottom: 20px;
+
+    color: var(--cinza);
+
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.pizza-rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid var(--borda);
+}
+
+.pizza-preco {
+    display: flex;
+    flex-direction: column;
+}
+
+.pizza-preco small {
+    color: var(--cinza);
+
+    font-size: 9px;
+}
+
+.pizza-preco strong {
+    color: var(--dourado-claro);
+
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.botao-personalizar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    min-height: 42px;
+
+    padding: 0 15px;
+
+    border: 1px solid rgba(217, 154, 50, 0.45);
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: var(--dourado-claro);
+
+    font-size: 11px;
+    font-weight: 500;
+
+    transition: var(--transicao);
+}
+
+.botao-personalizar:hover {
+    background: var(--dourado);
+    border-color: var(--dourado);
+
+    color: #17110a;
+}
+
+
+/* =========================================================
+   PERSONALIZAÇÃO DA PIZZA
+========================================================= */
+
+.personalizacao {
+    width: 100%;
+    max-width: 1250px;
+    margin: 80px auto 0;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.personalizacao-cabecalho {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+
+.personalizacao-cabecalho .etiqueta-secao {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: var(--dourado);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.personalizacao-cabecalho h2 {
+    margin: 0 0 10px;
+
+    color: var(--branco);
+
+    font-size: 32px;
+    font-weight: 600;
+}
+
+
+.personalizacao-cabecalho p {
+    max-width: 650px;
+
+    margin: 0;
+
+    color: var(--cinza);
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ÁREA SUPERIOR
+========================================================= */
+
+.personalizacao-superior {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 360px;
+
+    gap: 28px;
+
+    align-items: start;
+}
+
+
+.configurador-superior {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   CONFIGURAÇÕES
+========================================================= */
+
+.configuracao-bloco {
+    width: 100%;
+
+    padding: 26px;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 16px;
+}
+
+
+.bloco-titulo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 24px;
+}
+
+
+.numero-bloco {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(217, 154, 50, 0.35);
+
+    border-radius: 10px;
+
+    background: rgba(217, 154, 50, 0.08);
+
+    color: var(--dourado);
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.bloco-titulo h3 {
+    margin: 0 0 3px;
+
+    color: var(--branco);
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+.bloco-titulo span {
+    color: var(--cinza);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SELEÇÃO DA PIZZA
+========================================================= */
+
+.campo-pizza {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+
+.campo-pizza label {
+    color: var(--cinza-claro);
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+
+.campo-pizza select {
+    width: 100%;
+    height: 52px;
+
+    padding: 0 16px;
+
+    outline: none;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 10px;
+
+    background: var(--fundo-secundario);
+
+    color: var(--branco);
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: var(--transicao);
+}
+
+
+.campo-pizza select:focus {
+    border-color: var(--dourado);
+}
+
+
+/* =========================================================
+   TAMANHO
+========================================================= */
+
+.opcoes-tamanho {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+
+.opcao-tamanho {
+    position: relative;
+
+    cursor: pointer;
+}
+
+
+.opcao-tamanho input {
+    position: absolute;
+
+    opacity: 0;
+}
+
+
+.opcao-conteudo {
+    min-height: 115px;
+
+    padding: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background: var(--fundo-secundario);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 12px;
+
+    transition: var(--transicao);
+}
+
+
+.opcao-conteudo strong {
+    margin-bottom: 5px;
+
+    color: var(--branco);
+
+    font-size: 15px;
+}
+
+
+.opcao-conteudo small {
+    margin-bottom: 10px;
+
+    color: var(--cinza);
+
+    font-size: 12px;
+}
+
+
+.opcao-conteudo b {
+    color: var(--dourado);
+
+    font-size: 12px;
+}
+
+
+.opcao-tamanho input:checked+.opcao-conteudo {
+    border-color: var(--dourado);
+
+    background: rgba(217, 154, 50, 0.08);
+
+    box-shadow:
+        0 0 0 1px rgba(217, 154, 50, 0.15);
+}
+
+
+.opcao-tamanho:hover .opcao-conteudo {
+    border-color: rgba(217, 154, 50, 0.5);
+}
+
+
+/* =========================================================
+   MASSA
+========================================================= */
+
+.opcoes-massa {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.opcao-massa {
+    position: relative;
+
+    min-height: 65px;
+
+    padding: 14px 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    background: var(--fundo-secundario);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 11px;
+
+    transition: var(--transicao);
+}
+
+
+.opcao-massa input {
+    position: absolute;
+
+    opacity: 0;
+}
+
+
+.opcao-massa>span {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.opcao-massa strong {
+    color: var(--branco);
+
+    font-size: 13px;
+}
+
+
+.opcao-massa small {
+    color: var(--cinza);
+
+    font-size: 11px;
+}
+
+
+.opcao-massa>b {
+    color: var(--dourado);
+
+    font-size: 12px;
+}
+
+
+.opcao-massa:has(input:checked) {
+    border-color: var(--dourado);
+
+    background: rgba(217, 154, 50, 0.07);
+}
+
+
+/* =========================================================
+   RESUMO
+========================================================= */
+
+.resumo-pizza {
+    position: sticky;
+
+    top: 95px;
+
+    overflow: hidden;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 17px;
+
+    box-shadow: var(--sombra);
+}
+
+
+.resumo-topo {
+    padding: 24px 24px 15px;
+}
+
+
+.resumo-etiqueta {
+    color: var(--dourado);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.7px;
+}
+
+
+.resumo-topo h3 {
+    margin: 5px 0 0;
+
+    color: var(--branco);
+
+    font-size: 20px;
+
+    font-weight: 600;
+}
+
+
+.resumo-imagem {
+    padding: 0 24px;
+}
+
+
+.imagem-pizza-resumo {
+    height: 170px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 13px;
+
+    background:
+        radial-gradient(circle at center,
+            rgba(217, 154, 50, 0.18),
+            transparent 65%),
+        var(--fundo-secundario);
+
+    color: var(--dourado);
+}
+
+
+.imagem-pizza-resumo i {
+    font-size: 70px;
+}
+
+
+.resumo-produto {
+    padding: 18px 24px 15px;
+}
+
+
+.resumo-produto h4 {
+    margin: 0 0 6px;
+
+    color: var(--branco);
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+
+.resumo-produto p {
+    margin: 0;
+
+    color: var(--cinza);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+.resumo-detalhes {
+    margin: 0 24px;
+
+    padding: 15px 0;
+
+    border-top: 1px solid var(--borda);
+
+    border-bottom: 1px solid var(--borda);
+}
+
+
+.resumo-linha {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+}
+
+
+.resumo-linha:last-child {
+    margin-bottom: 0;
+}
+
+
+.resumo-linha span {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--cinza);
+
+    font-size: 11px;
+}
+
+
+.resumo-linha span i {
+    color: var(--dourado);
+}
+
+
+.resumo-linha strong {
+    color: var(--cinza-claro);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   INGREDIENTES - LARGURA TOTAL
+========================================================= */
+
+.configurador-largura-total {
+    width: 100%;
+
+    margin-top: 28px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+.ingredientes-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+}
+
+
+.opcao-ingrediente {
+    position: relative;
+
+    min-height: 72px;
+
+    padding: 13px 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+
+    background: var(--fundo-secundario);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 11px;
+
+    transition: var(--transicao);
+}
+
+
+.opcao-ingrediente input {
+    position: absolute;
+
+    opacity: 0;
+}
+
+
+.checkbox-personalizado {
+    width: 21px;
+    height: 21px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid #554b42;
+
+    border-radius: 5px;
+
+    color: transparent;
+
+    transition: var(--transicao);
+}
+
+
+.checkbox-personalizado i {
+    font-size: 10px;
+}
+
+
+.ingrediente-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.ingrediente-info strong {
+    color: var(--branco);
+
+    font-size: 13px;
+}
+
+
+.ingrediente-info small {
+    color: var(--cinza);
+
+    font-size: 11px;
+}
+
+
+.opcao-ingrediente:has(input:checked) {
+    border-color: var(--dourado);
+
+    background: rgba(217, 154, 50, 0.07);
+}
+
+
+.opcao-ingrediente:has(input:checked) .checkbox-personalizado {
+    border-color: var(--dourado);
+
+    background: var(--dourado);
+
+    color: #17100a;
+}
+
+
+.opcao-ingrediente:hover {
+    border-color: rgba(217, 154, 50, 0.5);
+}
+
+
+/* =========================================================
+   EXTRAS - LARGURA TOTAL
+========================================================= */
+
+.extras-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+
+.opcao-extra {
+    min-height: 75px;
+
+    padding: 14px 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    cursor: pointer;
+
+    background: var(--fundo-secundario);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 11px;
+
+    transition: var(--transicao);
+}
+
+
+.opcao-extra input {
+    position: absolute;
+
+    opacity: 0;
+}
+
+
+.extra-check {
+    width: 21px;
+    height: 21px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid #554b42;
+
+    border-radius: 5px;
+
+    color: transparent;
+}
+
+
+.extra-check i {
+    font-size: 10px;
+}
+
+
+.extra-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    flex: 1;
+}
+
+
+.extra-info strong {
+    color: var(--branco);
+
+    font-size: 13px;
+}
+
+
+.extra-info small {
+    color: var(--cinza);
+
+    font-size: 11px;
+}
+
+
+.opcao-extra>b {
+    color: var(--dourado);
+
+    font-size: 12px;
+}
+
+
+.opcao-extra:has(input:checked) {
+    border-color: var(--dourado);
+
+    background: rgba(217, 154, 50, 0.07);
+}
+
+
+.opcao-extra:has(input:checked) .extra-check {
+    border-color: var(--dourado);
+
+    background: var(--dourado);
+
+    color: #17100a;
+}
+
+
+.opcao-extra:hover {
+    border-color: rgba(217, 154, 50, 0.5);
+}
+
+
+/* =========================================================
+   DATA E HORÁRIO
+========================================================= */
+
+.data-horario-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+
+.campo-formulario {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.campo-formulario label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--cinza-claro);
+
+    font-size: 12px;
+}
+
+
+.campo-formulario label i {
+    color: var(--dourado);
+}
+
+
+.campo-formulario input {
+    width: 100%;
+    height: 50px;
+
+    padding: 0 14px;
+
+    outline: none;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 9px;
+
+    background: var(--fundo-secundario);
+
+    color: var(--branco);
+
+    font-family: inherit;
+
+    font-size: 13px;
+}
+
+
+.campo-formulario input:focus {
+    border-color: var(--dourado);
+}
+
+
+/* =========================================================
+   RECEBIMENTO
+========================================================= */
+
+.recebimento-opcoes {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+}
+
+
+.opcao-recebimento {
+    position: relative;
+
+    min-height: 80px;
+
+    padding: 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    cursor: pointer;
+
+    background: var(--fundo-secundario);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 11px;
+
+    transition: var(--transicao);
+}
+
+
+.opcao-recebimento input {
+    position: absolute;
+
+    opacity: 0;
+}
+
+
+.recebimento-icone {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: rgba(217, 154, 50, 0.08);
+
+    color: var(--dourado);
+
+    font-size: 15px;
+}
+
+
+.recebimento-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.recebimento-info strong {
+    color: var(--branco);
+
+    font-size: 13px;
+}
+
+
+.recebimento-info small {
+    color: var(--cinza);
+
+    font-size: 10px;
+}
+
+
+.opcao-recebimento:has(input:checked) {
+    border-color: var(--dourado);
+
+    background: rgba(217, 154, 50, 0.07);
+}
+
+
+.opcao-recebimento:hover {
+    border-color: rgba(217, 154, 50, 0.5);
+}
+
+
+/* =========================================================
+   QUANTIDADE
+========================================================= */
+
+.quantidade-bloco {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.quantidade-bloco .bloco-titulo {
+    margin-bottom: 0;
+}
+
+
+.controle-quantidade {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.controle-quantidade button {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 9px;
+
+    background: var(--fundo-secundario);
+
+    color: var(--branco);
+
+    cursor: pointer;
+
+    transition: var(--transicao);
+}
+
+
+.controle-quantidade button:hover {
+    border-color: var(--dourado);
+
+    color: var(--dourado);
+}
+
+
+.controle-quantidade span {
+    min-width: 30px;
+
+    text-align: center;
+
+    color: var(--branco);
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   RESUMO - INGREDIENTES E EXTRAS
+========================================================= */
+
+.resumo-ingredientes {
+    padding: 16px 24px 10px;
+}
+
+
+.titulo-resumo {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    color: var(--cinza-claro);
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.titulo-resumo i {
+    color: var(--dourado);
+}
+
+
+.resumo-ingredientes ul {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.resumo-ingredientes li {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--cinza);
+
+    font-size: 11px;
+}
+
+
+.resumo-ingredientes li i {
+    color: var(--dourado);
+
+    font-size: 9px;
+}
+
+
+.resumo-extras {
+    padding: 8px 24px 15px;
+}
+
+
+.resumo-extras p {
+    margin: 0;
+
+    color: var(--cinza);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   RESUMO - QUANTIDADE
+========================================================= */
+
+.resumo-quantidade {
+    margin: 0 24px;
+
+    padding: 14px 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-top: 1px solid var(--borda);
+}
+
+
+.resumo-quantidade>span {
+    color: var(--cinza);
+
+    font-size: 11px;
+}
+
+
+.quantidade-resumo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.quantidade-resumo button {
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 7px;
+
+    background: var(--fundo-secundario);
+
+    color: var(--cinza-claro);
+
+    cursor: pointer;
+}
+
+
+.quantidade-resumo button i {
+    font-size: 9px;
+}
+
+
+.quantidade-resumo strong {
+    color: var(--branco);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   RESUMO - TOTAL
+========================================================= */
+
+.resumo-total {
+    margin: 0 24px;
+
+    padding: 16px 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-top: 1px solid var(--borda);
+}
+
+
+.resumo-total span {
+    color: var(--cinza);
+
+    font-size: 12px;
+}
+
+
+.resumo-total strong {
+    color: var(--dourado-claro);
+
+    font-size: 23px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   BOTÃO DO CARRINHO
+========================================================= */
+
+.botao-adicionar-pizza {
+    width: calc(100% - 48px);
+
+    min-height: 52px;
+
+    margin: 0 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--dourado);
+
+    color: #17100a;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: var(--transicao);
+}
+
+
+.botao-adicionar-pizza:hover {
+    background: var(--dourado-claro);
+
+    transform: translateY(-2px);
+}
+
+
+.botao-adicionar-pizza i {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   NOTA DO RESUMO
+========================================================= */
+
+.nota-resumo {
+    margin: 16px 24px 22px;
+
+    padding: 11px;
+
+    display: flex;
+
+    gap: 9px;
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: var(--cinza);
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+.nota-resumo i {
+    margin-top: 2px;
+
+    flex-shrink: 0;
+
+    color: var(--dourado);
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .personalizacao-superior {
+        grid-template-columns: minmax(0, 1fr) 320px;
+    }
+
+
+    .ingredientes-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .personalizacao-superior {
+        grid-template-columns: 1fr;
+    }
+
+
+    .resumo-pizza {
+        position: relative;
+
+        top: auto;
+
+        order: 2;
+    }
+
+
+    .configurador-superior {
+        order: 1;
+    }
+
+
+    .configurador-largura-total {
+        order: 3;
+    }
+
+
+    .ingredientes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .personalizacao {
+        margin-top: 55px;
+    }
+
+
+    .personalizacao-cabecalho h2 {
+        font-size: 26px;
+    }
+
+
+    .configuracao-bloco {
+        padding: 20px;
+    }
+
+
+    .opcoes-tamanho {
+        grid-template-columns: 1fr;
+    }
+
+
+    .opcao-conteudo {
+        min-height: 75px;
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        text-align: left;
+    }
+
+
+    .opcao-conteudo strong,
+    .opcao-conteudo small {
+        margin: 0;
+    }
+
+
+    .ingredientes-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .extras-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .data-horario-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .recebimento-opcoes {
+        grid-template-columns: 1fr;
+    }
+
+
+    .quantidade-bloco {
+        align-items: flex-start;
+
+        gap: 20px;
+
+        flex-direction: column;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .personalizacao-cabecalho h2 {
+        font-size: 23px;
+    }
+
+
+    .configuracao-bloco {
+        padding: 17px;
+    }
+
+
+    .bloco-titulo {
+        gap: 10px;
+    }
+
+
+    .numero-bloco {
+        width: 34px;
+        height: 34px;
+    }
+
+
+    .bloco-titulo h3 {
+        font-size: 14px;
+    }
+
+
+    .resumo-topo,
+    .resumo-produto,
+    .resumo-ingredientes,
+    .resumo-extras {
+        padding-left: 18px;
+
+        padding-right: 18px;
+    }
+
+
+    .resumo-detalhes,
+    .resumo-quantidade,
+    .resumo-total {
+        margin-left: 18px;
+
+        margin-right: 18px;
+    }
+
+
+    .botao-adicionar-pizza {
+        width: calc(100% - 36px);
+
+        margin-left: 18px;
+
+        margin-right: 18px;
+    }
+
+
+    .nota-resumo {
+        margin-left: 18px;
+
+        margin-right: 18px;
+    }
+
+}
+
+
+/* =====================================================
+   RESUMO
+===================================================== */
+
+.resumo-pizza {
+    position: sticky;
+    top: 25px;
+
+    overflow: hidden;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+    border-radius: 13px;
+
+    box-shadow: var(--sombra);
+}
+
+.resumo-imagem {
+    height: 190px;
+
+    background:
+        radial-gradient(circle at center,
+            rgba(217, 154, 50, 0.15),
+            transparent 65%),
+        #120e0b;
+}
+
+.imagem-placeholder-grande {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(240, 184, 75, 0.55);
+
+    font-size: 62px;
+}
+
+.resumo-conteudo {
+    padding: 25px;
+}
+
+.resumo-label {
+    color: var(--dourado);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.resumo-conteudo h3 {
+    margin-top: 7px;
+    margin-bottom: 6px;
+
+    color: var(--branco);
+
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.resumo-descricao {
+    margin-bottom: 22px;
+
+    color: var(--cinza);
+
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.resumo-linha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 7px 0;
+}
+
+.resumo-linha span {
+    color: var(--cinza);
+
+    font-size: 10px;
+}
+
+.resumo-linha strong {
+    color: var(--creme);
+
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.resumo-divisor {
+    height: 1px;
+
+    margin: 14px 0;
+
+    background: var(--borda);
+}
+
+.resumo-subtitulo {
+    margin-bottom: 10px;
+
+    color: var(--creme);
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.resumo-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    list-style: none;
+}
+
+.resumo-lista li {
+    color: var(--cinza);
+
+    font-size: 10px;
+}
+
+.resumo-lista i {
+    margin-right: 6px;
+
+    color: var(--dourado);
+
+    font-size: 8px;
+}
+
+.resumo-preco {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 20px 0;
+}
+
+.resumo-preco span {
+    color: var(--cinza);
+
+    font-size: 12px;
+}
+
+.resumo-preco strong {
+    color: var(--dourado-claro);
+
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.botao-carrinho-pizza {
+    width: 100%;
+    min-height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: var(--dourado);
+
+    color: #17110a;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    transition: var(--transicao);
+}
+
+.botao-carrinho-pizza:hover {
+    background: var(--dourado-claro);
+
+    transform: translateY(-2px);
+}
+
+.nota-resumo {
+    margin-top: 13px;
+
+    color: #817970;
+
+    font-size: 9px;
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+.nota-resumo i {
+    margin-right: 4px;
+
+    color: var(--dourado);
+}
+
+
+/* =====================================================
+   INFORMAÇÕES
+===================================================== */
+
+.informacoes-pizza {
+    width: min(1200px, calc(100% - 40px));
+
+    margin: 0 auto;
+
+    padding: 70px 0 100px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    border-top: 1px solid var(--borda);
+}
+
+.info-box {
+    display: flex;
+    gap: 17px;
+
+    padding: 23px;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+    border-radius: 11px;
+}
+
+.info-box-icone {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: rgba(217, 154, 50, 0.08);
+
+    color: var(--dourado);
+
+    font-size: 15px;
+}
+
+.info-box h3 {
+    margin-bottom: 5px;
+
+    color: var(--creme);
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.info-box p {
+    color: var(--cinza);
+
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+.rodape {
+    background: #090807;
+}
+
+.rodape-principal {
+    padding: 65px 7% 50px;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+
+    gap: 50px;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+.rodape-marca .logo {
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+.rodape-marca>p {
+    max-width: 280px;
+
+    color: #817a73;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.rodape-coluna {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.rodape-coluna h3 {
+    margin-bottom: 8px;
+
+    color: #fff;
+
+    font-size: 14px;
+}
+
+.logo-texto {
+    color: #fff;
+
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.logo-texto strong {
+
+    color: var(--dourado);
+}
+
+.rodape-marca i {
+
+    margin-right: 6px;
+
+    color: var(--dourado);
+
+    font-size: 30px;
+}
+
+.rodape-coluna a,
+.rodape-coluna p {
+
+    text-decoration: none;
+    color: #817a73;
+
+    font-size: 11px;
+
+    transition: var(--transicao);
+}
+
+.rodape-coluna a:hover {
+    color: var(--dourado);
+}
+
+.rodape-coluna p {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.rodape-coluna p i {
+    color: var(--dourado);
+}
+
+
+/* RODAPÉ INFERIOR */
+
+.rodape-final {
+
+    padding: 20px 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.rodape-final p {
+    color: #625d57;
+
+    font-size: 10px;
+}
+
+
+/* REDES SOCIAIS */
+
+.redes-sociais {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.redes-sociais a {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(225, 225, 225, 0.12);
+
+    border-radius: 50%;
+
+    color: #a9a29a;
+
+    font-size: 15px;
+
+    transition: 0.3s ease;
+
+    text-decoration: none;
+}
+
+.redes-sociais a:hover {
+    color: white;
+
+    background: #d99a32;
+
+    border-color: #d99a32;
+
+    transform: translateY(-3px);
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 1050px) {
+
+    .grid-pizzas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .personalizacao-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .resumo-pizza {
+        position: relative;
+        top: auto;
+    }
+
+    .resumo-imagem {
+        height: 230px;
+    }
+
+    .informacoes-pizza {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 850px) {
+
+    .introducao-pizzas {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .titulo-secao {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .titulo-secao>p {
+        text-align: left;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .cabecalho-pizzas {
+        min-height: 350px;
+
+        padding: 70px 20px 55px;
+    }
+
+    .introducao-pizzas,
+    .secao-pizzas-disponiveis,
+    .personalizacao-pizza,
+    .informacoes-pizza {
+        width: min(100% - 30px, 1200px);
+    }
+
+    .introducao-pizzas {
+        padding: 60px 0;
+    }
+
+    .grid-pizzas {
+        grid-template-columns: 1fr;
+    }
+
+    .opcoes-tamanho {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-ingredientes {
+        grid-template-columns: 1fr;
+    }
+
+    .campos-data {
+        grid-template-columns: 1fr;
+    }
+
+    .recebimento-opcoes {
+        grid-template-columns: 1fr;
+    }
+
+    .bloco-opcao {
+        padding: 20px;
+    }
+
+    .pizza-rodape {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .botao-personalizar {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .cabecalho-pizzas h1 {
+        font-size: 42px;
+    }
+
+    .cabecalho-pizzas p {
+        font-size: 13px;
+    }
+
+    .titulo-secao h2,
+    .titulo-personalizacao h2 {
+        font-size: 28px;
+    }
+
+    .pizza-imagem {
+        height: 210px;
+    }
+
+    .info-item {
+        align-items: flex-start;
+    }
+
+    .resumo-conteudo {
+        padding: 20px;
+    }
+}
+
+/* =========================================================
+   MEDIA QUERIES - RODAPÉ
+========================================================= */
+
+/* Tablets */
+@media (max-width: 900px) {
+
+    .rodape-conteudo {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px;
+    }
+
+    .rodape-coluna:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .rodape-social {
+        margin-top: 5px;
+    }
+
+}
+
+
+/* Tablets menores */
+@media (max-width: 700px) {
+
+    .rodape {
+        padding-top: 50px;
+    }
+
+    .rodape-conteudo {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px 25px;
+    }
+
+    .rodape-coluna:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .rodape-logo {
+        margin-bottom: 12px;
+    }
+
+    .rodape-descricao {
+        max-width: 100%;
+    }
+
+    .rodape-titulo {
+        font-size: 14px;
+    }
+
+    .rodape-links a {
+        font-size: 12px;
+    }
+
+    .rodape-atendimento-item {
+        font-size: 12px;
+    }
+
+    .rodape-base {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+}
+
+
+/* Telemóveis */
+@media (max-width: 500px) {
+
+    .rodape {
+        padding: 45px 18px 20px;
+    }
+
+    .rodape-conteudo {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .rodape-coluna:first-child {
+        grid-column: auto;
+    }
+
+    .rodape-coluna {
+        width: 100%;
+    }
+
+    .rodape-logo {
+        font-size: 21px;
+    }
+
+    .rodape-descricao {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    .rodape-titulo {
+        margin-bottom: 13px;
+        font-size: 13px;
+    }
+
+    .rodape-links {
+        gap: 9px;
+    }
+
+    .rodape-links a {
+        font-size: 12px;
+    }
+
+    .rodape-atendimento {
+        gap: 10px;
+    }
+
+    .rodape-atendimento-item {
+        font-size: 11px;
+    }
+
+    .rodape-atendimento-item i {
+        width: 18px;
+        font-size: 12px;
+    }
+
+    .rodape-social {
+        gap: 9px;
+    }
+
+    .rodape-social a {
+        width: 34px;
+        height: 34px;
+        font-size: 12px;
+    }
+
+    .rodape-base {
+        padding-top: 20px;
+        margin-top: 30px;
+        gap: 8px;
+    }
+
+    .rodape-copy,
+    .rodape-creditos {
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+}
+
+
+/* Telemóveis muito pequenos */
+@media (max-width: 360px) {
+
+    .rodape {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .rodape-conteudo {
+        gap: 24px;
+    }
+
+    .rodape-logo {
+        font-size: 19px;
+    }
+
+    .rodape-social a {
+        width: 32px;
+        height: 32px;
+    }
+
+}
