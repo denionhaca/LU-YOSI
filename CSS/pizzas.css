@@ -1,7 +1,13 @@
-/* =====================================================
+/* =========================================================
    LU&YOSHI CAFÉ
-   PÁGINA DE PIZZAS
-===================================================== */
+   PIZZAS.CSS
+   Compatível com pizzas.html
+========================================================= */
+
+
+/* =========================================================
+   01. VARIÁVEIS
+========================================================= */
 
 :root {
     --fundo: #0d0b09;
@@ -10,6 +16,7 @@
 
     --dourado: #d99a32;
     --dourado-claro: #f0b84b;
+    --dourado-suave: rgba(217, 154, 50, 0.10);
 
     --marrom: #6f431d;
 
@@ -18,18 +25,27 @@
 
     --cinza: #a9a29a;
     --cinza-claro: #d2cbc2;
+    --cinza-escuro: #756e66;
 
     --borda: rgba(255, 255, 255, 0.09);
+    --borda-dourada: rgba(217, 154, 50, 0.30);
+
+    --vermelho: #c95d45;
 
     --sombra: 0 20px 50px rgba(0, 0, 0, 0.35);
+    --sombra-forte: 0 30px 80px rgba(0, 0, 0, 0.55);
+
+    --raio-pequeno: 8px;
+    --raio: 13px;
+    --raio-grande: 20px;
 
     --transicao: 0.3s ease;
 }
 
 
-/* =====================================================
-   RESET
-===================================================== */
+/* =========================================================
+   02. RESET
+========================================================= */
 
 * {
     margin: 0;
@@ -39,23 +55,45 @@
 
 html {
     scroll-behavior: smooth;
+    background: var(--fundo);
 }
 
 body {
-    background: var(--fundo);
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at top left,
+            rgba(217, 154, 50, 0.035),
+            transparent 35%),
+        var(--fundo);
+
     color: var(--creme);
+
     font-family: "Poppins", sans-serif;
-    line-height: 1.6;
+
+    line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
 }
 
 button,
 input,
 select {
-    font-family: inherit;
+    outline: none;
 }
 
-button {
-    cursor: pointer;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
 img {
@@ -63,157 +101,204 @@ img {
     display: block;
 }
 
-
-/* =====================================================
-   PÁGINA
-===================================================== */
-
-.pagina-pizzas {
-    width: 100%;
-    min-height: 100vh;
-    overflow: hidden;
+::selection {
+    background: var(--dourado);
+    color: var(--fundo);
 }
 
 
-/* =====================================================
-   CABEÇALHO
-===================================================== */
+/* =========================================================
+   03. BARRA DE ROLAGEM
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--fundo-secundario);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(217, 154, 50, 0.35);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(217, 154, 50, 0.55);
+}
+
+
+/* =========================================================
+   04. PÁGINA
+========================================================= */
+
+.pagina-pizzas {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+
+    padding-top: 95px;
+}
+
+
+/* =========================================================
+   05. CABEÇALHO
+========================================================= */
 
 .cabecalho-pizzas {
-    min-height: 420px;
-    padding: 90px 20px 70px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 
     text-align: center;
 
-    background:
-        radial-gradient(circle at center,
-            rgba(217, 154, 50, 0.12),
-            transparent 50%),
-        var(--fundo-secundario);
-
-    border-bottom: 1px solid var(--borda);
+    padding: 45px 0 70px;
 }
 
 .icone-pizza-titulo {
-    width: 72px;
-    height: 72px;
+    width: 62px;
+    height: 62px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 
-    border: 1px solid rgba(217, 154, 50, 0.4);
-    border-radius: 50%;
+    border: 1px solid var(--borda-dourada);
+    border-radius: 16px;
 
-    background: rgba(217, 154, 50, 0.08);
+    background: var(--dourado-suave);
 
     color: var(--dourado-claro);
 
-    font-size: 28px;
+    font-size: 25px;
 
     box-shadow:
-        0 0 35px rgba(217, 154, 50, 0.08);
+        0 12px 35px rgba(217, 154, 50, 0.08);
 }
 
 .etiqueta-pagina {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 
-    color: var(--dourado-claro);
+    color: var(--dourado);
 
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 600;
 
     letter-spacing: 3px;
 }
 
 .cabecalho-pizzas h1 {
-    margin-bottom: 15px;
+    color: var(--creme);
 
-    color: var(--branco);
-
-    font-size: clamp(42px, 6vw, 68px);
+    font-size: clamp(42px, 6vw, 62px);
     font-weight: 600;
 
     line-height: 1.1;
+    letter-spacing: -1.5px;
 }
 
-.cabecalho-pizzas p {
-    max-width: 650px;
+.cabecalho-pizzas>p {
+    max-width: 620px;
+
+    margin-top: 17px;
 
     color: var(--cinza);
 
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 300;
+
+    line-height: 1.8;
 }
 
+
+/* =========================================================
+   06. LINHA DECORATIVA
+========================================================= */
+
 .linha-decorativa {
+    width: 180px;
+
     display: flex;
     align-items: center;
-    gap: 15px;
 
-    margin-top: 30px;
+    gap: 10px;
+
+    margin-top: 27px;
 }
 
 .linha-decorativa span {
-    width: 65px;
+    flex: 1;
+
     height: 1px;
 
-    background: rgba(217, 154, 50, 0.45);
+    background:
+        linear-gradient(to right,
+            transparent,
+            rgba(217, 154, 50, 0.45));
+}
+
+.linha-decorativa span:last-child {
+    background:
+        linear-gradient(to left,
+            transparent,
+            rgba(217, 154, 50, 0.45));
 }
 
 .linha-decorativa i {
     color: var(--dourado);
-    font-size: 14px;
+
+    font-size: 10px;
 }
 
 
-/* =====================================================
-   INTRODUÇÃO
-===================================================== */
+/* =========================================================
+   07. INTRODUÇÃO
+========================================================= */
 
 .introducao-pizzas {
-    width: min(1200px, calc(100% - 40px));
-
-    margin: 0 auto;
-
-    padding: 80px 0;
-
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 80px;
+
+    grid-template-columns:
+        minmax(0, 1.4fr) minmax(320px, 0.8fr);
+
+    gap: 50px;
 
     align-items: center;
+
+    margin-bottom: 85px;
+
+    padding: 35px 0;
+
+    border-top: 1px solid var(--borda);
+    border-bottom: 1px solid var(--borda);
+}
+
+.introducao-texto {
+    min-width: 0;
 }
 
 .pequeno-titulo {
     display: inline-block;
 
-    margin-bottom: 12px;
+    margin-bottom: 11px;
 
     color: var(--dourado);
 
-    font-size: 11px;
+    font-size: 9px;
     font-weight: 600;
 
-    letter-spacing: 2.5px;
+    letter-spacing: 2px;
 }
 
 .introducao-texto h2 {
     max-width: 600px;
 
-    margin-bottom: 20px;
+    color: var(--creme);
 
-    color: var(--branco);
-
-    font-size: clamp(32px, 4vw, 48px);
-    font-weight: 500;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 600;
 
     line-height: 1.2;
 }
@@ -223,26 +308,37 @@ img {
 }
 
 .introducao-texto p {
-    max-width: 600px;
+    max-width: 620px;
+
+    margin-top: 13px;
 
     color: var(--cinza);
 
-    font-size: 15px;
-    line-height: 1.9;
+    font-size: 12px;
+    font-weight: 300;
+
+    line-height: 1.8;
 }
+
+
+/* =========================================================
+   08. INFORMAÇÕES DA INTRODUÇÃO
+========================================================= */
 
 .introducao-info {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+
+    gap: 15px;
 }
 
 .info-item {
     display: flex;
     align-items: center;
-    gap: 18px;
 
-    padding: 20px;
+    gap: 14px;
+
+    padding: 16px;
 
     background: var(--fundo-card);
 
@@ -253,13 +349,14 @@ img {
 }
 
 .info-item:hover {
-    border-color: rgba(217, 154, 50, 0.3);
+    border-color: var(--borda-dourada);
+
     transform: translateY(-2px);
 }
 
 .info-icone {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
 
     flex-shrink: 0;
 
@@ -269,11 +366,11 @@ img {
 
     border-radius: 10px;
 
-    background: rgba(217, 154, 50, 0.09);
+    background: var(--dourado-suave);
 
-    color: var(--dourado);
+    color: var(--dourado-claro);
 
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .info-item strong {
@@ -283,67 +380,78 @@ img {
 
     color: var(--creme);
 
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 11px;
+    font-weight: 600;
 }
 
 .info-item span {
+    display: block;
+
     color: var(--cinza);
 
-    font-size: 12px;
+    font-size: 9px;
+    font-weight: 300;
 }
 
 
-/* =====================================================
-   SEÇÃO DE PIZZAS
-===================================================== */
+/* =========================================================
+   09. SEÇÃO DE PIZZAS DISPONÍVEIS
+========================================================= */
 
 .secao-pizzas-disponiveis {
-    width: min(1200px, calc(100% - 40px));
-
-    margin: 0 auto;
-
-    padding: 20px 0 90px;
+    margin-bottom: 95px;
 }
 
 .titulo-secao {
-    margin-bottom: 35px;
-
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
 
     gap: 30px;
+
+    margin-bottom: 30px;
 }
 
 .titulo-secao h2 {
-    color: var(--branco);
+    color: var(--creme);
 
-    font-size: 32px;
-    font-weight: 500;
+    font-size: 29px;
+    font-weight: 600;
+
+    line-height: 1.2;
 }
 
 .titulo-secao>p {
-    max-width: 390px;
+    max-width: 360px;
 
     color: var(--cinza);
 
-    font-size: 13px;
+    font-size: 11px;
+    font-weight: 300;
+
+    line-height: 1.7;
+
     text-align: right;
 }
+
+
+/* =========================================================
+   10. GRID DAS PIZZAS
+========================================================= */
 
 .grid-pizzas {
     display: grid;
 
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
 
-    gap: 22px;
+    gap: 20px;
 }
 
 
-/* =====================================================
-   CARD PIZZA
-===================================================== */
+/* =========================================================
+   11. CARD DA PIZZA
+========================================================= */
 
 .pizza-card {
     overflow: hidden;
@@ -351,31 +459,41 @@ img {
     background: var(--fundo-card);
 
     border: 1px solid var(--borda);
+
     border-radius: 15px;
 
-    transition: var(--transicao);
+    transition:
+        transform var(--transicao),
+        border-color var(--transicao),
+        box-shadow var(--transicao);
 }
 
 .pizza-card:hover {
-    border-color: rgba(217, 154, 50, 0.35);
-
     transform: translateY(-6px);
+
+    border-color: var(--borda-dourada);
 
     box-shadow: var(--sombra);
 }
 
+
+/* =========================================================
+   12. IMAGEM DA PIZZA
+========================================================= */
+
 .pizza-imagem {
     position: relative;
 
-    height: 235px;
+    width: 100%;
+    height: 220px;
 
     overflow: hidden;
 
     background:
         radial-gradient(circle at center,
-            rgba(217, 154, 50, 0.12),
+            rgba(217, 154, 50, 0.08),
             transparent 65%),
-        #120e0b;
+        #120f0c;
 }
 
 .imagem-placeholder {
@@ -386,204 +504,258 @@ img {
     align-items: center;
     justify-content: center;
 
-    color: rgba(240, 184, 75, 0.55);
+    color: rgba(217, 154, 50, 0.25);
 
-    font-size: 72px;
+    font-size: 65px;
+
+    transition:
+        transform 0.5s ease,
+        color 0.5s ease;
 }
+
+.pizza-card:hover .imagem-placeholder {
+    color: rgba(217, 154, 50, 0.42);
+
+    transform: scale(1.05) rotate(2deg);
+}
+
+
+/* =========================================================
+   13. TAG DA PIZZA
+========================================================= */
 
 .pizza-destaque {
     position: absolute;
 
-    top: 16px;
-    left: 16px;
+    top: 13px;
+    left: 13px;
 
     padding: 6px 10px;
 
+    border-radius: 20px;
+
     background: var(--dourado);
 
-    color: #17110a;
+    color: var(--fundo);
 
-    border-radius: 5px;
+    font-size: 8px;
+    font-weight: 600;
 
-    font-size: 9px;
-    font-weight: 700;
-
-    letter-spacing: 1px;
+    letter-spacing: 0.7px;
 }
 
+
+/* =========================================================
+   14. CONTEÚDO DA PIZZA
+========================================================= */
+
 .pizza-conteudo {
-    padding: 24px;
+    padding: 20px;
 }
 
 .pizza-categoria {
-    margin-bottom: 7px;
+    margin-bottom: 6px;
 
     color: var(--dourado);
 
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 600;
 
-    letter-spacing: 2px;
+    letter-spacing: 1.7px;
 }
 
 .pizza-conteudo h3 {
-    margin-bottom: 9px;
+    margin-bottom: 7px;
 
-    color: var(--branco);
+    color: var(--creme);
 
-    font-size: 21px;
-    font-weight: 500;
-}
-
-.pizza-conteudo p {
-    min-height: 68px;
-
-    margin-bottom: 20px;
-
-    color: var(--cinza);
-
-    font-size: 12px;
-    line-height: 1.8;
-}
-
-.pizza-rodape {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 12px;
-
-    padding-top: 18px;
-
-    border-top: 1px solid var(--borda);
-}
-
-.pizza-preco {
-    display: flex;
-    flex-direction: column;
-}
-
-.pizza-preco small {
-    color: var(--cinza);
-
-    font-size: 9px;
-}
-
-.pizza-preco strong {
-    color: var(--dourado-claro);
-
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
+
+    line-height: 1.3;
 }
 
-.botao-personalizar {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-
-    min-height: 42px;
-
-    padding: 0 15px;
-
-    border: 1px solid rgba(217, 154, 50, 0.45);
-    border-radius: 7px;
-
-    background: transparent;
-
-    color: var(--dourado-claro);
-
-    font-size: 11px;
-    font-weight: 500;
-
-    transition: var(--transicao);
-}
-
-.botao-personalizar:hover {
-    background: var(--dourado);
-    border-color: var(--dourado);
-
-    color: #17110a;
-}
-
-
-/* =========================================================
-   PERSONALIZAÇÃO DA PIZZA
-========================================================= */
-
-.personalizacao {
-    width: 100%;
-    max-width: 1250px;
-    margin: 80px auto 0;
-}
-
-
-/* =========================================================
-   CABEÇALHO
-========================================================= */
-
-.personalizacao-cabecalho {
-    margin-bottom: 35px;
-    padding-bottom: 25px;
-
-    border-bottom: 1px solid var(--borda);
-}
-
-
-.personalizacao-cabecalho .etiqueta-secao {
-    display: inline-block;
-
-    margin-bottom: 10px;
-
-    color: var(--dourado);
-
-    font-size: 12px;
-    font-weight: 700;
-
-    letter-spacing: 2px;
-}
-
-
-.personalizacao-cabecalho h2 {
-    margin: 0 0 10px;
-
-    color: var(--branco);
-
-    font-size: 32px;
-    font-weight: 600;
-}
-
-
-.personalizacao-cabecalho p {
-    max-width: 650px;
-
-    margin: 0;
+.pizza-conteudo>p {
+    min-height: 52px;
 
     color: var(--cinza);
 
-    font-size: 14px;
+    font-size: 10px;
+    font-weight: 300;
+
     line-height: 1.7;
 }
 
 
 /* =========================================================
-   ÁREA SUPERIOR
+   15. RODAPÉ DO CARD DA PIZZA
+========================================================= */
+
+.pizza-rodape {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.pizza-preco small {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: var(--cinza-escuro);
+
+    font-size: 8px;
+}
+
+.pizza-preco strong {
+    color: var(--dourado-claro);
+
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   16. BOTÃO PERSONALIZAR
+========================================================= */
+
+.botao-personalizar {
+    min-height: 38px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 0 13px;
+
+    border: 1px solid var(--borda-dourada);
+
+    border-radius: 9px;
+
+    background: var(--dourado-suave);
+
+    color: var(--dourado-claro);
+
+    font-size: 9px;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    transition: var(--transicao);
+}
+
+.botao-personalizar i {
+    font-size: 10px;
+
+    transition: transform var(--transicao);
+}
+
+.botao-personalizar:hover {
+    background: var(--dourado);
+
+    border-color: var(--dourado);
+
+    color: var(--fundo);
+
+    transform: translateY(-2px);
+}
+
+.botao-personalizar:hover i {
+    transform: rotate(45deg);
+}
+
+/* =========================================================
+   17. PERSONALIZAÇÃO
+========================================================= */
+
+.personalizacao {
+    margin-bottom: 95px;
+
+    scroll-margin-top: 40px;
+}
+
+
+/* =========================================================
+   18. CABEÇALHO DA PERSONALIZAÇÃO
+========================================================= */
+
+.personalizacao-cabecalho {
+    margin-bottom: 35px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+.personalizacao-cabecalho .etiqueta-secao {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--dourado);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.personalizacao-cabecalho h2 {
+    color: var(--creme);
+
+    font-size: 31px;
+    font-weight: 600;
+
+    line-height: 1.2;
+}
+
+.personalizacao-cabecalho p {
+    max-width: 650px;
+
+    margin-top: 9px;
+
+    color: var(--cinza);
+
+    font-size: 11px;
+    font-weight: 300;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   19. ÁREA SUPERIOR
 ========================================================= */
 
 .personalizacao-superior {
     display: grid;
 
-    grid-template-columns: minmax(0, 1fr) 360px;
+    grid-template-columns:
+        minmax(0, 1fr) 360px;
 
-    gap: 28px;
+    column-gap: 28px;
+
+    row-gap: 20px;
 
     align-items: start;
 }
 
 
-.configurador-superior {
-    display: flex;
+/* =========================================================
+   20. CONFIGURADOR SUPERIOR
+========================================================= */
 
+.configurador-superior {
+    grid-column: 1;
+    grid-row: 1;
+
+    display: flex;
     flex-direction: column;
 
     gap: 18px;
@@ -591,141 +763,163 @@ img {
 
 
 /* =========================================================
-   CONFIGURAÇÕES
+   21. BLOCO DE CONFIGURAÇÃO
 ========================================================= */
 
 .configuracao-bloco {
     width: 100%;
 
-    padding: 26px;
+    padding: 22px;
 
     background: var(--fundo-card);
 
     border: 1px solid var(--borda);
 
-    border-radius: 16px;
+    border-radius: 14px;
+
+    transition: border-color var(--transicao);
 }
 
-
-.bloco-titulo {
-    display: flex;
-
-    align-items: center;
-
-    gap: 14px;
-
-    margin-bottom: 24px;
-}
-
-
-.numero-bloco {
-    width: 38px;
-    height: 38px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid rgba(217, 154, 50, 0.35);
-
-    border-radius: 10px;
-
-    background: rgba(217, 154, 50, 0.08);
-
-    color: var(--dourado);
-
-    font-size: 12px;
-
-    font-weight: 700;
-}
-
-
-.bloco-titulo h3 {
-    margin: 0 0 3px;
-
-    color: var(--branco);
-
-    font-size: 16px;
-
-    font-weight: 600;
-}
-
-
-.bloco-titulo span {
-    color: var(--cinza);
-
-    font-size: 12px;
+.configuracao-bloco:hover {
+    border-color:
+        rgba(217, 154, 50, 0.18);
 }
 
 
 /* =========================================================
-   SELEÇÃO DA PIZZA
+   22. TÍTULO DO BLOCO
+========================================================= */
+
+.bloco-titulo {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    margin-bottom: 20px;
+}
+
+.numero-bloco {
+    width: 35px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--borda-dourada);
+
+    border-radius: 9px;
+
+    background: var(--dourado-suave);
+
+    color: var(--dourado-claro);
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.bloco-titulo h3 {
+    color: var(--creme);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    line-height: 1.3;
+}
+
+.bloco-titulo span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--cinza);
+
+    font-size: 9px;
+    font-weight: 300;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   23. CAMPO PIZZA
 ========================================================= */
 
 .campo-pizza {
     display: flex;
-
     flex-direction: column;
 
-    gap: 9px;
+    gap: 8px;
 }
-
 
 .campo-pizza label {
     color: var(--cinza-claro);
 
-    font-size: 13px;
-
+    font-size: 10px;
     font-weight: 500;
 }
 
-
 .campo-pizza select {
     width: 100%;
-    height: 52px;
+    height: 46px;
 
-    padding: 0 16px;
+    padding: 0 14px;
 
-    outline: none;
+    appearance: none;
+
+    background:
+        linear-gradient(45deg,
+            transparent 50%,
+            var(--dourado) 50%) calc(100% - 18px) 20px / 6px 6px no-repeat,
+
+        linear-gradient(135deg,
+            var(--dourado) 50%,
+            transparent 50%) calc(100% - 13px) 20px / 6px 6px no-repeat,
+
+        var(--fundo-secundario);
 
     border: 1px solid var(--borda);
 
-    border-radius: 10px;
+    border-radius: 9px;
 
-    background: var(--fundo-secundario);
+    color: var(--creme);
 
-    color: var(--branco);
-
-    font-family: inherit;
-
-    font-size: 14px;
+    font-size: 11px;
 
     cursor: pointer;
 
     transition: var(--transicao);
 }
 
-
 .campo-pizza select:focus {
-    border-color: var(--dourado);
+    border-color: var(--borda-dourada);
+
+    box-shadow:
+        0 0 0 3px rgba(217, 154, 50, 0.05);
+}
+
+.campo-pizza option {
+    background: var(--fundo-secundario);
+
+    color: var(--creme);
 }
 
 
 /* =========================================================
-   TAMANHO
+   24. OPÇÕES DE TAMANHO
 ========================================================= */
 
 .opcoes-tamanho {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
 
-    gap: 12px;
+    gap: 10px;
 }
-
 
 .opcao-tamanho {
     position: relative;
@@ -733,942 +927,447 @@ img {
     cursor: pointer;
 }
 
-
 .opcao-tamanho input {
     position: absolute;
 
     opacity: 0;
-}
 
+    pointer-events: none;
+}
 
 .opcao-conteudo {
-    min-height: 115px;
-
-    padding: 18px;
+    min-height: 105px;
 
     display: flex;
-
     flex-direction: column;
 
+    align-items: center;
     justify-content: center;
 
-    align-items: center;
+    gap: 4px;
+
+    padding: 12px;
 
     text-align: center;
-
-    background: var(--fundo-secundario);
-
-    border: 1px solid var(--borda);
-
-    border-radius: 12px;
-
-    transition: var(--transicao);
-}
-
-
-.opcao-conteudo strong {
-    margin-bottom: 5px;
-
-    color: var(--branco);
-
-    font-size: 15px;
-}
-
-
-.opcao-conteudo small {
-    margin-bottom: 10px;
-
-    color: var(--cinza);
-
-    font-size: 12px;
-}
-
-
-.opcao-conteudo b {
-    color: var(--dourado);
-
-    font-size: 12px;
-}
-
-
-.opcao-tamanho input:checked+.opcao-conteudo {
-    border-color: var(--dourado);
-
-    background: rgba(217, 154, 50, 0.08);
-
-    box-shadow:
-        0 0 0 1px rgba(217, 154, 50, 0.15);
-}
-
-
-.opcao-tamanho:hover .opcao-conteudo {
-    border-color: rgba(217, 154, 50, 0.5);
-}
-
-
-/* =========================================================
-   MASSA
-========================================================= */
-
-.opcoes-massa {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 10px;
-}
-
-
-.opcao-massa {
-    position: relative;
-
-    min-height: 65px;
-
-    padding: 14px 16px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    cursor: pointer;
-
-    background: var(--fundo-secundario);
 
     border: 1px solid var(--borda);
 
     border-radius: 11px;
 
+    background: var(--fundo-secundario);
+
     transition: var(--transicao);
 }
 
+.opcao-conteudo strong {
+    color: var(--creme);
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.opcao-conteudo small {
+    color: var(--cinza);
+
+    font-size: 8px;
+}
+
+.opcao-conteudo b {
+    margin-top: 4px;
+
+    color: var(--dourado);
+
+    font-size: 8px;
+    font-weight: 500;
+}
+
+.opcao-tamanho:hover .opcao-conteudo {
+    border-color: var(--borda-dourada);
+}
+
+.opcao-tamanho input:checked+.opcao-conteudo {
+    border-color: var(--dourado);
+
+    background:
+        rgba(217, 154, 50, 0.09);
+
+    box-shadow:
+        0 8px 20px rgba(217, 154, 50, 0.06);
+}
+
+.opcao-tamanho input:checked+.opcao-conteudo strong {
+    color: var(--dourado-claro);
+}
+
+
+/* =========================================================
+   25. OPÇÕES DE MASSA
+========================================================= */
+
+.opcoes-massa {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.opcao-massa {
+    position: relative;
+
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 10px 13px;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 10px;
+
+    background: var(--fundo-secundario);
+
+    cursor: pointer;
+
+    transition: var(--transicao);
+}
 
 .opcao-massa input {
     position: absolute;
 
     opacity: 0;
-}
 
+    pointer-events: none;
+}
 
 .opcao-massa>span {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 3px;
+    flex: 1;
 }
-
 
 .opcao-massa strong {
-    color: var(--branco);
+    display: block;
 
-    font-size: 13px;
+    color: var(--creme);
+
+    font-size: 10px;
+    font-weight: 600;
 }
-
 
 .opcao-massa small {
+    display: block;
+
+    margin-top: 2px;
+
     color: var(--cinza);
 
-    font-size: 11px;
+    font-size: 8px;
 }
-
 
 .opcao-massa>b {
     color: var(--dourado);
 
-    font-size: 12px;
+    font-size: 8px;
+    font-weight: 500;
 }
 
+.opcao-massa:hover {
+    border-color: var(--borda-dourada);
+}
+
+.opcao-massa input:checked+span {
+    color: var(--dourado-claro);
+}
 
 .opcao-massa:has(input:checked) {
     border-color: var(--dourado);
 
-    background: rgba(217, 154, 50, 0.07);
+    background:
+        rgba(217, 154, 50, 0.07);
 }
 
 
 /* =========================================================
-   RESUMO
+   26. RESUMO DA PIZZA
 ========================================================= */
 
 .resumo-pizza {
+    grid-column: 2;
+    grid-row: 1;
+
     position: sticky;
 
-    top: 95px;
+    top: 25px;
 
     overflow: hidden;
 
-    background: var(--fundo-card);
+    padding: 23px;
 
-    border: 1px solid var(--borda);
+    background:
+        radial-gradient(circle at top right,
+            rgba(217, 154, 50, 0.06),
+            transparent 40%),
+        var(--fundo-card);
 
-    border-radius: 17px;
+    border: 1px solid var(--borda-dourada);
+
+    border-radius: 16px;
 
     box-shadow: var(--sombra);
 }
 
 
+/* =========================================================
+   27. TOPO DO RESUMO
+========================================================= */
+
 .resumo-topo {
-    padding: 24px 24px 15px;
+    margin-bottom: 18px;
 }
 
-
 .resumo-etiqueta {
+    display: block;
+
+    margin-bottom: 5px;
+
     color: var(--dourado);
 
-    font-size: 10px;
-
-    font-weight: 700;
+    font-size: 8px;
+    font-weight: 600;
 
     letter-spacing: 1.7px;
 }
 
-
 .resumo-topo h3 {
-    margin: 5px 0 0;
+    color: var(--creme);
 
-    color: var(--branco);
-
-    font-size: 20px;
-
+    font-size: 19px;
     font-weight: 600;
 }
 
 
+/* =========================================================
+   28. IMAGEM DO RESUMO
+========================================================= */
+
 .resumo-imagem {
-    padding: 0 24px;
-}
-
-
-.imagem-pizza-resumo {
-    height: 170px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
+    width: 100%;
+    height: 145px;
 
     overflow: hidden;
 
-    border-radius: 13px;
+    margin-bottom: 17px;
+
+    border-radius: 11px;
 
     background:
-        radial-gradient(circle at center,
-            rgba(217, 154, 50, 0.18),
+        radial-gradient(circle,
+            rgba(217, 154, 50, 0.10),
             transparent 65%),
         var(--fundo-secundario);
+}
 
-    color: var(--dourado);
+.imagem-pizza-resumo {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(217, 154, 50, 0.30);
+
+    font-size: 50px;
 }
 
 
-.imagem-pizza-resumo i {
-    font-size: 70px;
-}
-
+/* =========================================================
+   29. PRODUTO DO RESUMO
+========================================================= */
 
 .resumo-produto {
-    padding: 18px 24px 15px;
-}
-
-
-.resumo-produto h4 {
-    margin: 0 0 6px;
-
-    color: var(--branco);
-
-    font-size: 17px;
-
-    font-weight: 600;
-}
-
-
-.resumo-produto p {
-    margin: 0;
-
-    color: var(--cinza);
-
-    font-size: 11px;
-
-    line-height: 1.5;
-}
-
-
-.resumo-detalhes {
-    margin: 0 24px;
-
-    padding: 15px 0;
-
-    border-top: 1px solid var(--borda);
+    padding-bottom: 17px;
 
     border-bottom: 1px solid var(--borda);
 }
 
+.resumo-produto h4 {
+    margin-bottom: 5px;
+
+    color: var(--creme);
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.resumo-produto p {
+    color: var(--cinza);
+
+    font-size: 9px;
+    font-weight: 300;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   30. DETALHES DO RESUMO
+========================================================= */
+
+.resumo-detalhes {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid var(--borda);
+}
 
 .resumo-linha {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
-    margin-bottom: 10px;
+    gap: 15px;
 }
-
-
-.resumo-linha:last-child {
-    margin-bottom: 0;
-}
-
 
 .resumo-linha span {
     display: flex;
-
     align-items: center;
 
-    gap: 8px;
+    gap: 7px;
 
     color: var(--cinza);
 
-    font-size: 11px;
+    font-size: 9px;
 }
-
 
 .resumo-linha span i {
-    color: var(--dourado);
-}
+    width: 13px;
 
+    color: var(--dourado);
+
+    text-align: center;
+}
 
 .resumo-linha strong {
     color: var(--cinza-claro);
 
-    font-size: 11px;
+    font-size: 9px;
+    font-weight: 500;
 }
 
 
 /* =========================================================
-   INGREDIENTES - LARGURA TOTAL
+   31. INGREDIENTES E EXTRAS DO RESUMO
 ========================================================= */
 
-.configurador-largura-total {
-    width: 100%;
+.resumo-ingredientes,
+.resumo-extras {
+    padding: 15px 0;
 
-    margin-top: 28px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 18px;
+    border-bottom: 1px solid var(--borda);
 }
-
-
-.ingredientes-grid {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 12px;
-}
-
-
-.opcao-ingrediente {
-    position: relative;
-
-    min-height: 72px;
-
-    padding: 13px 15px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    cursor: pointer;
-
-    background: var(--fundo-secundario);
-
-    border: 1px solid var(--borda);
-
-    border-radius: 11px;
-
-    transition: var(--transicao);
-}
-
-
-.opcao-ingrediente input {
-    position: absolute;
-
-    opacity: 0;
-}
-
-
-.checkbox-personalizado {
-    width: 21px;
-    height: 21px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border: 1px solid #554b42;
-
-    border-radius: 5px;
-
-    color: transparent;
-
-    transition: var(--transicao);
-}
-
-
-.checkbox-personalizado i {
-    font-size: 10px;
-}
-
-
-.ingrediente-info {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 3px;
-}
-
-
-.ingrediente-info strong {
-    color: var(--branco);
-
-    font-size: 13px;
-}
-
-
-.ingrediente-info small {
-    color: var(--cinza);
-
-    font-size: 11px;
-}
-
-
-.opcao-ingrediente:has(input:checked) {
-    border-color: var(--dourado);
-
-    background: rgba(217, 154, 50, 0.07);
-}
-
-
-.opcao-ingrediente:has(input:checked) .checkbox-personalizado {
-    border-color: var(--dourado);
-
-    background: var(--dourado);
-
-    color: #17100a;
-}
-
-
-.opcao-ingrediente:hover {
-    border-color: rgba(217, 154, 50, 0.5);
-}
-
-
-/* =========================================================
-   EXTRAS - LARGURA TOTAL
-========================================================= */
-
-.extras-grid {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 12px;
-}
-
-
-.opcao-extra {
-    min-height: 75px;
-
-    padding: 14px 16px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 13px;
-
-    cursor: pointer;
-
-    background: var(--fundo-secundario);
-
-    border: 1px solid var(--borda);
-
-    border-radius: 11px;
-
-    transition: var(--transicao);
-}
-
-
-.opcao-extra input {
-    position: absolute;
-
-    opacity: 0;
-}
-
-
-.extra-check {
-    width: 21px;
-    height: 21px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border: 1px solid #554b42;
-
-    border-radius: 5px;
-
-    color: transparent;
-}
-
-
-.extra-check i {
-    font-size: 10px;
-}
-
-
-.extra-info {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 3px;
-
-    flex: 1;
-}
-
-
-.extra-info strong {
-    color: var(--branco);
-
-    font-size: 13px;
-}
-
-
-.extra-info small {
-    color: var(--cinza);
-
-    font-size: 11px;
-}
-
-
-.opcao-extra>b {
-    color: var(--dourado);
-
-    font-size: 12px;
-}
-
-
-.opcao-extra:has(input:checked) {
-    border-color: var(--dourado);
-
-    background: rgba(217, 154, 50, 0.07);
-}
-
-
-.opcao-extra:has(input:checked) .extra-check {
-    border-color: var(--dourado);
-
-    background: var(--dourado);
-
-    color: #17100a;
-}
-
-
-.opcao-extra:hover {
-    border-color: rgba(217, 154, 50, 0.5);
-}
-
-
-/* =========================================================
-   DATA E HORÁRIO
-========================================================= */
-
-.data-horario-grid {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 18px;
-}
-
-
-.campo-formulario {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 8px;
-}
-
-
-.campo-formulario label {
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    color: var(--cinza-claro);
-
-    font-size: 12px;
-}
-
-
-.campo-formulario label i {
-    color: var(--dourado);
-}
-
-
-.campo-formulario input {
-    width: 100%;
-    height: 50px;
-
-    padding: 0 14px;
-
-    outline: none;
-
-    border: 1px solid var(--borda);
-
-    border-radius: 9px;
-
-    background: var(--fundo-secundario);
-
-    color: var(--branco);
-
-    font-family: inherit;
-
-    font-size: 13px;
-}
-
-
-.campo-formulario input:focus {
-    border-color: var(--dourado);
-}
-
-
-/* =========================================================
-   RECEBIMENTO
-========================================================= */
-
-.recebimento-opcoes {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 14px;
-}
-
-
-.opcao-recebimento {
-    position: relative;
-
-    min-height: 80px;
-
-    padding: 17px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 13px;
-
-    cursor: pointer;
-
-    background: var(--fundo-secundario);
-
-    border: 1px solid var(--borda);
-
-    border-radius: 11px;
-
-    transition: var(--transicao);
-}
-
-
-.opcao-recebimento input {
-    position: absolute;
-
-    opacity: 0;
-}
-
-
-.recebimento-icone {
-    width: 42px;
-    height: 42px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 9px;
-
-    background: rgba(217, 154, 50, 0.08);
-
-    color: var(--dourado);
-
-    font-size: 15px;
-}
-
-
-.recebimento-info {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 3px;
-}
-
-
-.recebimento-info strong {
-    color: var(--branco);
-
-    font-size: 13px;
-}
-
-
-.recebimento-info small {
-    color: var(--cinza);
-
-    font-size: 10px;
-}
-
-
-.opcao-recebimento:has(input:checked) {
-    border-color: var(--dourado);
-
-    background: rgba(217, 154, 50, 0.07);
-}
-
-
-.opcao-recebimento:hover {
-    border-color: rgba(217, 154, 50, 0.5);
-}
-
-
-/* =========================================================
-   QUANTIDADE
-========================================================= */
-
-.quantidade-bloco {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-}
-
-
-.quantidade-bloco .bloco-titulo {
-    margin-bottom: 0;
-}
-
-
-.controle-quantidade {
-    display: flex;
-
-    align-items: center;
-
-    gap: 14px;
-}
-
-
-.controle-quantidade button {
-    width: 40px;
-    height: 40px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border: 1px solid var(--borda);
-
-    border-radius: 9px;
-
-    background: var(--fundo-secundario);
-
-    color: var(--branco);
-
-    cursor: pointer;
-
-    transition: var(--transicao);
-}
-
-
-.controle-quantidade button:hover {
-    border-color: var(--dourado);
-
-    color: var(--dourado);
-}
-
-
-.controle-quantidade span {
-    min-width: 30px;
-
-    text-align: center;
-
-    color: var(--branco);
-
-    font-size: 16px;
-
-    font-weight: 600;
-}
-
-
-/* =========================================================
-   RESUMO - INGREDIENTES E EXTRAS
-========================================================= */
-
-.resumo-ingredientes {
-    padding: 16px 24px 10px;
-}
-
 
 .titulo-resumo {
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
-    margin-bottom: 10px;
-
-    color: var(--cinza-claro);
-
-    font-size: 11px;
-
-    font-weight: 600;
+    margin-bottom: 9px;
 }
 
+.titulo-resumo span {
+    color: var(--creme);
+
+    font-size: 9px;
+    font-weight: 500;
+}
 
 .titulo-resumo i {
-    color: var(--dourado);
-}
-
-
-.resumo-ingredientes ul {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 6px;
-
-    margin: 0;
-
-    padding: 0;
-
-    list-style: none;
-}
-
-
-.resumo-ingredientes li {
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    color: var(--cinza);
-
-    font-size: 11px;
-}
-
-
-.resumo-ingredientes li i {
     color: var(--dourado);
 
     font-size: 9px;
 }
 
+.resumo-ingredientes ul {
+    list-style: none;
 
-.resumo-extras {
-    padding: 8px 24px 15px;
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 5px;
 }
 
+.resumo-ingredientes li {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 5px 7px;
+
+    border-radius: 6px;
+
+    background: rgba(217, 154, 50, 0.06);
+
+    color: var(--cinza-claro);
+
+    font-size: 8px;
+}
+
+.resumo-ingredientes li i {
+    color: var(--dourado);
+
+    font-size: 7px;
+}
 
 .resumo-extras p {
-    margin: 0;
-
     color: var(--cinza);
 
-    font-size: 11px;
+    font-size: 8px;
+
+    line-height: 1.5;
 }
 
-
 /* =========================================================
-   RESUMO - QUANTIDADE
+   32. QUANTIDADE DO RESUMO
 ========================================================= */
 
 .resumo-quantidade {
-    margin: 0 24px;
-
-    padding: 14px 0;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
-    border-top: 1px solid var(--borda);
-}
+    gap: 15px;
 
+    padding: 15px 0;
+
+    border-bottom: 1px solid var(--borda);
+}
 
 .resumo-quantidade>span {
     color: var(--cinza);
 
-    font-size: 11px;
+    font-size: 9px;
 }
-
 
 .quantidade-resumo {
     display: flex;
-
     align-items: center;
 
-    gap: 10px;
+    gap: 9px;
 }
-
 
 .quantidade-resumo button {
     width: 27px;
     height: 27px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     border: 1px solid var(--borda);
@@ -1679,217 +1378,1240 @@ img {
 
     color: var(--cinza-claro);
 
-    cursor: pointer;
-}
-
-
-.quantidade-resumo button i {
     font-size: 9px;
+
+    transition: var(--transicao);
 }
 
+.quantidade-resumo button:hover {
+    border-color: var(--borda-dourada);
+
+    color: var(--dourado-claro);
+}
 
 .quantidade-resumo strong {
-    color: var(--branco);
+    min-width: 18px;
 
-    font-size: 12px;
+    color: var(--creme);
+
+    font-size: 11px;
+
+    text-align: center;
 }
 
 
 /* =========================================================
-   RESUMO - TOTAL
+   33. TOTAL DO RESUMO
 ========================================================= */
 
 .resumo-total {
-    margin: 0 24px;
-
-    padding: 16px 0;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
-    border-top: 1px solid var(--borda);
-}
+    gap: 15px;
 
+    padding: 18px 0;
+}
 
 .resumo-total span {
-    color: var(--cinza);
+    color: var(--creme);
 
     font-size: 12px;
+    font-weight: 500;
 }
-
 
 .resumo-total strong {
     color: var(--dourado-claro);
 
-    font-size: 23px;
-
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 600;
 }
 
 
 /* =========================================================
-   BOTÃO DO CARRINHO
+   34. BOTÃO ADICIONAR PIZZA
 ========================================================= */
 
 .botao-adicionar-pizza {
-    width: calc(100% - 48px);
-
-    min-height: 52px;
-
-    margin: 0 24px;
+    width: 100%;
+    min-height: 48px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     gap: 9px;
 
     border: none;
-
     border-radius: 10px;
 
     background: var(--dourado);
 
-    color: #17100a;
+    color: var(--fundo);
 
-    font-family: inherit;
+    font-size: 10px;
+    font-weight: 600;
 
+    transition: var(--transicao);
+}
+
+.botao-adicionar-pizza:hover {
+    background: var(--dourado-claro);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(217, 154, 50, 0.15);
+}
+
+.botao-adicionar-pizza:active {
+    transform: translateY(0);
+}
+
+.botao-adicionar-pizza i {
     font-size: 13px;
+}
 
-    font-weight: 700;
+
+/* =========================================================
+   35. NOTA DO RESUMO
+========================================================= */
+
+.nota-resumo {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 7px;
+
+    margin-top: 12px;
+}
+
+.nota-resumo i {
+    flex-shrink: 0;
+
+    margin-top: 2px;
+
+    color: var(--dourado);
+
+    font-size: 9px;
+}
+
+.nota-resumo span {
+    color: var(--cinza-escuro);
+
+    font-size: 8px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   36. CONFIGURAÇÕES DE LARGURA TOTAL
+========================================================= */
+
+.configurador-largura-total {
+    grid-column: 1 / -1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin-top: 18px;
+}
+
+
+/* =========================================================
+   37. GRID DE INGREDIENTES
+========================================================= */
+
+.ingredientes-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   38. OPÇÃO DE INGREDIENTE
+========================================================= */
+
+.opcao-ingrediente {
+    position: relative;
+
+    min-height: 67px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 11px;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 10px;
+
+    background: var(--fundo-secundario);
 
     cursor: pointer;
 
     transition: var(--transicao);
 }
 
+.opcao-ingrediente input {
+    position: absolute;
 
-.botao-adicionar-pizza:hover {
-    background: var(--dourado-claro);
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.opcao-ingrediente:hover {
+    border-color: var(--borda-dourada);
+}
+
+.opcao-ingrediente:has(input:checked) {
+    border-color: var(--dourado);
+
+    background:
+        rgba(217, 154, 50, 0.07);
+}
+
+
+/* =========================================================
+   39. CHECKBOX PERSONALIZADO
+========================================================= */
+
+.checkbox-personalizado {
+    width: 23px;
+    height: 23px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 6px;
+
+    background: var(--fundo-card);
+
+    color: transparent;
+
+    font-size: 8px;
+
+    transition: var(--transicao);
+}
+
+.opcao-ingrediente input:checked+.checkbox-personalizado {
+    border-color: var(--dourado);
+
+    background: var(--dourado);
+
+    color: var(--fundo);
+}
+
+.opcao-ingrediente input:disabled+.checkbox-personalizado {
+    border-color: var(--dourado);
+
+    background: var(--dourado);
+
+    color: var(--fundo);
+}
+
+
+/* =========================================================
+   40. INFORMAÇÕES DO INGREDIENTE
+========================================================= */
+
+.ingrediente-info {
+    min-width: 0;
+}
+
+.ingrediente-info strong {
+    display: block;
+
+    color: var(--creme);
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.ingrediente-info small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--cinza);
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   41. INGREDIENTE INCLUÍDO
+========================================================= */
+
+.opcao-ingrediente.incluido {
+    border-color:
+        rgba(217, 154, 50, 0.20);
+
+    background:
+        rgba(217, 154, 50, 0.04);
+}
+
+
+/* =========================================================
+   42. GRID DE EXTRAS
+========================================================= */
+
+.extras-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   43. OPÇÃO DE EXTRA
+========================================================= */
+
+.opcao-extra {
+    position: relative;
+
+    min-height: 85px;
+
+    display: grid;
+
+    grid-template-columns:
+        auto 1fr auto;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 13px;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 11px;
+
+    background: var(--fundo-secundario);
+
+    cursor: pointer;
+
+    transition: var(--transicao);
+}
+
+.opcao-extra input {
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.opcao-extra:hover {
+    border-color: var(--borda-dourada);
+}
+
+.opcao-extra:has(input:checked) {
+    border-color: var(--dourado);
+
+    background:
+        rgba(217, 154, 50, 0.07);
+}
+
+
+/* =========================================================
+   44. CHECKBOX DOS EXTRAS
+========================================================= */
+
+.extra-check {
+    width: 23px;
+    height: 23px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 6px;
+
+    background: var(--fundo-card);
+
+    color: transparent;
+
+    font-size: 8px;
+
+    transition: var(--transicao);
+}
+
+.opcao-extra input:checked+.extra-check {
+    border-color: var(--dourado);
+
+    background: var(--dourado);
+
+    color: var(--fundo);
+}
+
+
+/* =========================================================
+   45. INFORMAÇÕES DOS EXTRAS
+========================================================= */
+
+.extra-info {
+    min-width: 0;
+}
+
+.extra-info strong {
+    display: block;
+
+    color: var(--creme);
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.extra-info small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--cinza);
+
+    font-size: 8px;
+
+    line-height: 1.4;
+}
+
+.opcao-extra>b {
+    color: var(--dourado);
+
+    font-size: 8px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   46. DATA E HORÁRIO
+========================================================= */
+
+.data-horario-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.campo-formulario label {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    color: var(--cinza-claro);
+
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.campo-formulario label i {
+    color: var(--dourado);
+
+    font-size: 10px;
+}
+
+.campo-formulario input {
+    width: 100%;
+    height: 45px;
+
+    padding: 0 12px;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 9px;
+
+    background: var(--fundo-secundario);
+
+    color: var(--creme);
+
+    font-size: 10px;
+
+    color-scheme: dark;
+
+    transition: var(--transicao);
+}
+
+.campo-formulario input:focus {
+    border-color: var(--borda-dourada);
+
+    box-shadow:
+        0 0 0 3px rgba(217, 154, 50, 0.05);
+}
+
+
+/* =========================================================
+   47. RECEBIMENTO
+========================================================= */
+
+.recebimento-opcoes {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+.opcao-recebimento {
+    position: relative;
+
+    min-height: 85px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 11px;
+
+    background: var(--fundo-secundario);
+
+    cursor: pointer;
+
+    transition: var(--transicao);
+}
+
+.opcao-recebimento input {
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.opcao-recebimento:hover {
+    border-color: var(--borda-dourada);
+}
+
+.opcao-recebimento:has(input:checked) {
+    border-color: var(--dourado);
+
+    background:
+        rgba(217, 154, 50, 0.07);
+}
+
+
+/* =========================================================
+   48. ÍCONE DO RECEBIMENTO
+========================================================= */
+
+.recebimento-icone {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: rgba(217, 154, 50, 0.08);
+
+    color: var(--dourado-claro);
+
+    font-size: 14px;
+}
+
+.opcao-recebimento:has(input:checked) .recebimento-icone {
+    background: var(--dourado);
+
+    color: var(--fundo);
+}
+
+
+/* =========================================================
+   49. INFORMAÇÕES DO RECEBIMENTO
+========================================================= */
+
+.recebimento-info strong {
+    display: block;
+
+    color: var(--creme);
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.recebimento-info small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--cinza);
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   50. BLOCO DE QUANTIDADE
+========================================================= */
+
+.quantidade-bloco {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.quantidade-bloco .bloco-titulo {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   51. CONTROLE DE QUANTIDADE
+========================================================= */
+
+.controle-quantidade {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.controle-quantidade button {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 9px;
+
+    background: var(--fundo-secundario);
+
+    color: var(--cinza-claro);
+
+    font-size: 10px;
+
+    transition: var(--transicao);
+}
+
+.controle-quantidade button:hover {
+    border-color: var(--borda-dourada);
+
+    background: var(--dourado-suave);
+
+    color: var(--dourado-claro);
+}
+
+.controle-quantidade span {
+    min-width: 30px;
+
+    color: var(--creme);
+
+    font-size: 15px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   52. INFORMAÇÕES FINAIS
+========================================================= */
+
+.informacoes-pizza {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 15px;
+
+    margin-bottom: 90px;
+}
+
+.info-box {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 13px;
+
+    padding: 20px;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 13px;
+
+    transition: var(--transicao);
+}
+
+.info-box:hover {
+    border-color: var(--borda-dourada);
+
+    transform: translateY(-3px);
+}
+
+.info-box-icone {
+    width: 39px;
+    height: 39px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: var(--dourado-suave);
+
+    color: var(--dourado-claro);
+
+    font-size: 14px;
+}
+
+.info-box h3 {
+    margin-bottom: 5px;
+
+    color: var(--creme);
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.info-box p {
+    color: var(--cinza);
+
+    font-size: 9px;
+    font-weight: 300;
+
+    line-height: 1.65;
+}
+
+/* =========================================================
+   53. RODAPÉ
+========================================================= */
+
+.rodape {
+    width: 100%;
+
+    margin-top: 20px;
+
+    background: var(--fundo-secundario);
+
+    border-top: 1px solid var(--borda);
+}
+
+.rodape-principal {
+    width: min(1250px, 90%);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr 1.3fr;
+
+    gap: 50px;
+
+    padding: 65px 0 55px;
+}
+
+
+/* =========================================================
+   54. MARCA DO RODAPÉ
+========================================================= */
+
+.rodape-marca {
+    min-width: 0;
+}
+
+.rodape-marca .logo {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 17px;
+}
+
+.logo-icone {
+    width: 39px;
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(217, 154, 50, 0.10);
+
+    border: 1px solid rgba(217, 154, 50, 0.22);
+
+    color: var(--dourado-claro);
+
+    font-size: 17px;
+}
+
+.logo-texto {
+    color: var(--creme);
+
+    font-size: 15px;
+    font-weight: 600;
+
+    letter-spacing: 0.8px;
+}
+
+.logo-texto strong {
+    color: var(--dourado-claro);
+
+    font-weight: 600;
+}
+
+.rodape-marca>p {
+    max-width: 300px;
+
+    color: var(--cinza);
+
+    font-size: 11px;
+    font-weight: 300;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   55. COLUNAS
+========================================================= */
+
+.rodape-coluna {
+    min-width: 0;
+}
+
+.rodape-coluna h3 {
+    margin-bottom: 18px;
+
+    color: var(--creme);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.rodape-coluna a {
+    display: block;
+
+    width: fit-content;
+
+    margin-bottom: 10px;
+
+    color: var(--cinza);
+
+    font-size: 11px;
+    font-weight: 300;
+
+    transition: var(--transicao);
+}
+
+.rodape-coluna a:hover {
+    color: var(--dourado-claro);
+
+    transform: translateX(3px);
+}
+
+.rodape-coluna p {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 9px;
+
+    margin-bottom: 12px;
+
+    color: var(--cinza);
+
+    font-size: 10px;
+    font-weight: 300;
+
+    line-height: 1.5;
+}
+
+.rodape-coluna p i {
+    width: 15px;
+
+    flex-shrink: 0;
+
+    margin-top: 2px;
+
+    color: var(--dourado);
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   56. RODAPÉ FINAL
+========================================================= */
+
+.rodape-final {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px 5%;
+
+    border-top: 1px solid var(--borda);
+
+    background: var(--fundo);
+}
+
+.rodape-final>p {
+    color: #716b64;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   57. REDES SOCIAIS
+========================================================= */
+
+.redes-sociais {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.redes-sociais a {
+    width: 33px;
+    height: 33px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.015);
+
+    color: var(--cinza);
+
+    font-size: 12px;
+
+    transition: var(--transicao);
+}
+
+.redes-sociais a:hover {
+    border-color: var(--borda-dourada);
+
+    background: rgba(217, 154, 50, 0.08);
+
+    color: var(--dourado-claro);
 
     transform: translateY(-2px);
 }
 
 
-.botao-adicionar-pizza i {
-    font-size: 14px;
-}
-
-
 /* =========================================================
-   NOTA DO RESUMO
+   58. TABLET GRANDE
+   ATÉ 1100PX
 ========================================================= */
 
-.nota-resumo {
-    margin: 16px 24px 22px;
+@media (max-width: 1100px) {
 
-    padding: 11px;
-
-    display: flex;
-
-    gap: 9px;
-
-    border-radius: 8px;
-
-    background: rgba(255, 255, 255, 0.025);
-
-    color: var(--cinza);
-
-    font-size: 9px;
-
-    line-height: 1.5;
-}
-
-
-.nota-resumo i {
-    margin-top: 2px;
-
-    flex-shrink: 0;
-
-    color: var(--dourado);
-}
-
-
-/* =========================================================
-   RESPONSIVIDADE
-========================================================= */
-
-@media (max-width: 1050px) {
-
-    .personalizacao-superior {
-        grid-template-columns: minmax(0, 1fr) 320px;
+    .pagina-pizzas {
+        width: min(92%, 1000px);
     }
 
+    .grid-pizzas {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
 
     .ingredientes-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
     }
 
+    .extras-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .rodape-principal {
+        grid-template-columns:
+            1.4fr 1fr 1fr;
+
+        gap: 40px;
+    }
+
+    .rodape-marca {
+        grid-column: 1 / -1;
+    }
 }
 
 
-@media (max-width: 850px) {
+/* =========================================================
+   59. TABLET
+   ATÉ 900PX
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .pagina-pizzas {
+        width: min(92%, 760px);
+
+        padding-top: 75px;
+    }
+
+
+    /* Cabeçalho */
+
+    .cabecalho-pizzas {
+        padding: 35px 0 55px;
+    }
+
+    .cabecalho-pizzas h1 {
+        font-size: 48px;
+    }
+
+
+    /* Introdução */
+
+    .introducao-pizzas {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        margin-bottom: 65px;
+    }
+
+    .introducao-info {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    /* Título da seção */
+
+    .titulo-secao {
+        align-items: flex-start;
+    }
+
+
+    /* Personalização */
 
     .personalizacao-superior {
         grid-template-columns: 1fr;
     }
 
+    .configurador-superior {
+        grid-column: 1;
+        grid-row: auto;
+    }
 
     .resumo-pizza {
+        grid-column: 1;
+        grid-row: auto;
+
         position: relative;
 
         top: auto;
-
-        order: 2;
     }
-
-
-    .configurador-superior {
-        order: 1;
-    }
-
 
     .configurador-largura-total {
-        order: 3;
+        grid-column: 1;
     }
 
+
+    /* Ingredientes */
 
     .ingredientes-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
+
+    /* Informações */
+
+    .informacoes-pizza {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .info-box:last-child {
+        grid-column: 1 / -1;
+    }
+
+
+    /* Rodapé */
+
+    .rodape-principal {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 35px;
+    }
+
+    .rodape-marca {
+        grid-column: 1 / -1;
+    }
 }
 
 
-@media (max-width: 650px) {
+/* =========================================================
+   60. MOBILE
+   ATÉ 700PX
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .pagina-pizzas {
+        width: min(94%, 600px);
+
+        padding-top: 60px;
+    }
+
+
+    /* Cabeçalho */
+
+    .cabecalho-pizzas {
+        padding: 25px 0 45px;
+    }
+
+    .icone-pizza-titulo {
+        width: 55px;
+        height: 55px;
+
+        font-size: 22px;
+    }
+
+    .cabecalho-pizzas h1 {
+        font-size: 41px;
+    }
+
+    .cabecalho-pizzas>p {
+        font-size: 11px;
+    }
+
+
+    /* Introdução */
+
+    .introducao-pizzas {
+        padding: 28px 0;
+
+        margin-bottom: 55px;
+    }
+
+    .introducao-texto h2 {
+        font-size: 30px;
+    }
+
+    .introducao-info {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Título */
+
+    .titulo-secao {
+        flex-direction: column;
+
+        gap: 10px;
+
+        margin-bottom: 25px;
+    }
+
+    .titulo-secao h2 {
+        font-size: 25px;
+    }
+
+    .titulo-secao>p {
+        max-width: 100%;
+
+        text-align: left;
+    }
+
+
+    /* Cards */
+
+    .grid-pizzas {
+        grid-template-columns: 1fr;
+
+        gap: 17px;
+    }
+
+    .pizza-imagem {
+        height: 230px;
+    }
+
+
+    /* Personalização */
 
     .personalizacao {
-        margin-top: 55px;
+        margin-bottom: 70px;
     }
-
 
     .personalizacao-cabecalho h2 {
-        font-size: 26px;
+        font-size: 27px;
     }
 
 
-    .configuracao-bloco {
-        padding: 20px;
-    }
-
+    /* Tamanho */
 
     .opcoes-tamanho {
         grid-template-columns: 1fr;
     }
 
-
     .opcao-conteudo {
-        min-height: 75px;
+        min-height: 70px;
 
         flex-direction: row;
 
@@ -1898,833 +2620,466 @@ img {
         text-align: left;
     }
 
-
-    .opcao-conteudo strong,
-    .opcao-conteudo small {
-        margin: 0;
+    .opcao-conteudo b {
+        margin-top: 0;
     }
 
+
+    /* Ingredientes */
 
     .ingredientes-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
+
+    /* Extras */
 
     .extras-grid {
         grid-template-columns: 1fr;
     }
 
 
+    /* Data */
+
     .data-horario-grid {
         grid-template-columns: 1fr;
     }
 
 
+    /* Recebimento */
+
     .recebimento-opcoes {
         grid-template-columns: 1fr;
     }
 
 
+    /* Quantidade */
+
     .quantidade-bloco {
         align-items: flex-start;
 
-        gap: 20px;
-
         flex-direction: column;
+
+        gap: 20px;
     }
 
+
+    /* Informações */
+
+    .informacoes-pizza {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        margin-bottom: 65px;
+    }
+
+    .info-box:last-child {
+        grid-column: auto;
+    }
+
+
+    /* Rodapé */
+
+    .rodape-principal {
+        grid-template-columns: 1fr;
+
+        width: min(92%, 550px);
+
+        gap: 30px;
+
+        padding: 50px 0 40px;
+    }
+
+    .rodape-marca {
+        grid-column: auto;
+    }
+
+    .rodape-final {
+        flex-direction: column;
+
+        justify-content: center;
+
+        padding: 20px;
+
+        text-align: center;
+    }
 }
 
 
-@media (max-width: 450px) {
+/* =========================================================
+   61. MOBILE PEQUENO
+   ATÉ 600PX
+========================================================= */
 
-    .personalizacao-cabecalho h2 {
-        font-size: 23px;
+@media (max-width: 600px) {
+
+    .pagina-pizzas {
+        width: 94%;
     }
 
+
+    /* Cabeçalho */
+
+    .cabecalho-pizzas h1 {
+        font-size: 37px;
+    }
+
+    .cabecalho-pizzas>p {
+        max-width: 420px;
+
+        font-size: 10px;
+    }
+
+
+    /* Pizza */
+
+    .pizza-conteudo {
+        padding: 18px;
+    }
+
+    .pizza-conteudo h3 {
+        font-size: 17px;
+    }
+
+    .pizza-conteudo>p {
+        font-size: 9px;
+    }
+
+
+    /* Configuração */
 
     .configuracao-bloco {
-        padding: 17px;
+        padding: 18px;
     }
-
 
     .bloco-titulo {
         gap: 10px;
     }
 
-
     .numero-bloco {
-        width: 34px;
-        height: 34px;
+        width: 32px;
+        height: 32px;
     }
 
 
-    .bloco-titulo h3 {
-        font-size: 14px;
-    }
+    /* Ingredientes */
 
-
-    .resumo-topo,
-    .resumo-produto,
-    .resumo-ingredientes,
-    .resumo-extras {
-        padding-left: 18px;
-
-        padding-right: 18px;
-    }
-
-
-    .resumo-detalhes,
-    .resumo-quantidade,
-    .resumo-total {
-        margin-left: 18px;
-
-        margin-right: 18px;
-    }
-
-
-    .botao-adicionar-pizza {
-        width: calc(100% - 36px);
-
-        margin-left: 18px;
-
-        margin-right: 18px;
-    }
-
-
-    .nota-resumo {
-        margin-left: 18px;
-
-        margin-right: 18px;
-    }
-
-}
-
-
-/* =====================================================
-   RESUMO
-===================================================== */
-
-.resumo-pizza {
-    position: sticky;
-    top: 25px;
-
-    overflow: hidden;
-
-    background: var(--fundo-card);
-
-    border: 1px solid var(--borda);
-    border-radius: 13px;
-
-    box-shadow: var(--sombra);
-}
-
-.resumo-imagem {
-    height: 190px;
-
-    background:
-        radial-gradient(circle at center,
-            rgba(217, 154, 50, 0.15),
-            transparent 65%),
-        #120e0b;
-}
-
-.imagem-placeholder-grande {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: rgba(240, 184, 75, 0.55);
-
-    font-size: 62px;
-}
-
-.resumo-conteudo {
-    padding: 25px;
-}
-
-.resumo-label {
-    color: var(--dourado);
-
-    font-size: 9px;
-    font-weight: 600;
-
-    letter-spacing: 2px;
-}
-
-.resumo-conteudo h3 {
-    margin-top: 7px;
-    margin-bottom: 6px;
-
-    color: var(--branco);
-
-    font-size: 21px;
-    font-weight: 500;
-}
-
-.resumo-descricao {
-    margin-bottom: 22px;
-
-    color: var(--cinza);
-
-    font-size: 11px;
-    line-height: 1.7;
-}
-
-.resumo-linha {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 7px 0;
-}
-
-.resumo-linha span {
-    color: var(--cinza);
-
-    font-size: 10px;
-}
-
-.resumo-linha strong {
-    color: var(--creme);
-
-    font-size: 10px;
-    font-weight: 500;
-}
-
-.resumo-divisor {
-    height: 1px;
-
-    margin: 14px 0;
-
-    background: var(--borda);
-}
-
-.resumo-subtitulo {
-    margin-bottom: 10px;
-
-    color: var(--creme);
-
-    font-size: 11px;
-    font-weight: 500;
-}
-
-.resumo-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-
-    list-style: none;
-}
-
-.resumo-lista li {
-    color: var(--cinza);
-
-    font-size: 10px;
-}
-
-.resumo-lista i {
-    margin-right: 6px;
-
-    color: var(--dourado);
-
-    font-size: 8px;
-}
-
-.resumo-preco {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    margin: 20px 0;
-}
-
-.resumo-preco span {
-    color: var(--cinza);
-
-    font-size: 12px;
-}
-
-.resumo-preco strong {
-    color: var(--dourado-claro);
-
-    font-size: 25px;
-    font-weight: 600;
-}
-
-.botao-carrinho-pizza {
-    width: 100%;
-    min-height: 50px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-
-    border: 0;
-    border-radius: 8px;
-
-    background: var(--dourado);
-
-    color: #17110a;
-
-    font-size: 11px;
-    font-weight: 600;
-
-    transition: var(--transicao);
-}
-
-.botao-carrinho-pizza:hover {
-    background: var(--dourado-claro);
-
-    transform: translateY(-2px);
-}
-
-.nota-resumo {
-    margin-top: 13px;
-
-    color: #817970;
-
-    font-size: 9px;
-    line-height: 1.6;
-
-    text-align: center;
-}
-
-.nota-resumo i {
-    margin-right: 4px;
-
-    color: var(--dourado);
-}
-
-
-/* =====================================================
-   INFORMAÇÕES
-===================================================== */
-
-.informacoes-pizza {
-    width: min(1200px, calc(100% - 40px));
-
-    margin: 0 auto;
-
-    padding: 70px 0 100px;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 18px;
-
-    border-top: 1px solid var(--borda);
-}
-
-.info-box {
-    display: flex;
-    gap: 17px;
-
-    padding: 23px;
-
-    background: var(--fundo-card);
-
-    border: 1px solid var(--borda);
-    border-radius: 11px;
-}
-
-.info-box-icone {
-    width: 42px;
-    height: 42px;
-
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 8px;
-
-    background: rgba(217, 154, 50, 0.08);
-
-    color: var(--dourado);
-
-    font-size: 15px;
-}
-
-.info-box h3 {
-    margin-bottom: 5px;
-
-    color: var(--creme);
-
-    font-size: 12px;
-    font-weight: 500;
-}
-
-.info-box p {
-    color: var(--cinza);
-
-    font-size: 10px;
-    line-height: 1.7;
-}
-
-/* =========================================================
-   RODAPÉ
-   ========================================================= */
-
-.rodape {
-    background: #090807;
-}
-
-.rodape-principal {
-    padding: 65px 7% 50px;
-
-    display: grid;
-
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-
-    gap: 50px;
-
-    border-bottom: 1px solid var(--borda);
-}
-
-.rodape-marca .logo {
-    text-decoration: none;
-    margin-bottom: 15px;
-}
-
-.rodape-marca>p {
-    max-width: 280px;
-
-    color: #817a73;
-
-    font-size: 12px;
-
-    line-height: 1.7;
-}
-
-.rodape-coluna {
-    display: flex;
-    flex-direction: column;
-
-    gap: 10px;
-}
-
-.rodape-coluna h3 {
-    margin-bottom: 8px;
-
-    color: #fff;
-
-    font-size: 14px;
-}
-
-.logo-texto {
-    color: #fff;
-
-    font-size: 24px;
-    font-weight: 600;
-}
-
-.logo-texto strong {
-
-    color: var(--dourado);
-}
-
-.rodape-marca i {
-
-    margin-right: 6px;
-
-    color: var(--dourado);
-
-    font-size: 30px;
-}
-
-.rodape-coluna a,
-.rodape-coluna p {
-
-    text-decoration: none;
-    color: #817a73;
-
-    font-size: 11px;
-
-    transition: var(--transicao);
-}
-
-.rodape-coluna a:hover {
-    color: var(--dourado);
-}
-
-.rodape-coluna p {
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
-}
-
-.rodape-coluna p i {
-    color: var(--dourado);
-}
-
-
-/* RODAPÉ INFERIOR */
-
-.rodape-final {
-
-    padding: 20px 7%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 20px;
-}
-
-.rodape-final p {
-    color: #625d57;
-
-    font-size: 10px;
-}
-
-
-/* REDES SOCIAIS */
-
-.redes-sociais {
-    display: flex;
-    align-items: center;
-
-    gap: 12px;
-}
-
-.redes-sociais a {
-    width: 38px;
-    height: 38px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid rgba(225, 225, 225, 0.12);
-
-    border-radius: 50%;
-
-    color: #a9a29a;
-
-    font-size: 15px;
-
-    transition: 0.3s ease;
-
-    text-decoration: none;
-}
-
-.redes-sociais a:hover {
-    color: white;
-
-    background: #d99a32;
-
-    border-color: #d99a32;
-
-    transform: translateY(-3px);
-}
-
-
-/* =====================================================
-   RESPONSIVIDADE
-===================================================== */
-
-@media (max-width: 1050px) {
-
-    .grid-pizzas {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .personalizacao-layout {
+    .ingredientes-grid {
         grid-template-columns: 1fr;
     }
 
+
+    /* Resumo */
+
     .resumo-pizza {
-        position: relative;
-        top: auto;
+        padding: 18px;
     }
 
     .resumo-imagem {
-        height: 230px;
+        height: 130px;
     }
 
-    .informacoes-pizza {
-        grid-template-columns: 1fr;
-    }
-}
 
+    /* Informações */
 
-@media (max-width: 850px) {
-
-    .introducao-pizzas {
-        grid-template-columns: 1fr;
-
-        gap: 40px;
-    }
-
-    .titulo-secao {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .titulo-secao>p {
-        text-align: left;
+    .info-box {
+        padding: 17px;
     }
 }
 
 
-@media (max-width: 650px) {
-
-    .cabecalho-pizzas {
-        min-height: 350px;
-
-        padding: 70px 20px 55px;
-    }
-
-    .introducao-pizzas,
-    .secao-pizzas-disponiveis,
-    .personalizacao-pizza,
-    .informacoes-pizza {
-        width: min(100% - 30px, 1200px);
-    }
-
-    .introducao-pizzas {
-        padding: 60px 0;
-    }
-
-    .grid-pizzas {
-        grid-template-columns: 1fr;
-    }
-
-    .opcoes-tamanho {
-        grid-template-columns: 1fr;
-    }
-
-    .grid-ingredientes {
-        grid-template-columns: 1fr;
-    }
-
-    .campos-data {
-        grid-template-columns: 1fr;
-    }
-
-    .recebimento-opcoes {
-        grid-template-columns: 1fr;
-    }
-
-    .bloco-opcao {
-        padding: 20px;
-    }
-
-    .pizza-rodape {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .botao-personalizar {
-        width: 100%;
-    }
-}
-
+/* =========================================================
+   62. MOBILE MUITO PEQUENO
+   ATÉ 450PX
+========================================================= */
 
 @media (max-width: 450px) {
 
+    .pagina-pizzas {
+        width: 92%;
+
+        padding-top: 45px;
+    }
+
+
+    /* Cabeçalho */
+
+    .cabecalho-pizzas {
+        padding-bottom: 40px;
+    }
+
+    .icone-pizza-titulo {
+        width: 50px;
+        height: 50px;
+
+        margin-bottom: 16px;
+
+        font-size: 20px;
+    }
+
+    .etiqueta-pagina {
+        font-size: 8px;
+
+        letter-spacing: 2.3px;
+    }
+
     .cabecalho-pizzas h1 {
-        font-size: 42px;
+        font-size: 33px;
+
+        letter-spacing: -0.5px;
     }
 
-    .cabecalho-pizzas p {
-        font-size: 13px;
+    .cabecalho-pizzas>p {
+        font-size: 9px;
     }
 
-    .titulo-secao h2,
-    .titulo-personalizacao h2 {
-        font-size: 28px;
+
+    /* Introdução */
+
+    .introducao-texto h2 {
+        font-size: 27px;
     }
+
+    .introducao-texto p {
+        font-size: 10px;
+    }
+
+
+    /* Pizza */
 
     .pizza-imagem {
-        height: 210px;
+        height: 205px;
     }
 
-    .info-item {
-        align-items: flex-start;
+    .pizza-conteudo {
+        padding: 16px;
     }
 
-    .resumo-conteudo {
-        padding: 20px;
-    }
-}
-
-/* =========================================================
-   MEDIA QUERIES - RODAPÉ
-========================================================= */
-
-/* Tablets */
-@media (max-width: 900px) {
-
-    .rodape-conteudo {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 35px;
+    .pizza-conteudo h3 {
+        font-size: 16px;
     }
 
-    .rodape-coluna:first-child {
-        grid-column: 1 / -1;
+    .pizza-rodape {
+        align-items: center;
     }
 
-    .rodape-social {
-        margin-top: 5px;
-    }
-
-}
-
-
-/* Tablets menores */
-@media (max-width: 700px) {
-
-    .rodape {
-        padding-top: 50px;
-    }
-
-    .rodape-conteudo {
-        grid-template-columns: 1fr 1fr;
-        gap: 30px 25px;
-    }
-
-    .rodape-coluna:first-child {
-        grid-column: 1 / -1;
-    }
-
-    .rodape-logo {
-        margin-bottom: 12px;
-    }
-
-    .rodape-descricao {
-        max-width: 100%;
-    }
-
-    .rodape-titulo {
+    .pizza-preco strong {
         font-size: 14px;
     }
 
-    .rodape-links a {
+    .botao-personalizar {
+        min-height: 35px;
+
+        padding: 0 10px;
+
+        font-size: 8px;
+    }
+
+
+    /* Personalização */
+
+    .personalizacao-cabecalho h2 {
+        font-size: 24px;
+    }
+
+    .personalizacao-cabecalho p {
+        font-size: 9px;
+    }
+
+
+    /* Blocos */
+
+    .configuracao-bloco {
+        padding: 15px;
+    }
+
+    .bloco-titulo h3 {
         font-size: 12px;
     }
 
-    .rodape-atendimento-item {
-        font-size: 12px;
+    .bloco-titulo span {
+        font-size: 8px;
     }
 
-    .rodape-base {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 12px;
+
+    /* Resumo */
+
+    .resumo-pizza {
+        padding: 15px;
     }
 
-}
-
-
-/* Telemóveis */
-@media (max-width: 500px) {
-
-    .rodape {
-        padding: 45px 18px 20px;
+    .resumo-topo h3 {
+        font-size: 17px;
     }
 
-    .rodape-conteudo {
-        grid-template-columns: 1fr;
-        gap: 28px;
+    .resumo-imagem {
+        height: 115px;
     }
 
-    .rodape-coluna:first-child {
-        grid-column: auto;
+    .imagem-pizza-resumo {
+        font-size: 40px;
     }
 
-    .rodape-coluna {
-        width: 100%;
-    }
-
-    .rodape-logo {
-        font-size: 21px;
-    }
-
-    .rodape-descricao {
-        font-size: 12px;
-        line-height: 1.7;
-    }
-
-    .rodape-titulo {
-        margin-bottom: 13px;
-        font-size: 13px;
-    }
-
-    .rodape-links {
-        gap: 9px;
-    }
-
-    .rodape-links a {
-        font-size: 12px;
-    }
-
-    .rodape-atendimento {
-        gap: 10px;
-    }
-
-    .rodape-atendimento-item {
-        font-size: 11px;
-    }
-
-    .rodape-atendimento-item i {
-        width: 18px;
-        font-size: 12px;
-    }
-
-    .rodape-social {
-        gap: 9px;
-    }
-
-    .rodape-social a {
-        width: 34px;
-        height: 34px;
-        font-size: 12px;
-    }
-
-    .rodape-base {
-        padding-top: 20px;
-        margin-top: 30px;
-        gap: 8px;
-    }
-
-    .rodape-copy,
-    .rodape-creditos {
-        font-size: 10px;
-        line-height: 1.5;
-    }
-
-}
-
-
-/* Telemóveis muito pequenos */
-@media (max-width: 360px) {
-
-    .rodape {
-        padding-left: 14px;
-        padding-right: 14px;
-    }
-
-    .rodape-conteudo {
-        gap: 24px;
-    }
-
-    .rodape-logo {
+    .resumo-total strong {
         font-size: 19px;
     }
 
-    .rodape-social a {
-        width: 32px;
-        height: 32px;
+
+    /* Recebimento */
+
+    .opcao-recebimento {
+        min-height: 75px;
+
+        padding: 11px;
+    }
+
+
+    /* Rodapé */
+
+    .rodape-principal {
+        width: 92%;
+    }
+
+    .rodape-marca>p {
+        font-size: 10px;
+    }
+
+    .rodape-coluna h3 {
+        font-size: 12px;
+    }
+
+    .rodape-coluna a,
+    .rodape-coluna p {
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   63. MOBILE EXTRA PEQUENO
+   ATÉ 360PX
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .pagina-pizzas {
+        width: 91%;
+    }
+
+
+    /* Cabeçalho */
+
+    .cabecalho-pizzas h1 {
+        font-size: 29px;
+    }
+
+    .linha-decorativa {
+        width: 145px;
+    }
+
+
+    /* Cards */
+
+    .pizza-imagem {
+        height: 185px;
+    }
+
+    .pizza-conteudo h3 {
+        font-size: 15px;
+    }
+
+    .pizza-conteudo>p {
+        min-height: auto;
+
+        font-size: 8px;
+    }
+
+    .pizza-rodape {
+        gap: 8px;
+    }
+
+    .botao-personalizar {
+        padding: 0 8px;
+
+        font-size: 7px;
+    }
+
+
+    /* Blocos */
+
+    .configuracao-bloco {
+        padding: 13px;
+    }
+
+    .numero-bloco {
+        width: 29px;
+        height: 29px;
+
+        font-size: 9px;
+    }
+
+
+    /* Tamanho */
+
+    .opcao-conteudo {
+        min-height: 60px;
+
+        padding: 9px;
+    }
+
+
+    /* Ingredientes */
+
+    .opcao-ingrediente {
+        min-height: 60px;
+
+        padding: 9px;
+    }
+
+
+    /* Extras */
+
+    .opcao-extra {
+        min-height: 75px;
+
+        padding: 10px;
+    }
+
+
+    /* Informações */
+
+    .info-box {
+        padding: 14px;
+    }
+
+    .info-box h3 {
+        font-size: 10px;
+    }
+
+    .info-box p {
+        font-size: 8px;
+    }
+}
+
+
+/* =========================================================
+   64. ACESSIBILIDADE
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
     }
 
 }

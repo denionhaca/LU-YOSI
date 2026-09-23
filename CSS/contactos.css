@@ -1,0 +1,2076 @@
+/* =========================================================
+   LU&YOSHI CAFÉ
+   CONTACTOS.CSS
+   ========================================================= */
+
+/* =========================================================
+   01. VARIÁVEIS E RESET
+   ========================================================= */
+
+:root {
+    --fundo: #0d0b09;
+    --fundo-secundario: #15110e;
+    --fundo-card: #1b1612;
+
+    --dourado: #d99a32;
+    --dourado-claro: #f0b84b;
+
+    --marrom: #6f431d;
+
+    --creme: #f5ead8;
+    --branco: #ffffff;
+
+    --cinza: #a9a29a;
+    --cinza-claro: #d2cbc2;
+
+    --borda: rgba(255, 255, 255, 0.09);
+
+    --sombra: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+    --transicao: 0.3s ease;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: var(--fundo);
+    color: var(--creme);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+/* =========================================================
+   PÁGINA
+   ========================================================= */
+
+.pagina-contactos {
+    width: 100%;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 10% 5%,
+            rgba(217, 154, 50, 0.07),
+            transparent 28%),
+        radial-gradient(circle at 90% 35%,
+            rgba(111, 67, 29, 0.06),
+            transparent 25%),
+        var(--fundo);
+}
+
+
+.pagina-contactos section {
+    width: 100%;
+}
+
+
+.pagina-contactos>section {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================================================
+   02. CABEÇALHO
+   ========================================================= */
+
+.cabecalho-contactos {
+    padding: 90px 30px 70px;
+    text-align: center;
+    position: relative;
+}
+
+
+.icone-contacto-titulo {
+    width: 68px;
+    height: 68px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(217, 154, 50, 0.35);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            rgba(217, 154, 50, 0.14),
+            rgba(217, 154, 50, 0.03));
+
+    color: var(--dourado-claro);
+
+    font-size: 25px;
+
+    box-shadow:
+        0 0 0 8px rgba(217, 154, 50, 0.025),
+        0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+.etiqueta-pagina {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    color: var(--dourado-claro);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+}
+
+
+.cabecalho-contactos h1 {
+    max-width: 850px;
+
+    margin: 0 auto 16px;
+
+    color: var(--branco);
+
+    font-size: clamp(32px, 5vw, 54px);
+    font-weight: 600;
+
+    line-height: 1.15;
+}
+
+
+.cabecalho-contactos p {
+    max-width: 690px;
+
+    margin: 0 auto;
+
+    color: var(--cinza);
+
+    font-size: 15px;
+    font-weight: 300;
+}
+
+
+.linha-decorativa {
+    width: 190px;
+
+    margin: 30px auto 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+}
+
+
+.linha-decorativa span {
+    height: 1px;
+    flex: 1;
+
+    background:
+        linear-gradient(to right,
+            transparent,
+            rgba(217, 154, 50, 0.55));
+}
+
+
+.linha-decorativa span:last-child {
+    background:
+        linear-gradient(to left,
+            transparent,
+            rgba(217, 154, 50, 0.55));
+}
+
+
+.linha-decorativa i {
+    color: var(--dourado);
+    font-size: 14px;
+}
+
+/* =========================================================
+   03. CONTACTOS PRINCIPAIS
+   ========================================================= */
+
+.contactos-principais {
+    padding: 0 30px 80px;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+
+.cartao-contacto {
+    min-height: 150px;
+
+    padding: 25px 22px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 17px;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+
+    transition:
+        transform var(--transicao),
+        border-color var(--transicao),
+        background var(--transicao);
+}
+
+
+.cartao-contacto:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(217, 154, 50, 0.3);
+
+    background: #201a15;
+}
+
+
+.cartao-contacto-icone {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(217, 154, 50, 0.1);
+
+    border: 1px solid rgba(217, 154, 50, 0.18);
+
+    color: var(--dourado-claro);
+
+    font-size: 18px;
+}
+
+
+.cartao-contacto-conteudo {
+    min-width: 0;
+}
+
+
+.cartao-contacto-conteudo span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--dourado);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 1.7px;
+}
+
+
+.cartao-contacto-conteudo h3 {
+    margin-bottom: 3px;
+
+    color: var(--creme);
+
+    font-size: 15px;
+    font-weight: 600;
+
+    word-break: break-word;
+}
+
+
+.cartao-contacto-conteudo p {
+    color: var(--cinza);
+
+    font-size: 12px;
+    font-weight: 300;
+}
+
+/* =========================================================
+   04. TÍTULOS DE SEÇÃO
+   ========================================================= */
+
+.titulo-secao-contactos {
+    padding: 0 30px 35px;
+}
+
+
+.titulo-secao-contactos.centralizado {
+    text-align: center;
+}
+
+
+.pequeno-titulo {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--dourado-claro);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 2.5px;
+}
+
+
+.titulo-secao-contactos h2 {
+    margin-bottom: 10px;
+
+    color: var(--branco);
+
+    font-size: clamp(25px, 3vw, 35px);
+    font-weight: 600;
+
+    line-height: 1.2;
+}
+
+
+.titulo-secao-contactos p {
+    max-width: 650px;
+
+    color: var(--cinza);
+
+    font-size: 14px;
+    font-weight: 300;
+}
+
+
+.titulo-secao-contactos.centralizado p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   LOCALIZAÇÃO
+   ========================================================= */
+
+.localizacao-section {
+    padding: 0 30px 90px;
+}
+
+
+.localizacao-grid {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1.65fr) minmax(320px, 0.85fr);
+
+    gap: 20px;
+
+    align-items: stretch;
+}
+
+/* =========================================================
+   05. MAPA
+   ========================================================= */
+
+.mapa-container {
+    min-width: 0;
+
+    overflow: hidden;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+
+    box-shadow: var(--sombra);
+}
+
+
+.mapa-topo {
+    min-height: 82px;
+
+    padding: 18px 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+
+.etiqueta-mapa {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--dourado);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 1.8px;
+}
+
+
+.mapa-topo h3 {
+    color: var(--creme);
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+.mapa-icone {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(217, 154, 50, 0.1);
+
+    color: var(--dourado-claro);
+
+    font-size: 16px;
+}
+
+
+.mapa {
+    width: 100%;
+    height: 390px;
+
+    background: #111;
+}
+
+
+.mapa iframe {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    border: 0;
+
+    filter:
+        grayscale(0.35) contrast(0.95) brightness(0.78);
+}
+
+
+.mapa-rodape {
+    min-height: 80px;
+
+    padding: 16px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top: 1px solid var(--borda);
+}
+
+
+.endereco-mapa {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.endereco-mapa>i {
+    color: var(--dourado-claro);
+
+    font-size: 17px;
+}
+
+
+.endereco-mapa div {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.endereco-mapa strong {
+    color: var(--creme);
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+.endereco-mapa span {
+    color: var(--cinza);
+
+    font-size: 11px;
+}
+
+
+.botao-mapa {
+    min-height: 40px;
+
+    padding: 0 15px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    color: var(--dourado-claro);
+
+    background: rgba(217, 154, 50, 0.08);
+
+    border: 1px solid rgba(217, 154, 50, 0.25);
+
+    border-radius: 8px;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    transition: var(--transicao);
+}
+
+
+.botao-mapa:hover {
+    background: var(--dourado);
+
+    color: #17110b;
+
+    border-color: var(--dourado);
+}
+
+
+.botao-mapa i {
+    font-size: 10px;
+}
+
+/* =========================================================
+   06. HORÁRIO DE FUNCIONAMENTO
+   ========================================================= */
+
+.horario-container {
+    padding: 25px;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+
+    box-shadow: var(--sombra);
+}
+
+
+.horario-cabecalho {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+
+.horario-icone {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(217, 154, 50, 0.1);
+
+    border: 1px solid rgba(217, 154, 50, 0.16);
+
+    color: var(--dourado-claro);
+
+    font-size: 18px;
+}
+
+
+.horario-cabecalho h3 {
+    color: var(--creme);
+
+    font-size: 17px;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status-atendimento {
+    margin: 20px 0;
+
+    padding: 13px 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    background: rgba(46, 204, 113, 0.05);
+
+    border: 1px solid rgba(46, 204, 113, 0.12);
+
+    border-radius: 9px;
+}
+
+
+.status-ponto {
+    width: 8px;
+    height: 8px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #2ecc71;
+
+    box-shadow: 0 0 0 5px rgba(46, 204, 113, 0.08);
+}
+
+
+.status-atendimento div {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.status-atendimento strong {
+    color: var(--creme);
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+
+.status-atendimento span:not(.status-ponto) {
+    color: var(--cinza);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   LISTA DE HORÁRIOS
+   ========================================================= */
+
+.lista-horarios {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.linha-horario {
+    min-height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+
+.linha-horario span {
+    color: var(--cinza);
+
+    font-size: 11px;
+}
+
+
+.linha-horario strong {
+    color: var(--creme);
+
+    font-size: 11px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+.linha-horario.domingo {
+    border-bottom: none;
+}
+
+
+.linha-horario.domingo strong {
+    color: var(--dourado-claro);
+}
+
+
+/* =========================================================
+   NOTA
+   ========================================================= */
+
+.nota-horario {
+    margin-top: 18px;
+
+    padding: 12px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 9px;
+
+    background: rgba(217, 154, 50, 0.045);
+
+    border-radius: 8px;
+}
+
+
+.nota-horario i {
+    margin-top: 3px;
+
+    flex-shrink: 0;
+
+    color: var(--dourado);
+
+    font-size: 11px;
+}
+
+
+.nota-horario p {
+    color: var(--cinza);
+
+    font-size: 9px;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   07. FORMULÁRIO DE CONTACTO
+   ========================================================= */
+
+.contacto-formulario-section {
+    padding: 0 30px 90px;
+}
+
+
+.contacto-formulario-grid {
+    display: grid;
+
+    grid-template-columns: minmax(300px, 0.8fr) minmax(0, 1.2fr);
+
+    gap: 25px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   INFORMAÇÕES
+   ========================================================= */
+
+.contacto-info {
+    padding: 35px 30px;
+
+    background:
+        linear-gradient(145deg,
+            rgba(217, 154, 50, 0.08),
+            transparent 45%),
+        var(--fundo-card);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 16px;
+}
+
+
+.contacto-info h2 {
+    max-width: 400px;
+
+    margin-bottom: 15px;
+
+    color: var(--branco);
+
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 600;
+
+    line-height: 1.2;
+}
+
+
+.contacto-info>p {
+    max-width: 460px;
+
+    margin-bottom: 30px;
+
+    color: var(--cinza);
+
+    font-size: 13px;
+    font-weight: 300;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   LISTA DE INFORMAÇÕES
+   ========================================================= */
+
+.lista-contacto-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 19px;
+}
+
+
+.info-contacto-item {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.info-contacto-icone {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(217, 154, 50, 0.09);
+
+    border: 1px solid rgba(217, 154, 50, 0.15);
+
+    color: var(--dourado-claro);
+
+    font-size: 14px;
+}
+
+
+.info-contacto-item div:last-child {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.info-contacto-item span {
+    color: var(--cinza);
+
+    font-size: 10px;
+}
+
+
+.info-contacto-item strong {
+    color: var(--creme);
+
+    font-size: 12px;
+    font-weight: 500;
+
+    word-break: break-word;
+}
+
+
+/* =========================================================
+   REDES SOCIAIS
+   ========================================================= */
+
+.redes-contacto {
+    margin-top: 35px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid var(--borda);
+}
+
+
+.redes-contacto>span {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: var(--cinza);
+
+    font-size: 10px;
+}
+
+
+.redes-contacto-lista {
+    display: flex;
+
+    gap: 9px;
+}
+
+
+.redes-contacto-lista a {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid var(--borda);
+
+    color: var(--cinza);
+
+    font-size: 13px;
+
+    transition: var(--transicao);
+}
+
+
+.redes-contacto-lista a:hover {
+    color: #17110b;
+
+    background: var(--dourado);
+
+    border-color: var(--dourado);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+.formulario-contacto {
+    padding: 32px;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 16px;
+}
+
+
+.formulario-cabecalho {
+    margin-bottom: 25px;
+}
+
+
+.etiqueta-formulario {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--dourado);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+
+.formulario-cabecalho h3 {
+    margin-bottom: 5px;
+
+    color: var(--branco);
+
+    font-size: 23px;
+    font-weight: 500;
+}
+
+
+.formulario-cabecalho p {
+    color: var(--cinza);
+
+    font-size: 11px;
+    font-weight: 300;
+}
+
+
+/* =========================================================
+   CAMPOS
+   ========================================================= */
+
+.campos-formulario {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+.campo-formulario {
+    min-width: 0;
+}
+
+
+.campo-formulario.campo-mensagem {
+    grid-column: 1 / -1;
+}
+
+
+.campo-formulario label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--cinza-claro);
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+
+.campo-input {
+    position: relative;
+
+    width: 100%;
+}
+
+
+.campo-input>i {
+    position: absolute;
+
+    top: 50%;
+    left: 14px;
+
+    transform: translateY(-50%);
+
+    color: #887d70;
+
+    font-size: 12px;
+
+    pointer-events: none;
+
+    transition: var(--transicao);
+}
+
+
+.campo-input input,
+.campo-input select,
+.campo-input textarea {
+    width: 100%;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    outline: none;
+
+    color: var(--creme);
+
+    background: #12100d;
+
+    border-radius: 8px;
+
+    transition:
+        border-color var(--transicao),
+        box-shadow var(--transicao),
+        background var(--transicao);
+}
+
+
+.campo-input input,
+.campo-input select {
+    height: 46px;
+
+    padding: 0 14px 0 40px;
+}
+
+
+.campo-input textarea {
+    min-height: 140px;
+
+    padding: 13px 14px 13px 40px;
+
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+
+.campo-input input::placeholder,
+.campo-input textarea::placeholder {
+    color: #625b53;
+}
+
+
+.campo-input select {
+    appearance: none;
+
+    cursor: pointer;
+}
+
+
+.campo-input select option {
+    background: #17130f;
+
+    color: var(--creme);
+}
+
+
+.campo-input:focus-within>i {
+    color: var(--dourado-claro);
+}
+
+
+.campo-input:focus-within input,
+.campo-input:focus-within select,
+.campo-input:focus-within textarea {
+    border-color: rgba(217, 154, 50, 0.5);
+
+    background: #17130f;
+
+    box-shadow:
+        0 0 0 3px rgba(217, 154, 50, 0.07);
+}
+
+
+/* =========================================================
+   BOTÃO ENVIAR
+   ========================================================= */
+
+.botao-enviar-mensagem {
+    width: 100%;
+
+    min-height: 48px;
+
+    margin-top: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: #17110b;
+
+    background:
+        linear-gradient(135deg,
+            var(--dourado-claro),
+            var(--dourado));
+
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition:
+        transform var(--transicao),
+        box-shadow var(--transicao),
+        filter var(--transicao);
+}
+
+
+.botao-enviar-mensagem:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(217, 154, 50, 0.2);
+
+    filter: brightness(1.08);
+}
+
+
+.botao-enviar-mensagem:active {
+    transform: translateY(0);
+}
+
+
+.botao-enviar-mensagem i {
+    font-size: 11px;
+}
+
+/* =========================================================
+   08. ATENDIMENTO RÁPIDO
+   ========================================================= */
+
+.atendimento-rapido {
+    padding: 0 30px 90px;
+}
+
+
+.atendimento-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+
+.atendimento-card {
+    min-height: 145px;
+
+    padding: 22px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    position: relative;
+
+    background: var(--fundo-card);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    transition:
+        transform var(--transicao),
+        border-color var(--transicao),
+        background var(--transicao);
+}
+
+
+.atendimento-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 3px;
+    height: 0;
+
+    background: var(--dourado);
+
+    transition: height var(--transicao);
+}
+
+
+.atendimento-card:hover {
+    transform: translateY(-4px);
+
+    background: #201a15;
+
+    border-color: rgba(217, 154, 50, 0.3);
+}
+
+
+.atendimento-card:hover::before {
+    height: 100%;
+}
+
+
+.atendimento-icone {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(217, 154, 50, 0.09);
+
+    color: var(--dourado-claro);
+
+    font-size: 17px;
+}
+
+
+.atendimento-card>div:nth-child(2) {
+    min-width: 0;
+}
+
+
+.atendimento-card>div:nth-child(2) span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: var(--dourado);
+
+    font-size: 8px;
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+}
+
+
+.atendimento-card h3 {
+    margin-bottom: 4px;
+
+    color: var(--creme);
+
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+.atendimento-card p {
+    color: var(--cinza);
+
+    font-size: 10px;
+    font-weight: 300;
+
+    line-height: 1.5;
+}
+
+
+.seta-atendimento {
+    margin-left: auto;
+
+    flex-shrink: 0;
+
+    color: #766d64;
+
+    font-size: 12px;
+
+    transition: var(--transicao);
+}
+
+
+.atendimento-card:hover .seta-atendimento {
+    color: var(--dourado-claro);
+
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   09. FOOTER
+   ========================================================= */
+
+.rodape {
+    width: 100%;
+
+    background: #0a0807;
+
+    border-top: 1px solid var(--borda);
+}
+
+
+/* =========================================================
+   FOOTER PRINCIPAL
+   ========================================================= */
+
+.rodape-principal {
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+    padding: 55px 30px 45px;
+
+    display: grid;
+
+    grid-template-columns: 1.35fr repeat(3, 1fr);
+
+    gap: 45px;
+}
+
+
+/* =========================================================
+   MARCA
+   ========================================================= */
+
+.rodape-marca .logo {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+
+.logo-icone {
+    width: 39px;
+    height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: var(--dourado);
+
+    color: #17110b;
+
+    font-size: 17px;
+}
+
+
+.logo-texto {
+    color: var(--creme);
+
+    font-size: 15px;
+    font-weight: 600;
+
+    letter-spacing: 0.4px;
+}
+
+
+.logo-texto strong {
+    color: var(--dourado-claro);
+
+    font-weight: 500;
+}
+
+
+.rodape-marca>p {
+    max-width: 260px;
+
+    color: var(--cinza);
+
+    font-size: 11px;
+    font-weight: 300;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   COLUNAS
+   ========================================================= */
+
+.rodape-coluna {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+
+.rodape-coluna h3 {
+    margin-bottom: 8px;
+
+    color: var(--creme);
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.rodape-coluna a {
+    width: fit-content;
+
+    color: var(--cinza);
+
+    font-size: 10px;
+
+    transition: var(--transicao);
+}
+
+
+.rodape-coluna a:hover {
+    color: var(--dourado-claro);
+
+    transform: translateX(3px);
+}
+
+
+.rodape-coluna p {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 8px;
+
+    color: var(--cinza);
+
+    font-size: 9px;
+
+    line-height: 1.6;
+}
+
+
+.rodape-coluna p i {
+    width: 13px;
+
+    margin-top: 3px;
+
+    flex-shrink: 0;
+
+    color: var(--dourado);
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   FOOTER FINAL
+   ========================================================= */
+
+.rodape-final {
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+    padding: 20px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top: 1px solid var(--borda);
+}
+
+
+.rodape-final p {
+    color: #716960;
+
+    font-size: 9px;
+}
+
+
+.redes-sociais {
+    display: flex;
+
+    gap: 8px;
+}
+
+
+.redes-sociais a {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 7px;
+
+    color: var(--cinza);
+
+    font-size: 11px;
+
+    transition: var(--transicao);
+}
+
+
+.redes-sociais a:hover {
+    color: #17110b;
+
+    background: var(--dourado);
+
+    border-color: var(--dourado);
+
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   10. RESPONSIVIDADE
+   ========================================================= */
+
+
+/* =========================================================
+   TABLETS / NOTEBOOKS
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .contactos-principais {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+
+    .localizacao-grid {
+        grid-template-columns: minmax(0, 1.4fr) minmax(290px, 0.8fr);
+    }
+
+
+    .rodape-principal {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 35px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .cabecalho-contactos {
+        padding-top: 70px;
+    }
+
+
+    .localizacao-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .mapa {
+        height: 360px;
+    }
+
+
+    .horario-container {
+        width: 100%;
+    }
+
+
+    .contacto-formulario-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .contacto-info {
+        padding: 30px;
+    }
+
+
+    .atendimento-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .atendimento-card {
+        min-height: 125px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET PEQUENO
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .cabecalho-contactos {
+        padding: 60px 20px 50px;
+    }
+
+
+    .contactos-principais {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 65px;
+    }
+
+
+    .localizacao-section,
+    .contacto-formulario-section,
+    .atendimento-rapido {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    .titulo-secao-contactos {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+    .mapa-rodape {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+
+    .botao-mapa {
+        width: 100%;
+    }
+
+
+    .formulario-contacto {
+        padding: 25px;
+    }
+
+
+    .rodape-principal {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    .rodape-final {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .cabecalho-contactos {
+        padding-top: 50px;
+    }
+
+
+    .icone-contacto-titulo {
+        width: 58px;
+        height: 58px;
+
+        font-size: 21px;
+    }
+
+
+    .etiqueta-pagina {
+        font-size: 9px;
+
+        letter-spacing: 2.5px;
+    }
+
+
+    .cabecalho-contactos h1 {
+        font-size: 31px;
+    }
+
+
+    .cabecalho-contactos p {
+        font-size: 13px;
+    }
+
+
+    .contactos-principais {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+
+    .cartao-contacto {
+        min-height: 125px;
+
+        padding: 20px;
+    }
+
+
+    .mapa {
+        height: 300px;
+    }
+
+
+    .horario-container {
+        padding: 22px;
+    }
+
+
+    .campos-formulario {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    .campo-formulario.campo-mensagem {
+        grid-column: auto;
+    }
+
+
+    .contacto-info {
+        padding: 25px 22px;
+    }
+
+
+    .formulario-contacto {
+        padding: 22px;
+    }
+
+
+    .rodape-principal {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding-top: 45px;
+    }
+
+
+    .rodape-final {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE PEQUENO
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .cabecalho-contactos {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+
+    .cabecalho-contactos h1 {
+        font-size: 27px;
+    }
+
+
+    .contactos-principais,
+    .localizacao-section,
+    .contacto-formulario-section,
+    .atendimento-rapido {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+
+    .titulo-secao-contactos h2 {
+        font-size: 25px;
+    }
+
+
+    .mapa-topo {
+        padding: 16px;
+    }
+
+
+    .mapa-rodape {
+        padding: 15px;
+    }
+
+
+    .linha-horario span,
+    .linha-horario strong {
+        font-size: 10px;
+    }
+
+
+    .contacto-info h2 {
+        font-size: 26px;
+    }
+
+
+    .atendimento-card {
+        padding: 18px;
+
+        gap: 12px;
+    }
+
+
+    .atendimento-icone {
+        width: 42px;
+        height: 42px;
+    }
+
+
+    .rodape-principal {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+
+    .rodape-final {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE MUITO PEQUENO
+   ========================================================= */
+
+@media (max-width: 350px) {
+
+    .cabecalho-contactos h1 {
+        font-size: 24px;
+    }
+
+
+    .cabecalho-contactos p {
+        font-size: 12px;
+    }
+
+
+    .cartao-contacto {
+        padding: 17px;
+    }
+
+
+    .cartao-contacto-icone {
+        width: 42px;
+        min-width: 42px;
+        height: 42px;
+    }
+
+
+    .cartao-contacto-conteudo h3 {
+        font-size: 13px;
+    }
+
+
+    .mapa {
+        height: 260px;
+    }
+
+
+    .horario-container {
+        padding: 18px;
+    }
+
+
+    .formulario-contacto {
+        padding: 18px;
+    }
+
+
+    .atendimento-card p {
+        display: none;
+    }
+
+}
+
+/* =========================================================
+   11. ACESSIBILIDADE E REFINAMENTOS
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--dourado-claro);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   SELEÇÃO DE TEXTO
+   ========================================================= */
+
+::selection {
+    background: var(--dourado);
+
+    color: #17110b;
+}
+
+
+/* =========================================================
+   BARRA DE ROLAGEM
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: #0a0807;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #3c2d20;
+
+    border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dourado);
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+}
